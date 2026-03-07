@@ -36,11 +36,11 @@ const Index = () => {
       const payload = { id: doc.id, ...(doc.data as object) } as WithId<
         Quotation | Invoice | QualityInspection | ProductionOrder | RnDFormulation
       >;
-      if (doc.type === "quotation") q.push(payload);
-      if (doc.type === "invoice") i.push(payload);
-      if (doc.type === "quality") qc.push(payload);
-      if (doc.type === "production") p.push(payload);
-      if (doc.type === "rnd") r.push(payload);
+      if (doc.type === "quotation") q.push(payload as any);
+      if (doc.type === "invoice") i.push(payload as any);
+      if (doc.type === "quality") qc.push(payload as any);
+      if (doc.type === "production") p.push(payload as any);
+      if (doc.type === "rnd") r.push(payload as any);
     }
 
     return {

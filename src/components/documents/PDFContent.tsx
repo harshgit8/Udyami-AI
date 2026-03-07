@@ -281,7 +281,7 @@ function RnDContent({ data }: { data: Partial<RnDFormulation> }) {
         <div className="text-center">
           <span className="text-lg font-bold">{data.productionReadiness}</span>
         </div>
-        <p className="text-center mt-2 text-muted-foreground">{data.recommendation}</p>
+        <p className="text-center mt-2 text-muted-foreground">{data.finalRecommendation}</p>
       </div>
 
       <div className="mt-12 pt-6 border-t border-border text-center text-xs text-muted-foreground">

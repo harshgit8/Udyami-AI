@@ -98,7 +98,7 @@ export async function fetchDocuments(limit = 500): Promise<DocumentRow[]> {
   try {
     const tryTable = async (table: string, type: DocumentType) => {
       try {
-        const { data, error } = await supabase.from(table).select("*").limit(limit);
+        const { data, error } = await supabase.from(table as any).select("*").limit(limit);
         if (error || !Array.isArray(data)) return;
         for (const row of data as Array<Record<string, unknown>>) results.push(mapRow(type, row));
       } catch {
