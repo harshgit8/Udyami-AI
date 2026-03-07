@@ -6,47 +6,48 @@ interface StatsCardProps {
   value: string | number;
   subtitle?: string;
   icon: LucideIcon;
-  trend?: 'up' | 'down' | 'neutral';
+  trend?: "up" | "down" | "neutral";
   trendValue?: string;
+  delay?: number;
 }
 
-export function StatsCard({ 
-  title, 
-  value, 
-  subtitle, 
+export function StatsCard({
+  title,
+  value,
+  subtitle,
   icon: Icon,
   trend,
-  trendValue 
+  trendValue,
+  delay = 0,
 }: StatsCardProps) {
   return (
     <motion.div
-      initial={{ opacity: 0, y: 10 }}
+      initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
-      className="bg-card border border-border p-6"
+      transition={{ delay, duration: 0.4 }}
+      className="glass-card-hover p-5"
     >
-      <div className="flex items-start justify-between mb-4">
-        <div className="p-2 bg-muted">
-          <Icon className="w-5 h-5" />
+      <div className="flex items-start justify-between mb-3">
+        <div className="p-2 rounded-xl bg-muted">
+          <Icon className="w-4 h-4 text-foreground" />
         </div>
         {trend && trendValue && (
-          <span className={`text-xs font-medium ${
-            trend === 'up' ? 'text-foreground' : 
-            trend === 'down' ? 'text-muted-foreground' : 
-            'text-muted-foreground'
-          }`}>
-            {trend === 'up' ? '↑' : trend === 'down' ? '↓' : '→'} {trendValue}
+          <span
+            className={`text-xs font-medium px-2 py-0.5 rounded-full ${
+              trend === "up"
+                ? "bg-[hsl(142_71%_45%/0.1)] text-[hsl(142,71%,45%)]"
+                : trend === "down"
+                ? "bg-[hsl(0_84%_60%/0.1)] text-[hsl(0,84%,60%)]"
+                : "bg-muted text-muted-foreground"
+            }`}
+          >
+            {trend === "up" ? "↑" : trend === "down" ? "↓" : "→"} {trendValue}
           </span>
         )}
       </div>
-      <div>
-        <h3 className="text-xs font-medium uppercase tracking-wider text-muted-foreground mb-1">
-          {title}
-        </h3>
-        <p className="text-3xl font-semibold tracking-tight">{value}</p>
-        {subtitle && (
-          <p className="text-sm text-muted-foreground mt-1">{subtitle}</p>
-        )}
-      </div>
+      <p className="text-xs font-medium text-muted-foreground mb-1">{title}</p>
+      <p className="text-2xl font-semibold tracking-tight">{value}</p>
+      {subtitle && <p className="text-xs text-muted-foreground mt-1">{subtitle}</p>}
     </motion.div>
   );
 }
