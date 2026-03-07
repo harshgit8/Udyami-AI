@@ -169,7 +169,7 @@ export function parseQualityMarkdown(markdown: string): Array<WithId<QualityInsp
           quantity: parseInt(quantityMatch?.[1] || '0'),
           defectRate: parseFloat(defectRateMatch?.[1] || '0'),
           decision: decisionMatch?.[1] as 'ACCEPT' | 'REJECT' | 'CONDITIONAL_ACCEPT' || 'ACCEPT',
-          severityLevel: severityMatch?.[1] || 'GOOD',
+          severityLevel: (severityMatch?.[1] || 'GOOD') as 'EXCELLENT' | 'GOOD' | 'MARGINAL' | 'ACCEPTABLE' | 'POOR',
           rawMarkdown: section,
         });
       }
@@ -246,7 +246,7 @@ export function parseRnDMarkdown(markdown: string): Array<WithId<RnDFormulation>
           costTarget: parseFloat(costTargetMatch?.[1] || '0'),
           totalCost: parseInt(totalCostMatch?.[1] || '0'),
           ul94Rating: ul94Match?.[1]?.trim() || '',
-          recommendation: recommendationMatch?.[1]?.trim() || '',
+          finalRecommendation: recommendationMatch?.[1]?.trim() || '',
           productionReadiness: productionReadinessMatch?.[1] as 'PILOT_TEST' | 'NEEDS_WORK' | 'PRODUCTION_READY' || 'PILOT_TEST',
           rawMarkdown: section,
         });
