@@ -3,6 +3,8 @@ import { useQuery } from "@tanstack/react-query";
 import { Header } from "@/components/layout/Header";
 import { Sidebar } from "@/components/layout/Sidebar";
 import { DashboardOverview } from "@/components/dashboard/DashboardOverview";
+import { OrchestratorDashboard } from "@/components/dashboard/OrchestratorDashboard";
+import { AnalyticsDashboard } from "@/components/dashboard/AnalyticsDashboard";
 import { QuotationList } from "@/components/documents/QuotationList";
 import { InvoiceList } from "@/components/documents/InvoiceList";
 import { QualityList } from "@/components/documents/QualityList";
@@ -15,10 +17,8 @@ import type { Invoice, ProductionOrder, QualityInspection, Quotation, RnDFormula
 type WithId<T> = Partial<T> & { id: string };
 
 const Index = () => {
-  const [activeTab, setActiveTab] = useState("chat");
-  const {
-    data: documents = [],
-  } = useQuery({
+  const [activeTab, setActiveTab] = useState("dashboard");
+  const { data: documents = [] } = useQuery({
     queryKey: ["documents"],
     queryFn: () => fetchDocuments(),
     staleTime: 10_000,
@@ -33,28 +33,31 @@ const Index = () => {
     const r: Array<WithId<RnDFormulation>> = [];
 
     for (const doc of documents) {
-      const payload = { id: doc.id, ...(doc.data as object) } as WithId<
-        Quotation | Invoice | QualityInspection | ProductionOrder | RnDFormulation
-      >;
-      if (doc.type === "quotation") q.push(payload as any);
-      if (doc.type === "invoice") i.push(payload as any);
-      if (doc.type === "quality") qc.push(payload as any);
-      if (doc.type === "production") p.push(payload as any);
-      if (doc.type === "rnd") r.push(payload as any);
+      const payload = { id: doc.id, ...(doc.data as object) } as any;
+      if (doc.type === "quotation") q.push(payload);
+      if (doc.type === "invoice") i.push(payload);
+      if (doc.type === "quality") qc.push(payload);
+      if (doc.type === "production") p.push(payload);
+      if (doc.type === "rnd") r.push(payload);
     }
 
-    return {
-      quotations: q,
-      invoices: i,
-      qualityReports: qc,
-      productionOrders: p,
-      rndFormulations: r,
-    };
+    return { quotations: q, invoices: i, qualityReports: qc, productionOrders: p, rndFormulations: r };
   }, [documents]);
 
   const renderContent = () => {
     switch (activeTab) {
-      case 'chat':
+      case "dashboard":
+        return (
+          <DashboardOverview
+            quotations={quotations}
+            invoices={invoices}
+            qualityReports={qualityReports}
+            productionOrders={productionOrders}
+            rndFormulations={rndFormulations}
+            onNavigate={setActiveTab}
+          />
+        );
+      case "chat":
         return (
           <AIChatWorkspace
             contextData={{
@@ -70,12 +73,26 @@ const Index = () => {
                 customer: d.customer,
                 status: d.status,
                 total: d.total,
-                created_at: d.created_at,
+                created_at: d.created_at ?? "",
               })),
             }}
           />
         );
-      case 'dashboard':
+      case "orchestrators":
+        return <OrchestratorDashboard />;
+      case "analytics":
+        return <AnalyticsDashboard />;
+      case "quotations":
+        return <QuotationList quotations={quotations} />;
+      case "invoices":
+        return <InvoiceList invoices={invoices} />;
+      case "quality":
+        return <QualityList reports={qualityReports} />;
+      case "production":
+        return <ProductionList orders={productionOrders} />;
+      case "rnd":
+        return <RnDList formulations={rndFormulations} />;
+      default:
         return (
           <DashboardOverview
             quotations={quotations}
@@ -86,25 +103,6 @@ const Index = () => {
             onNavigate={setActiveTab}
           />
         );
-      case 'quotations':
-        return <QuotationList quotations={quotations} />;
-      case 'invoices':
-        return <InvoiceList invoices={invoices} />;
-      case 'quality':
-        return <QualityList reports={qualityReports} />;
-      case 'production':
-        return <ProductionList orders={productionOrders} />;
-      case 'rnd':
-        return <RnDList formulations={rndFormulations} />;
-      default:
-        return <DashboardOverview
-          quotations={quotations}
-          invoices={invoices}
-          qualityReports={qualityReports}
-          productionOrders={productionOrders}
-          rndFormulations={rndFormulations}
-          onNavigate={setActiveTab}
-        />;
     }
   };
 
@@ -113,9 +111,7 @@ const Index = () => {
       <Header />
       <div className="flex flex-1">
         <Sidebar activeTab={activeTab} onTabChange={setActiveTab} />
-        <main className="flex-1 p-8 overflow-auto">
-          {renderContent()}
-        </main>
+        <main className="flex-1 p-6 overflow-auto">{renderContent()}</main>
       </div>
     </div>
   );

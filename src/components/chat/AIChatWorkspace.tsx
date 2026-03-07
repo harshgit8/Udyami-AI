@@ -1,6 +1,6 @@
 import { useEffect, useMemo, useRef, useState } from "react";
 import { useQueryClient } from "@tanstack/react-query";
-import { Paperclip, Send, Loader2 } from "lucide-react";
+import { Paperclip, Send, Loader2, Sparkles, Zap } from "lucide-react";
 import { ScrollArea } from "@/components/ui/scroll-area";
 import { Button } from "@/components/ui/button";
 import { Textarea } from "@/components/ui/textarea";
@@ -10,6 +10,7 @@ import ReactMarkdown from "react-markdown";
 import html2canvas from "html2canvas";
 import jsPDF from "jspdf";
 import { saveDocument, tryParseAiDocument } from "@/lib/documents";
+import { motion } from "framer-motion";
 
 interface Message {
   role: "user" | "assistant";
@@ -37,14 +38,19 @@ interface AIChatWorkspaceProps {
 
 const CHAT_URL = `${import.meta.env.VITE_SUPABASE_URL}/functions/v1/ai-chat`;
 
+const quickPrompts = [
+  { label: "Generate Quotation", prompt: "Generate a quotation for 500 units of widget_a", icon: "📄" },
+  { label: "Create Invoice", prompt: "Create an invoice for the last quotation", icon: "🧾" },
+  { label: "Quality Report", prompt: "Generate quality inspection report for the latest batch", icon: "🔍" },
+  { label: "Production Plan", prompt: "Optimize production schedule for this week", icon: "🏭" },
+  { label: "R&D Formulation", prompt: "Suggest R&D formulation for flame retardant compound", icon: "🧪" },
+  { label: "Simulate Shortage", prompt: "Simulate raw material shortage impact on production", icon: "⚠️" },
+  { label: "Analyze Defects", prompt: "Analyze defect trends across all batches", icon: "📊" },
+  { label: "Recommend Product", prompt: "Recommend next product to manufacture based on demand", icon: "💡" },
+];
+
 export function AIChatWorkspace({ contextData }: AIChatWorkspaceProps) {
-  const [messages, setMessages] = useState<Message[]>([
-    {
-      role: "assistant",
-      content:
-        "Hi. Tell me what you need and I’ll run the workflow end-to-end (quote → invoice → production → quality → R&D).",
-    },
-  ]);
+  const [messages, setMessages] = useState<Message[]>([]);
   const [isLoading, setIsLoading] = useState(false);
   const [downloadContent, setDownloadContent] = useState<string | null>(null);
   const [input, setInput] = useState("");
@@ -59,17 +65,6 @@ export function AIChatWorkspace({ contextData }: AIChatWorkspaceProps) {
       scrollRef.current.scrollTop = scrollRef.current.scrollHeight;
     }
   }, [messages, isLoading]);
-
-  const quickActions = useMemo(
-    () => [
-      { label: "Generate Quotation", prompt: "Generate a quotation for 2 tons of PVC compound." },
-      { label: "Create Invoice", prompt: "Create an invoice for the last quotation." },
-      { label: "Production Status", prompt: "Show production status summary and any delays." },
-      { label: "Quality Report", prompt: "Generate a quality inspection report for the latest batch." },
-      { label: "R&D Insights", prompt: "Suggest an R&D formulation improvement for flame retardancy." },
-    ],
-    [],
-  );
 
   const updateAssistant = (chunk: string) => {
     setMessages((prev) => {
@@ -106,6 +101,12 @@ export function AIChatWorkspace({ contextData }: AIChatWorkspaceProps) {
         }),
       });
 
+      if (resp.status === 429) {
+        throw new Error("Rate limit exceeded. Please try again in a moment.");
+      }
+      if (resp.status === 402) {
+        throw new Error("Usage limit reached. Please add credits to continue.");
+      }
       if (!resp.ok) {
         const error = await resp.json().catch(() => ({ error: "Failed to get response" }));
         throw new Error(error.error || "Failed to get response");
@@ -154,6 +155,7 @@ export function AIChatWorkspace({ contextData }: AIChatWorkspaceProps) {
       if (parsedDoc) {
         await saveDocument(parsedDoc);
         await queryClient.invalidateQueries({ queryKey: ["documents"] });
+        toast({ title: "Document Saved", description: `${parsedDoc.type} saved to database.` });
       }
     } catch (error) {
       console.error("Chat error:", error);
@@ -162,7 +164,11 @@ export function AIChatWorkspace({ contextData }: AIChatWorkspaceProps) {
         description: error instanceof Error ? error.message : "Failed to get AI response",
         variant: "destructive",
       });
-      setMessages((prev) => prev.slice(0, -1));
+      setMessages((prev) => {
+        const last = prev[prev.length - 1];
+        if (last?.role === "assistant" && last.content === "") return prev.slice(0, -1);
+        return prev;
+      });
     } finally {
       setIsLoading(false);
     }
@@ -170,99 +176,86 @@ export function AIChatWorkspace({ contextData }: AIChatWorkspaceProps) {
 
   const handleDownload = async (content: string) => {
     setDownloadContent(content);
-    setIsLoading(true);
-
     setTimeout(async () => {
-      if (!pdfRef.current) {
-        setIsLoading(false);
-        return;
-      }
-
+      if (!pdfRef.current) return;
       try {
-        const canvas = await html2canvas(pdfRef.current, {
-          scale: 2,
-          useCORS: true,
-          backgroundColor: "#ffffff",
-        });
-
+        const canvas = await html2canvas(pdfRef.current, { scale: 2, useCORS: true, backgroundColor: "#ffffff" });
         const imgData = canvas.toDataURL("image/png");
         const pdf = new jsPDF({ orientation: "portrait", unit: "mm", format: "a4" });
-
         const pdfWidth = pdf.internal.pageSize.getWidth();
-        const pdfHeight = pdf.internal.pageSize.getHeight();
         const margin = 15;
         const imgWidth = pdfWidth - margin * 2;
         const imgHeight = (canvas.height * imgWidth) / canvas.width;
-
-        let heightLeft = imgHeight;
-        let position = margin;
-        pdf.addImage(imgData, "PNG", margin, position, imgWidth, imgHeight);
-        heightLeft -= pdfHeight - margin * 2;
-
-        while (heightLeft > 0) {
-          position = heightLeft - imgHeight + margin;
-          pdf.addPage();
-          pdf.addImage(imgData, "PNG", margin, position, imgWidth, imgHeight);
-          heightLeft -= pdfHeight - margin * 2;
-        }
-
+        pdf.addImage(imgData, "PNG", margin, margin, imgWidth, imgHeight);
         pdf.save(`udyami-document-${new Date().toISOString().slice(0, 10)}.pdf`);
       } finally {
         setDownloadContent(null);
-        setIsLoading(false);
       }
     }, 80);
   };
 
-  const onPickFiles = async (files: FileList | null) => {
-    const file = files?.[0];
-    if (!file) return;
-    toast({
-      title: "Attached",
-      description: file.name,
-    });
-  };
+  const showWelcome = messages.length === 0;
 
   return (
     <div className="h-[calc(100vh-4rem)] flex flex-col">
-      <div
-        style={{
-          position: "absolute",
-          left: "-9999px",
-          top: 0,
-          width: "210mm",
-          zIndex: -1,
-        }}
-      >
+      {/* Hidden PDF renderer */}
+      <div style={{ position: "absolute", left: "-9999px", top: 0, width: "210mm", zIndex: -1 }}>
         <div ref={pdfRef} className="p-12 bg-white text-black min-h-[297mm]">
           {downloadContent && (
-            <div className="prose prose-sm max-w-none prose-headings:font-bold prose-h1:text-2xl prose-h2:text-xl prose-p:mb-4 prose-li:mb-2">
+            <div className="prose prose-sm max-w-none">
               <ReactMarkdown>{downloadContent}</ReactMarkdown>
             </div>
           )}
         </div>
       </div>
 
-      <div className="flex items-center justify-between gap-4 mb-6">
+      {/* Header */}
+      <div className="flex items-center gap-3 mb-4">
+        <div className="p-2 rounded-xl bg-foreground text-background">
+          <Sparkles className="w-5 h-5" />
+        </div>
         <div>
-          <h1 className="text-2xl font-semibold tracking-tight">AI Chat</h1>
-          <p className="text-muted-foreground text-sm mt-1">
-            DB: {contextData?.quotationsCount ?? 0} quotes • {contextData?.invoicesCount ?? 0} invoices •{" "}
-            {contextData?.qualityCount ?? 0} quality • {contextData?.productionCount ?? 0} production •{" "}
+          <h1 className="text-lg font-semibold tracking-tight">Udyami Copilot</h1>
+          <p className="text-xs text-muted-foreground">
+            {contextData?.quotationsCount ?? 0} quotes · {contextData?.invoicesCount ?? 0} invoices ·{" "}
+            {contextData?.qualityCount ?? 0} quality · {contextData?.productionCount ?? 0} production ·{" "}
             {contextData?.rndCount ?? 0} R&D
           </p>
         </div>
-        <div className="hidden lg:flex gap-2">
-          {quickActions.map((a) => (
-            <Button key={a.label} variant="outline" onClick={() => handleSend(a.prompt)} disabled={isLoading}>
-              {a.label}
-            </Button>
-          ))}
-        </div>
       </div>
 
-      <ScrollArea className="flex-1 border border-border bg-background" ref={scrollRef}>
+      {/* Chat area */}
+      <ScrollArea className="flex-1 rounded-xl border border-border bg-card/50" ref={scrollRef}>
         <div className="p-6 space-y-4">
+          {showWelcome && (
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              className="flex flex-col items-center justify-center py-12 text-center"
+            >
+              <div className="p-4 rounded-2xl bg-foreground text-background mb-4">
+                <Sparkles className="w-8 h-8" />
+              </div>
+              <h2 className="text-xl font-semibold mb-2">Welcome to Udyami Copilot</h2>
+              <p className="text-sm text-muted-foreground max-w-md mb-8">
+                Your AI assistant for manufacturing operations. Ask me anything about production, quotations, quality, or R&D.
+              </p>
+
+              <div className="grid grid-cols-2 md:grid-cols-4 gap-2 max-w-2xl w-full">
+                {quickPrompts.map((qp) => (
+                  <button
+                    key={qp.label}
+                    onClick={() => handleSend(qp.prompt)}
+                    className="glass-card-hover p-3 text-left"
+                  >
+                    <span className="text-lg mb-1 block">{qp.icon}</span>
+                    <span className="text-xs font-medium">{qp.label}</span>
+                  </button>
+                ))}
+              </div>
+            </motion.div>
+          )}
+
           {messages.map((msg, i) => (
             <ChatMessage
               key={i}
@@ -272,26 +265,31 @@ export function AIChatWorkspace({ contextData }: AIChatWorkspaceProps) {
             />
           ))}
           {isLoading && (
-            <div className="text-xs text-muted-foreground">
-              Generating…
+            <div className="flex items-center gap-2 text-xs text-muted-foreground">
+              <Loader2 className="w-3 h-3 animate-spin" />
+              Thinking…
             </div>
           )}
         </div>
       </ScrollArea>
 
-      <div className="mt-4 flex gap-2">
+      {/* Input */}
+      <div className="mt-3 flex gap-2">
         <input
           ref={fileInputRef}
           type="file"
           className="hidden"
-          onChange={(e) => onPickFiles(e.target.files)}
+          onChange={(e) => {
+            const file = e.target.files?.[0];
+            if (file) toast({ title: "Attached", description: file.name });
+          }}
           accept=".pdf,.xlsx,.xls,.csv,.txt,.doc,.docx"
         />
         <Button
           variant="outline"
           onClick={() => fileInputRef.current?.click()}
           disabled={isLoading}
-          className="h-12 w-12 p-0"
+          className="h-11 w-11 p-0 rounded-xl"
           aria-label="Attach file"
         >
           <Paperclip className="w-4 h-4" />
@@ -300,9 +298,9 @@ export function AIChatWorkspace({ contextData }: AIChatWorkspaceProps) {
           value={input}
           onChange={(e) => setInput(e.target.value)}
           disabled={isLoading}
-          placeholder="Message Udyami AI…"
-          className="min-h-[48px] max-h-[140px] resize-none"
-          rows={2}
+          placeholder="Ask Udyami Copilot anything…"
+          className="min-h-[44px] max-h-[120px] resize-none rounded-xl"
+          rows={1}
           onKeyDown={(e) => {
             if (e.key === "Enter" && !e.shiftKey) {
               e.preventDefault();
@@ -313,7 +311,7 @@ export function AIChatWorkspace({ contextData }: AIChatWorkspaceProps) {
         <Button
           onClick={() => handleSend(input)}
           disabled={!input.trim() || isLoading}
-          className="h-12 w-12 p-0"
+          className="h-11 w-11 p-0 rounded-xl"
           aria-label="Send"
         >
           {isLoading ? <Loader2 className="w-4 h-4 animate-spin" /> : <Send className="w-4 h-4" />}
