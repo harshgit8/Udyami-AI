@@ -41,7 +41,7 @@ export function DashboardOverview({
   const totalBalanceDue = invoices.reduce((sum, i) => sum + (i.balanceDue || 0), 0);
   const acceptedQuality = qualityReports.filter((q) => q.decision === "ACCEPT").length;
   const rejectedQuality = qualityReports.filter((q) => q.decision === "REJECT").length;
-  const acceptWithDeviation = qualityReports.filter((q) => q.decision === "ACCEPT_WITH_DEVIATION").length;
+  const acceptWithDeviation = qualityReports.filter((q) => q.decision === "CONDITIONAL_ACCEPT").length;
   const scheduledProduction = productionOrders.filter((p) => p.decision === "PROCEED").length;
   const delayedProduction = productionOrders.filter((p) => p.decision === "DELAY").length;
   const highPriorityQuotes = quotations.filter((q) => q.winProbability === "HIGH").length;
