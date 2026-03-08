@@ -203,7 +203,14 @@ export function Sidebar({ activeTab, onTabChange, badgeCounts = {} }: SidebarPro
                               : "bg-muted/50 text-foreground hover:bg-accent"
                           }`}
                         >
-                          <Icon className="w-5 h-5" />
+                          <div className="relative">
+                            <Icon className="w-5 h-5" />
+                            {(badgeCounts[item.id as keyof BadgeCounts] ?? 0) > 0 && (
+                              <span className="absolute -top-1 -right-1.5 min-w-[16px] h-4 flex items-center justify-center rounded-full bg-destructive text-destructive-foreground text-[9px] font-bold px-1">
+                                {badgeCounts[item.id as keyof BadgeCounts]}
+                              </span>
+                            )}
+                          </div>
                           <span className="text-[11px] font-medium">{item.label}</span>
                         </button>
                       );
