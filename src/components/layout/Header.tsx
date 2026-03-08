@@ -1,16 +1,22 @@
+import { useState } from "react";
 import { motion } from "framer-motion";
 import { Bell, Search, Settings } from "lucide-react";
+import { NotificationsPanel } from "./NotificationsPanel";
+import { SettingsPanel } from "./SettingsPanel";
 
 interface HeaderProps {
   title?: string;
 }
 
 export function Header({ title = "UDYAMI AI" }: HeaderProps) {
+  const [notifOpen, setNotifOpen] = useState(false);
+  const [settingsOpen, setSettingsOpen] = useState(false);
+
   return (
     <motion.header
       initial={{ opacity: 0, y: -10 }}
       animate={{ opacity: 1, y: 0 }}
-      className="border-b border-border bg-card/80 backdrop-blur-xl sticky top-0 z-40"
+      className="border-b border-border bg-card/80 backdrop-blur-xl sticky top-0 z-40 relative"
     >
       <div className="flex items-center justify-between px-6 py-3">
         <div className="flex items-center gap-3">
@@ -38,18 +44,27 @@ export function Header({ title = "UDYAMI AI" }: HeaderProps) {
         </div>
 
         <div className="flex items-center gap-3">
-          <button className="relative p-2 rounded-lg hover:bg-muted transition-colors">
+          <button
+            onClick={() => { setNotifOpen(!notifOpen); setSettingsOpen(false); }}
+            className={`relative p-2 rounded-lg transition-colors ${notifOpen ? "bg-muted" : "hover:bg-muted"}`}
+          >
             <Bell className="w-4 h-4 text-muted-foreground" />
             <span className="absolute top-1.5 right-1.5 w-1.5 h-1.5 rounded-full bg-foreground" />
           </button>
-          <button className="p-2 rounded-lg hover:bg-muted transition-colors">
-            <Settings className="w-4 h-4 text-muted-foreground" />
+          <button
+            onClick={() => { setSettingsOpen(!settingsOpen); setNotifOpen(false); }}
+            className={`p-2 rounded-lg transition-colors ${settingsOpen ? "bg-muted" : "hover:bg-muted"}`}
+          >
+            <Settings className={`w-4 h-4 text-muted-foreground transition-transform duration-300 ${settingsOpen ? "rotate-90" : ""}`} />
           </button>
           <div className="w-8 h-8 rounded-full bg-foreground text-background flex items-center justify-center text-xs font-medium">
             OP
           </div>
         </div>
       </div>
+
+      <NotificationsPanel open={notifOpen} onClose={() => setNotifOpen(false)} />
+      <SettingsPanel open={settingsOpen} onClose={() => setSettingsOpen(false)} />
     </motion.header>
   );
 }
