@@ -18,20 +18,20 @@ export function Header({ title = "UDYAMI AI" }: HeaderProps) {
       animate={{ opacity: 1, y: 0 }}
       className="border-b border-border bg-card/80 backdrop-blur-xl sticky top-0 z-40 relative"
     >
-      <div className="flex items-center justify-between px-6 py-3">
-        <div className="flex items-center gap-3">
-          <div className="w-8 h-8 rounded-lg bg-foreground flex items-center justify-center overflow-hidden">
-            <img src="/logo.svg" alt="Udyami AI" className="w-6 h-6 invert" />
+      <div className="flex items-center justify-between px-3 sm:px-6 py-3">
+        <div className="flex items-center gap-2 sm:gap-3">
+          <div className="w-7 h-7 sm:w-8 sm:h-8 rounded-lg bg-foreground flex items-center justify-center overflow-hidden">
+            <img src="/logo.svg" alt="Udyami AI" className="w-5 h-5 sm:w-6 sm:h-6 invert" />
           </div>
           <div className="flex flex-col">
-            <h1 className="text-sm font-bold tracking-tight">{title}</h1>
-            <span className="text-[10px] text-muted-foreground tracking-wide">
+            <h1 className="text-xs sm:text-sm font-bold tracking-tight">{title}</h1>
+            <span className="text-[9px] sm:text-[10px] text-muted-foreground tracking-wide hidden sm:block">
               AI Operating System for Manufacturing
             </span>
           </div>
         </div>
 
-        <div className="hidden md:flex items-center gap-2">
+        <div className="hidden lg:flex items-center gap-2">
           <div className="flex items-center gap-2 bg-muted rounded-lg px-3 py-1.5">
             <Search className="w-3.5 h-3.5 text-muted-foreground" />
             <input
@@ -43,21 +43,21 @@ export function Header({ title = "UDYAMI AI" }: HeaderProps) {
           </div>
         </div>
 
-        <div className="flex items-center gap-3">
+        <div className="flex items-center gap-1.5 sm:gap-3">
           <button
             onClick={() => { setNotifOpen(!notifOpen); setSettingsOpen(false); }}
-            className={`relative p-2 rounded-lg transition-colors ${notifOpen ? "bg-muted" : "hover:bg-muted"}`}
+            className={`relative p-1.5 sm:p-2 rounded-lg transition-colors ${notifOpen ? "bg-muted" : "hover:bg-muted"}`}
           >
             <Bell className="w-4 h-4 text-muted-foreground" />
-            <span className="absolute top-1.5 right-1.5 w-1.5 h-1.5 rounded-full bg-foreground" />
+            <span className="absolute top-1 right-1 sm:top-1.5 sm:right-1.5 w-1.5 h-1.5 rounded-full bg-foreground" />
           </button>
           <button
             onClick={() => { setSettingsOpen(!settingsOpen); setNotifOpen(false); }}
-            className={`p-2 rounded-lg transition-colors ${settingsOpen ? "bg-muted" : "hover:bg-muted"}`}
+            className={`p-1.5 sm:p-2 rounded-lg transition-colors ${settingsOpen ? "bg-muted" : "hover:bg-muted"}`}
           >
             <Settings className={`w-4 h-4 text-muted-foreground transition-transform duration-300 ${settingsOpen ? "rotate-90" : ""}`} />
           </button>
-          <div className="w-8 h-8 rounded-full bg-foreground text-background flex items-center justify-center text-xs font-medium">
+          <div className="w-7 h-7 sm:w-8 sm:h-8 rounded-full bg-foreground text-background flex items-center justify-center text-[10px] sm:text-xs font-medium">
             OP
           </div>
         </div>
