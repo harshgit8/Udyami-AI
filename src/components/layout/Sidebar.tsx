@@ -164,7 +164,7 @@ export function Sidebar({ activeTab, onTabChange, badgeCounts = {} }: SidebarPro
                     )}
                   </div>
                   <span className="text-[10px] font-medium leading-tight">{item.label}</span>
-                </button>
+                </motion.button>
               );
             })}
           </div>
