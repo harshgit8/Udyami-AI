@@ -86,7 +86,7 @@ export function NotificationsPanel({ open, onClose }: { open: boolean; onClose: 
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: -8, scale: 0.96 }}
             transition={{ duration: 0.15 }}
-            className="absolute right-16 top-12 z-50 w-96 rounded-xl border border-border bg-card shadow-2xl"
+            className="absolute right-2 sm:right-16 top-12 z-50 w-[calc(100vw-1rem)] sm:w-96 max-w-[400px] rounded-xl border border-border bg-card shadow-2xl"
           >
             <div className="flex items-center justify-between px-4 py-3 border-b border-border">
               <div className="flex items-center gap-2">
