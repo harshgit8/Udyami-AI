@@ -103,7 +103,7 @@ function SidebarContent({ activeTab, onTabChange, collapsed, showLabels }: { act
   );
 }
 
-export function Sidebar({ activeTab, onTabChange }: SidebarProps) {
+export function Sidebar({ activeTab, onTabChange, badgeCounts = {} }: SidebarProps) {
   const [collapsed, setCollapsed] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
   const isMobile = useIsMobile();
