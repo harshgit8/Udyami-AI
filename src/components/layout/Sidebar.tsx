@@ -138,8 +138,10 @@ export function Sidebar({ activeTab, onTabChange, badgeCounts = {} }: SidebarPro
               const isModuleActive = moduleItems.some((m) => m.id === activeTab);
               const isActive = item.id === "more" ? (mobileOpen || isModuleActive) : activeTab === item.id;
               return (
-                <button
+                <motion.button
                   key={item.id}
+                  whileTap={{ scale: 0.85 }}
+                  transition={{ type: "spring", stiffness: 500, damping: 20 }}
                   onClick={() => {
                     if (item.id === "more") {
                       setMobileOpen(!mobileOpen);
@@ -147,7 +149,7 @@ export function Sidebar({ activeTab, onTabChange, badgeCounts = {} }: SidebarPro
                       handleTabChange(item.id);
                     }
                   }}
-                  className={`flex flex-col items-center gap-0.5 px-3 py-1.5 rounded-xl transition-all min-w-[56px] ${
+                  className={`flex flex-col items-center gap-0.5 px-3 py-1.5 rounded-xl transition-colors min-w-[56px] ${
                     isActive
                       ? "text-foreground bg-accent"
                       : "text-muted-foreground"
@@ -162,7 +164,7 @@ export function Sidebar({ activeTab, onTabChange, badgeCounts = {} }: SidebarPro
                     )}
                   </div>
                   <span className="text-[10px] font-medium leading-tight">{item.label}</span>
-                </button>
+                </motion.button>
               );
             })}
           </div>
