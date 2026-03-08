@@ -17,9 +17,16 @@ import {
 import { useState } from "react";
 import { useIsMobile } from "@/hooks/use-mobile";
 
+export interface BadgeCounts {
+  quality?: number;
+  production?: number;
+  rnd?: number;
+}
+
 interface SidebarProps {
   activeTab: string;
   onTabChange: (tab: string) => void;
+  badgeCounts?: BadgeCounts;
 }
 
 const mainItems = [
