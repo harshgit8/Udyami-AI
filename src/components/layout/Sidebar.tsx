@@ -107,12 +107,15 @@ export function Sidebar({ activeTab, onTabChange }: SidebarProps) {
   };
 
   // Mobile: hamburger + slide-out drawer
+  const activeModule = moduleItems.find((m) => m.id === activeTab);
+  const moreLabel = activeModule ? activeModule.label : "More";
+
   const bottomNavItems = [
     { id: "dashboard", label: "Dashboard", icon: LayoutDashboard },
     { id: "chat", label: "Copilot", icon: MessageSquare },
     { id: "orchestrators", label: "AI Agents", icon: Cpu },
     { id: "analytics", label: "Analytics", icon: BarChart3 },
-    { id: "more", label: "More", icon: Menu },
+    { id: "more", label: moreLabel, icon: activeModule ? activeModule.icon : Menu },
   ];
 
   if (isMobile) {
