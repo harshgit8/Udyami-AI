@@ -25,7 +25,7 @@ const Index = () => {
     retry: 1,
   });
 
-  const { quotations, invoices, qualityReports, productionOrders, rndFormulations } = useMemo(() => {
+  const { quotations, invoices, qualityReports, productionOrders, rndFormulations, badgeCounts } = useMemo(() => {
     const q: Array<WithId<Quotation>> = [];
     const i: Array<WithId<Invoice>> = [];
     const qc: Array<WithId<QualityInspection>> = [];
@@ -41,7 +41,19 @@ const Index = () => {
       if (doc.type === "rnd") r.push(payload);
     }
 
-    return { quotations: q, invoices: i, qualityReports: qc, productionOrders: p, rndFormulations: r };
+    const qualityIssues = qc.filter((item: any) =>
+      item.decision === "REJECT" || item.decision === "CONDITIONAL_ACCEPT"
+    ).length;
+    const productionDelays = p.filter((item: any) => item.decision === "DELAY").length;
+    const rndPending = r.filter((item: any) => {
+      const rec = (item.recommendation ?? item.Recommendation ?? "") as string;
+      return rec.includes("CAUTION") || rec.includes("LABORATORY TESTING");
+    }).length;
+
+    return {
+      quotations: q, invoices: i, qualityReports: qc, productionOrders: p, rndFormulations: r,
+      badgeCounts: { quality: qualityIssues, production: productionDelays, rnd: rndPending },
+    };
   }, [documents]);
 
   const renderContent = () => {
