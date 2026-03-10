@@ -1,12 +1,13 @@
 import { useEffect, useRef, useState } from "react";
 import { useQueryClient } from "@tanstack/react-query";
-import { Paperclip, Send, Loader2 } from "lucide-react";
+import { Paperclip, Send, Loader2, Trash2 } from "lucide-react";
 import { ScrollArea } from "@/components/ui/scroll-area";
 import { Button } from "@/components/ui/button";
 import { Textarea } from "@/components/ui/textarea";
 import { ChatMessage } from "@/components/chat/ChatMessage";
 import { useToast } from "@/hooks/use-toast";
 import ReactMarkdown from "react-markdown";
+import remarkGfm from "remark-gfm";
 import html2canvas from "html2canvas";
 import jsPDF from "jspdf";
 import { saveDocument, tryParseAiDocument } from "@/lib/documents";
@@ -81,17 +82,73 @@ export function AIChatWorkspace({ contextData }: AIChatWorkspaceProps) {
     }
   }, [messages, isLoading]);
 
-  const updateAssistant = (chunk: string) => {
-    setMessages((prev) => {
-      const next = [...prev];
-      const last = next[next.length - 1];
-      if (last?.role === "assistant") {
-        next[next.length - 1] = { ...last, content: last.content + chunk };
-        return next;
-      }
-      next.push({ role: "assistant", content: chunk });
-      return next;
+  const streamResponse = async (allMessages: Message[]) => {
+    const resp = await fetch(CHAT_URL, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${import.meta.env.VITE_SUPABASE_PUBLISHABLE_KEY}`,
+      },
+      body: JSON.stringify({
+        messages: allMessages.map((m) => ({ role: m.role, content: m.content })),
+        contextData,
+      }),
     });
+
+    if (resp.status === 429) throw new Error("Rate limit exceeded. Please try again in a moment.");
+    if (resp.status === 402) throw new Error("Usage limit reached. Please add credits to continue.");
+    if (!resp.ok) {
+      const error = await resp.json().catch(() => ({ error: "Failed to get response" }));
+      throw new Error(error.error || "Failed to get response");
+    }
+    if (!resp.body) throw new Error("No response body");
+
+    setMessages((prev) => [...prev, { role: "assistant", content: "" }]);
+
+    const reader = resp.body.getReader();
+    const decoder = new TextDecoder();
+    let buffer = "";
+    let assistantContent = "";
+
+    while (true) {
+      const { done, value } = await reader.read();
+      if (done) break;
+      buffer += decoder.decode(value, { stream: true });
+
+      let newlineIndex: number;
+      while ((newlineIndex = buffer.indexOf("\n")) !== -1) {
+        let line = buffer.slice(0, newlineIndex);
+        buffer = buffer.slice(newlineIndex + 1);
+
+        if (line.endsWith("\r")) line = line.slice(0, -1);
+        if (line.startsWith(":") || line.trim() === "") continue;
+        if (!line.startsWith("data: ")) continue;
+
+        const jsonStr = line.slice(6).trim();
+        if (jsonStr === "[DONE]") break;
+
+        try {
+          const parsed = JSON.parse(jsonStr);
+          const content = parsed.choices?.[0]?.delta?.content as string | undefined;
+          if (content) {
+            assistantContent += content;
+            setMessages((prev) => {
+              const next = [...prev];
+              const last = next[next.length - 1];
+              if (last?.role === "assistant") {
+                next[next.length - 1] = { ...last, content: assistantContent };
+              }
+              return next;
+            });
+          }
+        } catch {
+          buffer = line + "\n" + buffer;
+          break;
+        }
+      }
+    }
+
+    return assistantContent;
   };
 
   const handleSend = async (text: string) => {
@@ -104,63 +161,7 @@ export function AIChatWorkspace({ contextData }: AIChatWorkspaceProps) {
     setIsLoading(true);
 
     try {
-      const resp = await fetch(CHAT_URL, {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          Authorization: `Bearer ${import.meta.env.VITE_SUPABASE_PUBLISHABLE_KEY}`,
-        },
-        body: JSON.stringify({
-          messages: [...messages, userMsg].map((m) => ({ role: m.role, content: m.content })),
-          contextData,
-        }),
-      });
-
-      if (resp.status === 429) throw new Error("Rate limit exceeded. Please try again in a moment.");
-      if (resp.status === 402) throw new Error("Usage limit reached. Please add credits to continue.");
-      if (!resp.ok) {
-        const error = await resp.json().catch(() => ({ error: "Failed to get response" }));
-        throw new Error(error.error || "Failed to get response");
-      }
-      if (!resp.body) throw new Error("No response body");
-
-      setMessages((prev) => [...prev, { role: "assistant", content: "" }]);
-
-      const reader = resp.body.getReader();
-      const decoder = new TextDecoder();
-      let buffer = "";
-      let assistantContent = "";
-
-      while (true) {
-        const { done, value } = await reader.read();
-        if (done) break;
-        buffer += decoder.decode(value, { stream: true });
-
-        let newlineIndex: number;
-        while ((newlineIndex = buffer.indexOf("\n")) !== -1) {
-          let line = buffer.slice(0, newlineIndex);
-          buffer = buffer.slice(newlineIndex + 1);
-
-          if (line.endsWith("\r")) line = line.slice(0, -1);
-          if (line.startsWith(":") || line.trim() === "") continue;
-          if (!line.startsWith("data: ")) continue;
-
-          const jsonStr = line.slice(6).trim();
-          if (jsonStr === "[DONE]") break;
-
-          try {
-            const parsed = JSON.parse(jsonStr);
-            const content = parsed.choices?.[0]?.delta?.content as string | undefined;
-            if (content) {
-              assistantContent += content;
-              updateAssistant(content);
-            }
-          } catch {
-            buffer = line + "\n" + buffer;
-            break;
-          }
-        }
-      }
+      const assistantContent = await streamResponse([...messages, userMsg]);
 
       const parsedDoc = tryParseAiDocument(assistantContent);
       if (parsedDoc) {
@@ -185,27 +186,104 @@ export function AIChatWorkspace({ contextData }: AIChatWorkspaceProps) {
     }
   };
 
+  const handleRetry = async (feedback: string) => {
+    if (isLoading) return;
+    setIsLoading(true);
+
+    // Remove the last assistant message, keep context
+    const withoutLastAssistant = messages.filter((_, i) => {
+      if (i === messages.length - 1 && messages[i].role === "assistant") return false;
+      return true;
+    });
+
+    // Add feedback as a user message
+    const feedbackMsg: Message = {
+      role: "user",
+      content: `The previous response was not satisfactory. Here's my feedback: ${feedback}\n\nPlease regenerate a better response addressing this feedback.`,
+    };
+
+    setMessages([...withoutLastAssistant, feedbackMsg]);
+
+    try {
+      const assistantContent = await streamResponse([...withoutLastAssistant, feedbackMsg]);
+
+      const parsedDoc = tryParseAiDocument(assistantContent);
+      if (parsedDoc) {
+        await saveDocument(parsedDoc);
+        await queryClient.invalidateQueries({ queryKey: ["documents"] });
+        toast({ title: "Document Saved", description: `${parsedDoc.type} saved to database.` });
+      }
+    } catch (error) {
+      console.error("Retry error:", error);
+      toast({
+        title: "Error",
+        description: error instanceof Error ? error.message : "Failed to regenerate response",
+        variant: "destructive",
+      });
+    } finally {
+      setIsLoading(false);
+    }
+  };
+
+  const handleFeedback = (type: "good" | "bad") => {
+    if (type === "good") {
+      toast({ title: "Thanks!", description: "Glad the response was helpful." });
+    }
+  };
+
+  const handleClearChat = () => {
+    setMessages([]);
+    sessionStorage.removeItem(SESSION_KEY);
+  };
+
   const handleDownload = async (content: string) => {
     setDownloadContent(content);
     setTimeout(async () => {
       if (!pdfRef.current) return;
       try {
-        const canvas = await html2canvas(pdfRef.current, { scale: 2, useCORS: true, backgroundColor: "#ffffff" });
-        const imgData = canvas.toDataURL("image/png");
+        // Use scale 1.5 for quality vs size balance, JPEG for compression
+        const canvas = await html2canvas(pdfRef.current, {
+          scale: 1.5,
+          useCORS: true,
+          backgroundColor: "#ffffff",
+        });
+
         const pdf = new jsPDF({ orientation: "portrait", unit: "mm", format: "a4" });
         const pdfWidth = pdf.internal.pageSize.getWidth();
+        const pdfHeight = pdf.internal.pageSize.getHeight();
         const margin = 15;
         const imgWidth = pdfWidth - margin * 2;
         const imgHeight = (canvas.height * imgWidth) / canvas.width;
-        pdf.addImage(imgData, "PNG", margin, margin, imgWidth, imgHeight);
+
+        // Use JPEG at 0.85 quality to keep file size under 4MB
+        const imgData = canvas.toDataURL("image/jpeg", 0.85);
+
+        let heightLeft = imgHeight;
+        let position = margin;
+
+        pdf.addImage(imgData, "JPEG", margin, position, imgWidth, imgHeight);
+        heightLeft -= pdfHeight - margin * 2;
+
+        while (heightLeft > 0) {
+          position = -(imgHeight - heightLeft - margin);
+          pdf.addPage();
+          pdf.addImage(imgData, "JPEG", margin, position, imgWidth, imgHeight);
+          heightLeft -= pdfHeight - margin * 2;
+        }
+
         pdf.save(`udyami-document-${new Date().toISOString().slice(0, 10)}.pdf`);
+        toast({ title: "Downloaded", description: "PDF saved successfully." });
+      } catch (err) {
+        console.error("PDF error:", err);
+        toast({ title: "Error", description: "Failed to generate PDF.", variant: "destructive" });
       } finally {
         setDownloadContent(null);
       }
-    }, 80);
+    }, 100);
   };
 
   const showWelcome = messages.length === 0;
+  const lastAssistantIndex = messages.reduce((acc, msg, i) => (msg.role === "assistant" ? i : acc), -1);
 
   return (
     <div className="h-[calc(100vh-4rem)] flex flex-col">
@@ -213,8 +291,8 @@ export function AIChatWorkspace({ contextData }: AIChatWorkspaceProps) {
       <div style={{ position: "absolute", left: "-9999px", top: 0, width: "210mm", zIndex: -1 }}>
         <div ref={pdfRef} className="p-12 bg-white text-black min-h-[297mm]">
           {downloadContent && (
-            <div className="prose prose-sm max-w-none">
-              <ReactMarkdown>{downloadContent}</ReactMarkdown>
+            <div className="prose prose-sm max-w-none prose-headings:font-bold prose-h1:text-2xl prose-h2:text-xl prose-h3:text-lg prose-p:mb-3 prose-li:mb-1 prose-table:border-collapse prose-th:border prose-th:border-gray-300 prose-th:px-3 prose-th:py-2 prose-th:bg-gray-50 prose-th:text-left prose-th:text-sm prose-td:border prose-td:border-gray-300 prose-td:px-3 prose-td:py-2 prose-td:text-sm">
+              <ReactMarkdown remarkPlugins={[remarkGfm]}>{downloadContent}</ReactMarkdown>
             </div>
           )}
         </div>
@@ -233,15 +311,28 @@ export function AIChatWorkspace({ contextData }: AIChatWorkspaceProps) {
             {contextData?.rndCount ?? 0} R&D
           </p>
         </div>
-        <div className="flex items-center gap-1.5 px-2 py-1 rounded-full bg-[hsl(142_71%_45%/0.1)]">
-          <span className="w-1.5 h-1.5 rounded-full bg-[hsl(142,71%,45%)] animate-pulse" />
-          <span className="text-[10px] font-medium text-[hsl(142,71%,45%)]">Online</span>
+        <div className="flex items-center gap-2">
+          {messages.length > 0 && (
+            <Button
+              variant="ghost"
+              size="sm"
+              onClick={handleClearChat}
+              className="h-8 px-2.5 text-xs text-muted-foreground hover:text-foreground rounded-lg gap-1.5"
+            >
+              <Trash2 className="w-3.5 h-3.5" />
+              Clear
+            </Button>
+          )}
+          <div className="flex items-center gap-1.5 px-2 py-1 rounded-full bg-[hsl(142_71%_45%/0.1)]">
+            <span className="w-1.5 h-1.5 rounded-full bg-[hsl(142,71%,45%)] animate-pulse" />
+            <span className="text-[10px] font-medium text-[hsl(142,71%,45%)]">Online</span>
+          </div>
         </div>
       </div>
 
       {/* Chat area */}
       <ScrollArea className="flex-1 rounded-2xl border border-border bg-card/50" ref={scrollRef}>
-        <div className="p-6 space-y-4">
+        <div className="p-4 sm:p-6 space-y-4">
           {showWelcome && (
             <motion.div
               initial={{ opacity: 0, y: 20 }}
@@ -273,13 +364,17 @@ export function AIChatWorkspace({ contextData }: AIChatWorkspaceProps) {
 
           {messages.map((msg, i) => (
             <ChatMessage
-              key={i}
+              key={`${i}-${msg.content.slice(0, 20)}`}
               role={msg.role}
               content={msg.content}
               onDownload={msg.role === "assistant" && msg.content.length > 100 ? () => handleDownload(msg.content) : undefined}
+              isLatestAssistant={i === lastAssistantIndex}
+              isStreaming={isLoading && i === lastAssistantIndex}
+              onFeedback={i === lastAssistantIndex && !isLoading ? handleFeedback : undefined}
+              onRetry={i === lastAssistantIndex && !isLoading ? handleRetry : undefined}
             />
           ))}
-          {isLoading && (
+          {isLoading && messages[messages.length - 1]?.role !== "assistant" && (
             <div className="flex items-center gap-2.5 text-xs text-muted-foreground py-2">
               <div className="flex gap-1">
                 <span className="w-1.5 h-1.5 rounded-full bg-foreground/40 animate-bounce" style={{ animationDelay: "0ms" }} />

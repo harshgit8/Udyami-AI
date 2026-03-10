@@ -9,6 +9,7 @@ import { useToast } from "@/hooks/use-toast";
 import jsPDF from "jspdf";
 import html2canvas from "html2canvas";
 import ReactMarkdown from "react-markdown";
+import remarkGfm from "remark-gfm";
 import { useQueryClient } from "@tanstack/react-query";
 import { saveDocument, tryParseAiDocument } from "@/lib/documents";
 
@@ -174,12 +175,12 @@ export function AIChatPanel({ contextData }: AIChatPanelProps) {
 
       try {
         const canvas = await html2canvas(pdfRef.current, {
-          scale: 2,
+          scale: 1.5,
           useCORS: true,
           backgroundColor: '#ffffff',
         });
 
-        const imgData = canvas.toDataURL('image/png');
+        const imgData = canvas.toDataURL('image/jpeg', 0.85);
         const pdf = new jsPDF({
           orientation: 'portrait',
           unit: 'mm',
@@ -195,13 +196,13 @@ export function AIChatPanel({ contextData }: AIChatPanelProps) {
         let heightLeft = imgHeight;
         let position = margin;
 
-        pdf.addImage(imgData, 'PNG', margin, position, imgWidth, imgHeight);
+        pdf.addImage(imgData, 'JPEG', margin, position, imgWidth, imgHeight);
         heightLeft -= (pdfHeight - margin * 2);
 
         while (heightLeft > 0) {
-          position = heightLeft - imgHeight + margin;
+          position = -(imgHeight - heightLeft - margin);
           pdf.addPage();
-          pdf.addImage(imgData, 'PNG', margin, position, imgWidth, imgHeight);
+          pdf.addImage(imgData, 'JPEG', margin, position, imgWidth, imgHeight);
           heightLeft -= (pdfHeight - margin * 2);
         }
 
@@ -242,8 +243,8 @@ export function AIChatPanel({ contextData }: AIChatPanelProps) {
           className="p-12 bg-white text-black min-h-[297mm]"
         >
           {downloadContent && (
-            <div className="prose prose-sm max-w-none prose-headings:font-bold prose-h1:text-2xl prose-h2:text-xl prose-p:mb-4 prose-li:mb-2">
-              <ReactMarkdown>{downloadContent}</ReactMarkdown>
+            <div className="prose prose-sm max-w-none prose-headings:font-bold prose-h1:text-2xl prose-h2:text-xl prose-p:mb-4 prose-li:mb-2 prose-table:border-collapse prose-th:border prose-th:border-gray-300 prose-th:px-3 prose-th:py-2 prose-th:bg-gray-50 prose-td:border prose-td:border-gray-300 prose-td:px-3 prose-td:py-2">
+              <ReactMarkdown remarkPlugins={[remarkGfm]}>{downloadContent}</ReactMarkdown>
             </div>
           )}
         </div>
