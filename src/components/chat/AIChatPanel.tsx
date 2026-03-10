@@ -196,13 +196,13 @@ export function AIChatPanel({ contextData }: AIChatPanelProps) {
         let heightLeft = imgHeight;
         let position = margin;
 
-        pdf.addImage(imgData, 'PNG', margin, position, imgWidth, imgHeight);
+        pdf.addImage(imgData, 'JPEG', margin, position, imgWidth, imgHeight);
         heightLeft -= (pdfHeight - margin * 2);
 
         while (heightLeft > 0) {
-          position = heightLeft - imgHeight + margin;
+          position = -(imgHeight - heightLeft - margin);
           pdf.addPage();
-          pdf.addImage(imgData, 'PNG', margin, position, imgWidth, imgHeight);
+          pdf.addImage(imgData, 'JPEG', margin, position, imgWidth, imgHeight);
           heightLeft -= (pdfHeight - margin * 2);
         }
 
