@@ -95,8 +95,8 @@ const Index = () => {
     const qualityIssues = qc.filter((item: any) => item.decision === "REJECT" || item.decision === "CONDITIONAL_ACCEPT" || item.Decision === "REJECTED" || item.Decision === "CONDITIONAL ACCEPT").length;
     const productionDelays = p.filter((item: any) => item.decision === "DELAY" || item.Decision === "DELAY").length;
     const rndPending = r.filter((item: any) => {
-      const rec = (item.recommendation ?? item.Recommendation ?? "") as string;
-      return rec.includes("CAUTION") || rec.includes("LABORATORY TESTING");
+      const rec = (item.productionReadiness ?? item.recommendation ?? item.Recommendation ?? "") as string;
+      return rec.includes("CAUTION") || rec.includes("LABORATORY TESTING") || rec.includes("NEEDS_WORK");
     }).length;
 
     return {

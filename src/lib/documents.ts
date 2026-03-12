@@ -61,6 +61,16 @@ export async function fetchDocuments(limit = 10000): Promise<DocumentRow[]> {
           data: {
             ...r,
             quoteId: r.quote_id,
+            requestId: r.request_id,
+            materialCost: r.material_cost,
+            productionCost: r.production_cost,
+            qualityCost: r.quality_cost,
+            riskPremium: r.risk_premium,
+            profitMargin: r.profit_margin,
+            profitAmount: r.profit_amount,
+            totalBeforeTax: r.total_before_tax,
+            leadTime: r.lead_time_days,
+            paymentTerms: r.payment_terms,
             grandTotal: r.grand_total,
             unitPrice: r.unit_price,
             validUntil: r.valid_until,
@@ -84,6 +94,16 @@ export async function fetchDocuments(limit = 10000): Promise<DocumentRow[]> {
             ...r,
             invoiceNumber: r.invoice_number,
             customer: r.customer_name,
+            customerGstin: r.customer_gstin,
+            orderId: r.order_id,
+            poNumber: r.po_number,
+            taxableAmount: r.taxable_amount,
+            taxType: r.tax_type,
+            totalTax: r.total_tax,
+            advancePaid: r.advance_paid,
+            paymentTerms: r.payment_terms,
+            deliveryDate: r.delivery_date,
+            deliveryChallan: r.delivery_challan,
             grandTotal: r.grand_total,
             balanceDue: r.balance_due,
             invoiceDate: r.invoice_date,
@@ -109,6 +129,11 @@ export async function fetchDocuments(limit = 10000): Promise<DocumentRow[]> {
             inspectionId: r.inspection_id,
             batchId: r.batch_id,
             productType: r.product_type,
+            totalDefects: r.total_defects,
+            criticalDefects: r.critical,
+            majorDefects: r.major,
+            minorDefects: r.minor,
+            riskLevel: r.risk_level,
             defectRate: r.defect_rate,
             severityLevel: r.severity_level,
           } as Json,
@@ -150,6 +175,13 @@ export async function fetchDocuments(limit = 10000): Promise<DocumentRow[]> {
           data: {
             ...r,
             formulationId: r.formulation_id,
+            requestId: r.request_id,
+            basePolymer: r.base_polymer,
+            keyAdditives: r.key_additives,
+            costTarget: r.cost_target,
+            tensileStrength: r.tensile_mpa,
+            rohsCompliant: r.rohs,
+            reachCompliant: r.reach,
             totalCost: r.cost_kg,
             ul94Rating: r.ul94_rating,
             productionReadiness: r.recommendation,
@@ -176,11 +208,15 @@ export async function fetchDocuments(limit = 10000): Promise<DocumentRow[]> {
       }
     } catch { /* ignore */ }
 
+    // Sort initially by created_at to maintain some logical order if needed for debugging
     docs.sort((a, b) => {
       const tA = a.created_at ? new Date(a.created_at).getTime() : 0;
       const tB = b.created_at ? new Date(b.created_at).getTime() : 0;
       return tB - tA;
     });
+
+    // Shuffle the final array to fulfill the randomness requirement for the first page
+    shuffle(docs);
 
     if (docs.length > 0) return docs.slice(0, limit);
   } catch { /* fall through */ }
