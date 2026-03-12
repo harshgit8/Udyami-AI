@@ -35,6 +35,7 @@ interface AIChatWorkspaceProps {
       created_at: string;
     }>;
   };
+  systemOverride?: string;
 }
 
 const CHAT_URL = `${import.meta.env.VITE_SUPABASE_URL}/functions/v1/ai-chat`;
@@ -92,6 +93,7 @@ export function AIChatWorkspace({ contextData }: AIChatWorkspaceProps) {
       body: JSON.stringify({
         messages: allMessages.map((m) => ({ role: m.role, content: m.content })),
         contextData,
+        systemOverride,
       }),
     });
 
@@ -269,6 +271,15 @@ export function AIChatWorkspace({ contextData }: AIChatWorkspaceProps) {
           pdf.addPage();
           pdf.addImage(imgData, "JPEG", margin, position, imgWidth, imgHeight);
           heightLeft -= pdfHeight - margin * 2;
+        }
+
+        const totalPages = pdf.getNumberOfPages();
+        for (let i = 1; i <= totalPages; i++) {
+          pdf.setPage(i);
+          pdf.setFontSize(24);
+          pdf.setTextColor(200, 200, 200); // Light gray
+          // NMI Watermark at bottom center
+          pdf.text("NMI", pdfWidth / 2, pdfHeight - 10, { align: "center", angle: 0 });
         }
 
         pdf.save(`udyami-document-${new Date().toISOString().slice(0, 10)}.pdf`);

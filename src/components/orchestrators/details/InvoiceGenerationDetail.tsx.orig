@@ -60,10 +60,9 @@ export function InvoiceGenerationDetail() {
 
       const processNextStep = () => {
         if (currentStep < processingSteps.length) {
+          console.log(processingSteps[currentStep].log);
           setProcessingStep(currentStep);
-          const step = processingSteps[currentStep];
-          console.log(step?.log || "");
-          setReasoning((prev) => prev + (prev ? "\n\n" : "") + (step?.thought || ""));
+          setReasoning((prev) => prev + (prev ? "\n\n" : "") + processingSteps[currentStep].thought);
           currentStep++;
           timer = setTimeout(processNextStep, 2000); // 2s per step for realistic feel
         } else {

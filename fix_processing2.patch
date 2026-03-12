@@ -1,0 +1,16 @@
+--- src/components/orchestrators/details/InvoiceGenerationDetail.tsx
++++ src/components/orchestrators/details/InvoiceGenerationDetail.tsx
+@@ -58,11 +58,11 @@
+       setReasoning("");
+
+       const processNextStep = () => {
+         if (currentStep < processingSteps.length) {
+-          console.log(processingSteps[currentStep].log);
+           setProcessingStep(currentStep);
+-          setReasoning((prev) => prev + (prev ? "\n\n" : "") + processingSteps[currentStep].thought);
++          console.log(processingSteps[currentStep].log);
++          setReasoning((prev) => prev + (prev ? "\n\n" : "") + processingSteps[currentStep].thought);
+           currentStep++;
+           timer = setTimeout(processNextStep, 2000); // 2s per step for realistic feel
+         } else {
+           setViewState("result");

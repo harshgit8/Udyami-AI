@@ -1,0 +1,22 @@
+--- src/components/orchestrators/details/InvoiceGenerationDetail.tsx
++++ src/components/orchestrators/details/InvoiceGenerationDetail.tsx
+@@ -46,14 +46,14 @@
+     setProcessingStep(0);
+   };
+
++  const processingSteps = [
++    { label: "Connecting to CRM data...", log: "Targeting agent: DataGatherer - Fetching CRM data...", thought: "Agent DataGatherer initialized.\nScanning database for customer PO and delivery notes...\nMatched Order ID: ORD-2026-89." },
++    { label: "Validating GST compliance...", log: "Targeting agent: ComplianceChecker - Validating GST...", thought: "Agent ComplianceChecker triggered.\nCross-referencing HSN codes with current tax brackets.\nCGST: 9%, SGST: 9% applied correctly.\nVerification complete: 100% compliant." },
++    { label: "Generating PDF layout...", log: "Targeting agent: DocumentCrafter - Crafting PDF layout...", thought: "Agent DocumentCrafter assembling layout.\nPopulating line items and grand total.\nApplying standard Udyami Mfg Corp template.\nFinal review passed. Ready for render." },
++  ];
++
+   useEffect(() => {
+-    const processingSteps = [
+-      { label: "Connecting to CRM data...", log: "Targeting agent: DataGatherer - Fetching CRM data...", thought: "Agent DataGatherer initialized.\nScanning database for customer PO and delivery notes...\nMatched Order ID: ORD-2026-89." },
+-      { label: "Validating GST compliance...", log: "Targeting agent: ComplianceChecker - Validating GST...", thought: "Agent ComplianceChecker triggered.\nCross-referencing HSN codes with current tax brackets.\nCGST: 9%, SGST: 9% applied correctly.\nVerification complete: 100% compliant." },
+-      { label: "Generating PDF layout...", log: "Targeting agent: DocumentCrafter - Crafting PDF layout...", thought: "Agent DocumentCrafter assembling layout.\nPopulating line items and grand total.\nApplying standard Udyami Mfg Corp template.\nFinal review passed. Ready for render." },
+-    ];
+-
+     if (viewState === "processing") {
+       let currentStep = 0;
+       let timer: NodeJS.Timeout;
