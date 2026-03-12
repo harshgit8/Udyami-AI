@@ -1,7 +1,8 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Receipt, Upload, FileText, CheckCircle2, Loader2, Save, Mail, Trash2 } from "lucide-react";
+import { Receipt, Upload, FileText, CheckCircle2, Loader2, Save, Mail, Trash2, MessageSquare } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { AIChatWorkspace } from "@/components/chat/AIChatWorkspace";
 
 interface InvoiceRecord {
   id: string;
@@ -19,7 +20,7 @@ const initialInvoices: InvoiceRecord[] = [
 ];
 
 export function InvoiceGenerationDetail() {
-  const [viewState, setViewState] = useState<"prompts" | "processing" | "result">("prompts");
+  const [viewState, setViewState] = useState<"prompts" | "processing" | "result" | "chat">("prompts");
   const [invoices, setInvoices] = useState<InvoiceRecord[]>(initialInvoices);
   const [activePrompt, setActivePrompt] = useState<string | null>(null);
   const [processingStep, setProcessingStep] = useState(0);
@@ -82,14 +83,26 @@ export function InvoiceGenerationDetail() {
   return (
     <div className="space-y-8 pb-6">
       {/* Top Bar */}
-      {viewState === "prompts" && (
-        <div className="flex justify-end gap-3 mb-6">
-          <Button variant="outline" size="sm" className="h-9 rounded-xl">
-            <Upload className="w-4 h-4 mr-2" /> Upload Data
-          </Button>
-          <Button variant="outline" size="sm" className="h-9 rounded-xl">
-            <FileText className="w-4 h-4 mr-2" /> Export All
-          </Button>
+      {(viewState === "prompts" || viewState === "chat") && (
+        <div className="flex justify-between items-center mb-6">
+          <div>
+            <Button
+              variant={viewState === "chat" ? "default" : "outline"}
+              size="sm"
+              className="h-9 rounded-xl mr-2"
+              onClick={() => setViewState(viewState === "chat" ? "prompts" : "chat")}
+            >
+              <MessageSquare className="w-4 h-4 mr-2" /> AI Assistant
+            </Button>
+          </div>
+          <div className="flex gap-3">
+            <Button variant="outline" size="sm" className="h-9 rounded-xl">
+              <Upload className="w-4 h-4 mr-2" /> Upload Data
+            </Button>
+            <Button variant="outline" size="sm" className="h-9 rounded-xl">
+              <FileText className="w-4 h-4 mr-2" /> Export All
+            </Button>
+          </div>
         </div>
       )}
 
@@ -201,6 +214,35 @@ export function InvoiceGenerationDetail() {
                 );
               })}
             </div>
+          </motion.div>
+        )}
+
+        {viewState === "chat" && (
+          <motion.div
+            key="chat"
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -10 }}
+            className="w-full h-[600px]"
+          >
+            <AIChatWorkspace
+              contextData={{
+                quotationsCount: 0,
+                invoicesCount: invoices.length,
+                qualityCount: 0,
+                productionCount: 0,
+                rndCount: 0,
+                documents: invoices.map(i => ({
+                  id: i.id,
+                  type: "invoice",
+                  external_id: i.id,
+                  customer: i.customer,
+                  status: i.status,
+                  total: parseInt(i.amount.replace(/[^0-9.-]+/g,"")),
+                  created_at: i.date
+                }))
+              }}
+            />
           </motion.div>
         )}
 
