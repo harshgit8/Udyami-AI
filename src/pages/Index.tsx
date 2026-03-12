@@ -123,7 +123,7 @@ const Index = () => {
               quotationsCount: quotations.length, invoicesCount: invoices.length,
               qualityCount: qualityReports.length, productionCount: productionOrders.length,
               rndCount: rndFormulations.length,
-              documents: documents.slice(0, 50).map((d) => ({
+              documents: documents.map((d) => ({
                 id: d.id, type: d.type, external_id: d.external_id,
                 customer: d.customer, status: d.status, total: d.total, created_at: d.created_at ?? "",
               })),

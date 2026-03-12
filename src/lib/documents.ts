@@ -27,7 +27,7 @@ export type SaveDocumentInput = {
   markdown?: string | null;
 };
 
-export async function fetchDocuments(limit = 500): Promise<DocumentRow[]> {
+export async function fetchDocuments(limit = 10000): Promise<DocumentRow[]> {
   try {
     const { data, error } = await (supabase as any)
       .from("documents")
