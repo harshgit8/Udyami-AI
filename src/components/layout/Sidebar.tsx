@@ -13,6 +13,7 @@ import {
   ChevronRight,
   Menu,
   X,
+  Workflow,
 } from "lucide-react";
 import { useState } from "react";
 import { useIsMobile } from "@/hooks/use-mobile";
@@ -33,6 +34,7 @@ const mainItems = [
   { id: "dashboard", label: "Dashboard", icon: LayoutDashboard },
   { id: "chat", label: "Udyami", icon: MessageSquare },
   { id: "orchestrators", label: "AI Orchestrators", icon: Cpu },
+  { id: "agent-comm", label: "Agent Comm", icon: Workflow },
   { id: "analytics", label: "Analytics", icon: BarChart3 },
 ];
 

@@ -6,6 +6,7 @@ import { Header } from "@/components/layout/Header";
 import { Sidebar } from "@/components/layout/Sidebar";
 import { DashboardOverview } from "@/components/dashboard/DashboardOverview";
 import { OrchestratorDashboard } from "@/components/dashboard/OrchestratorDashboard";
+import { AgentCommunicationPlayground } from "@/components/agents/AgentCommunicationPlayground";
 import { AnalyticsDashboard } from "@/components/dashboard/AnalyticsDashboard";
 import { QuotationList } from "@/components/documents/QuotationList";
 import { InvoiceList } from "@/components/documents/InvoiceList";
@@ -135,6 +136,7 @@ const Index = () => {
           />
         );
       case "orchestrators": return <OrchestratorDashboard />;
+      case "agent-comm": return <AgentCommunicationPlayground />;
       case "analytics": return <AnalyticsDashboard />;
       case "quotations": return <QuotationList quotations={quotations} />;
       case "invoices": return <InvoiceList invoices={invoices} />;
