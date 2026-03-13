@@ -1,0 +1,30 @@
+from typing import List, Literal
+from pydantic import BaseModel
+
+
+class ProcessUrlRequest(BaseModel):
+    urls: List[str]
+
+
+class DownloadFileRequest(BaseModel):
+    file_name: str
+    file_type: Literal["docs", "media"]
+
+
+class SearchRequest(BaseModel):
+    query: str
+    user_id: str
+
+
+class SearchResponse(BaseModel):
+    query: str
+    result: str
+
+
+class SingleLinkUploadRequest(BaseModel):
+    link: str
+    username: str
+
+
+class DeleteFileRequest(BaseModel):
+    file_name: str
