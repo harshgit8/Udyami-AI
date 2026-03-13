@@ -1,0 +1,13 @@
+{
+  "mcpServers": {
+    "udyami-ai": {
+      "command": "node",
+      "args": ["D:/A_LEARN/udyami-ai-main/udyami-mcp-docker/dist/index.js"],
+      "env": {
+        "MCP_USER_ID": "local_user",
+        "BACKEND_URL": "http://localhost:8000/search",
+        "UPLOADS_BASE_DIR": "D:/A_LEARN/udyami-ai-main/service/uploads"
+      }
+    }
+  }
+}
