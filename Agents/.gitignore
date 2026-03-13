@@ -1,0 +1,52 @@
+# Credentials & Secrets
+creds.json
+*.key
+.env
+service-account*.json
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+venv/
+env/
+ENV/
+*.pyc
+
+# Data
+data/raw/*.csv
+data/structured/*.json
+data/archives/
+*.db
+*.sqlite
+*.sqlite3
+
+# Logs
+logs/
+*.log
+
+# Reports (optional - uncomment if you don't want to track reports)
+# reports/*.md
+# reports/*.html
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Node modules (for UI)
+ui/node_modules/
+ui/build/
+ui/dist/
+ui/.env.local
+ui/.env.production
+
+# Test files (optional)
+# test_*.py
