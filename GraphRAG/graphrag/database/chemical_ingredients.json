@@ -1,0 +1,263 @@
+{
+  "PVC_RESINS": [
+    {
+      "id": "PVC_K57",
+      "name": "PVC K57 (Low Molecular Weight)",
+      "supplier": [
+        "Grasim Industries",
+        "Finolex Cables",
+        "Vizag Polymers"
+      ],
+      "k_value": 57,
+      "molecular_weight": 750,
+      "bulk_density": 1.35,
+      "porosity": 0.38,
+      "price_per_ton": 82000,
+      "price_per_kg": 82,
+      "lead_time_days": 2,
+      "reliability_score": 4.8,
+      "applications": [
+        "injection_molding",
+        "blow_molding",
+        "profiles"
+      ],
+      "viscosity_notes": "Lower viscosity, easier processing"
+    },
+    {
+      "id": "PVC_K65",
+      "name": "PVC K65 (Medium Molecular Weight)",
+      "k_value": 65,
+      "molecular_weight": 950,
+      "bulk_density": 1.37,
+      "porosity": 0.39,
+      "price_per_ton": 85000,
+      "price_per_kg": 85,
+      "lead_time_days": 2,
+      "applications": [
+        "rigid_pipes",
+        "window_profiles",
+        "films"
+      ],
+      "market_segment": "Most popular, balanced processing"
+    },
+    {
+      "id": "PVC_K67",
+      "name": "PVC K67 (Standard Grade)",
+      "k_value": 67,
+      "molecular_weight": 1000,
+      "bulk_density": 1.38,
+      "porosity": 0.41,
+      "price_per_ton": 87500,
+      "price_per_kg": 87.5,
+      "lead_time_days": 2,
+      "applications": [
+        "cable_insulation",
+        "rigid_pipes",
+        "flexible_compounds"
+      ],
+      "market_segment": "Industry standard for electrical"
+    },
+    {
+      "id": "PVC_K70",
+      "name": "PVC K70 (High Molecular Weight)",
+      "k_value": 70,
+      "molecular_weight": 1100,
+      "bulk_density": 1.39,
+      "porosity": 0.42,
+      "price_per_ton": 90000,
+      "price_per_kg": 90,
+      "lead_time_days": 3,
+      "applications": [
+        "flexible_cables",
+        "tough_coatings",
+        "high_performance"
+      ],
+      "market_segment": "Premium, best mechanical properties"
+    },
+    {
+      "id": "PVC_K72",
+      "name": "PVC K72 (Very High Molecular Weight)",
+      "k_value": 72,
+      "molecular_weight": 1150,
+      "bulk_density": 1.4,
+      "porosity": 0.43,
+      "price_per_ton": 93000,
+      "price_per_kg": 93,
+      "lead_time_days": 4,
+      "applications": [
+        "industrial_flooring",
+        "conveyor_belts",
+        "high_end_coatings"
+      ],
+      "market_segment": "Premium applications, highest cost"
+    }
+  ],
+  "PLASTICIZERS": [
+    {
+      "id": "DOP",
+      "name": "Dioctyl Phthalate (DOP)",
+      "chem_formula": "C24H38O4",
+      "price_per_kg": 220,
+      "typical_loading_phr": {
+        "min": 30,
+        "max": 50
+      },
+      "efficiency_percent": 100,
+      "permanence": "Good (resistant to migration)",
+      "low_temp_flexibility": "Good",
+      "heat_stability": "Moderate (up to 180\u00b0C)",
+      "compatibility": "Universal",
+      "regulatory": "RoHS compliant"
+    },
+    {
+      "id": "DBP",
+      "name": "Dibutyl Phthalate (DBP)",
+      "chem_formula": "C16H22O4",
+      "price_per_kg": 210,
+      "typical_loading_phr": {
+        "min": 35,
+        "max": 55
+      },
+      "efficiency_percent": 70,
+      "note": "Requires higher loading than DOP for same softness",
+      "low_temp_flexibility": "Fair",
+      "compatibility": "Good with K65-K70 PVC",
+      "cost_advantage": "5% cheaper than DOP"
+    },
+    {
+      "id": "DINP",
+      "name": "Diisononyl Phthalate (DINP)",
+      "chem_formula": "C26H42O4",
+      "price_per_kg": 240,
+      "typical_loading_phr": {
+        "min": 35,
+        "max": 50
+      },
+      "efficiency_percent": 95,
+      "permanence": "Excellent (very low migration)",
+      "low_temp_flexibility": "Outstanding (best for low temp)",
+      "heat_stability": "Good (up to 190\u00b0C)",
+      "regulatory": "RoHS preferred, REACH registered",
+      "market_position": "Premium option for export markets"
+    },
+    {
+      "id": "DIDP",
+      "name": "Diisodecyl Phthalate (DIDP)",
+      "price_per_kg": 250,
+      "note": "Similar to DINP, even better low-temp flexibility"
+    },
+    {
+      "id": "DOTP",
+      "name": "Dioctyl Terephthalate (DOTP)",
+      "price_per_kg": 235,
+      "heat_stability": "Excellent (up to 220\u00b0C)",
+      "electrical_insulation": "Superior to DOP (18x higher)",
+      "typical_application": "High-temperature cable compounds"
+    }
+  ],
+  "FILLERS": [
+    {
+      "id": "CaCO3_FCC",
+      "name": "Fine Ground Calcium Carbonate",
+      "chem_formula": "CaCO3",
+      "particle_size_microns": 2,
+      "price_per_kg": 15,
+      "bulk_density": 1.2,
+      "typical_loading_phr": 8,
+      "cost_reduction_percent": 15,
+      "impact_on_properties": "Slight hardness increase, reduced flexibility",
+      "electrical_grade": "Regular"
+    },
+    {
+      "id": "CaCO3_COATED",
+      "name": "Stearate-Coated Calcium Carbonate",
+      "particle_size_microns": 5,
+      "price_per_kg": 22,
+      "typical_loading_phr": 10,
+      "advantage": "Better electrical properties, improved dispersion"
+    },
+    {
+      "id": "BARITE",
+      "name": "Barium Sulfate",
+      "chem_formula": "BaSO4",
+      "price_per_kg": 25,
+      "density": 4.5,
+      "typical_loading_phr": 15,
+      "application": "High-weight formulations, shielding"
+    },
+    {
+      "id": "CLAY_ELECTRICAL",
+      "name": "Calcined Clay (Electrical Grade)",
+      "price_per_kg": 18,
+      "typical_loading_phr": 12,
+      "application": "Insulation grade compounds, better electrical properties"
+    }
+  ],
+  "STABILIZERS": [
+    {
+      "id": "Ca_Zn",
+      "name": "Calcium-Zinc Stabilizer (Non-toxic)",
+      "chem_formula": "Ca-Zn complex",
+      "price_per_kg": 1050,
+      "typical_loading_phr": 2,
+      "heat_stability": "Good (up to 200\u00b0C)",
+      "regulatory": "RoHS compliant, REACH registered",
+      "environmental": "No environmental hazard",
+      "market_position": "Industry standard for cables"
+    },
+    {
+      "id": "Pb_BASED",
+      "name": "Lead-Based Stabilizer (Traditional)",
+      "price_per_kg": 600,
+      "heat_stability": "Excellent (up to 220\u00b0C)",
+      "regulatory": "NOT RoHS compliant",
+      "note": "Avoid for export or compliance reasons"
+    },
+    {
+      "id": "Ba_Zn",
+      "name": "Barium-Zinc Stabilizer",
+      "price_per_kg": 950,
+      "heat_stability": "Good (up to 200\u00b0C)",
+      "regulatory": "RoHS compliant"
+    },
+    {
+      "id": "ORGANIC_TIN",
+      "name": "Organotin Stabilizer",
+      "price_per_kg": 1200,
+      "heat_stability": "Excellent (up to 220\u00b0C)",
+      "regulatory": "RoHS compliant (most types)"
+    }
+  ],
+  "ADDITIVES": [
+    {
+      "id": "TiO2_WHITE",
+      "name": "Titanium Dioxide (White Pigment)",
+      "price_per_kg": 3100,
+      "typical_loading_phr": 1,
+      "color": "White",
+      "opacity": "Excellent"
+    },
+    {
+      "id": "ATH",
+      "name": "Aluminum Trihydroxide (Flame Retardant)",
+      "price_per_kg": 45,
+      "typical_loading_phr": 60,
+      "benefit": "Excellent flame retardancy, cost-effective",
+      "limitation": "Requires high loading"
+    },
+    {
+      "id": "PHOSPHATE_ESTER",
+      "name": "Phosphate Ester (Flame Retardant)",
+      "price_per_kg": 280,
+      "typical_loading_phr": 5,
+      "benefit": "Efficient, low loading needed"
+    },
+    {
+      "id": "PROCESSING_AID",
+      "name": "Processing Aid (Acrylic)",
+      "price_per_kg": 650,
+      "typical_loading_phr": 0.5,
+      "benefit": "Improves flow, reduces sticking"
+    }
+  ]
+}

@@ -1,0 +1,207 @@
+{
+  "BIS_STANDARDS": {
+    "IS_5831": {
+      "title": "PVC Insulated Cables for Electrical Purposes (\u22641100V)",
+      "year": 2014,
+      "authority": "Bureau of Indian Standards (BIS)",
+      "applications": [
+        "cable_insulation",
+        "cable_sheath"
+      ],
+      "types": [
+        "Type A",
+        "Type C"
+      ],
+      "requirements": {
+        "tensile_strength_mpa": {
+          "min": 15,
+          "max": 25,
+          "unit": "MPa"
+        },
+        "elongation_at_break_percent": {
+          "min": 150,
+          "unit": "%"
+        },
+        "brittleness_temperature_c": {
+          "max": -20,
+          "unit": "\u00b0C"
+        },
+        "volume_resistivity_ohm_cm": {
+          "min": 10000000000.0,
+          "unit": "ohm.cm"
+        },
+        "dielectric_strength_kv_mm": {
+          "min": 2.0,
+          "unit": "kV/mm"
+        },
+        "water_uptake_percent": {
+          "max": 0.3,
+          "unit": "%"
+        },
+        "tensile_strength_after_heating": {
+          "min": 10,
+          "unit": "MPa"
+        },
+        "flexibility_mandrel_mm": 10
+      },
+      "test_methods": "IS 2026, IS 2855 (IEC equivalents)",
+      "test_laboratory": "Accredited by BIS"
+    },
+    "IS_14926": {
+      "title": "Unplasticized PVC (UPVC) Pipes for Water Supply",
+      "year": 2019,
+      "applications": [
+        "rigid_pipes",
+        "water_supply"
+      ],
+      "requirements": {
+        "tensile_strength_mpa": {
+          "min": 50,
+          "max": 70
+        },
+        "impact_strength_kj_m2": {
+          "min": 4
+        },
+        "hydrostatic_pressure_mpa": {
+          "min": 1.6
+        },
+        "brittleness_temperature_c": {
+          "max": 0
+        },
+        "ring_stiffness_n_m2": {
+          "min": 4000
+        }
+      }
+    },
+    "IS_5714": {
+      "title": "Flexible Plasticized PVC Pipes for Agriculture",
+      "applications": [
+        "irrigation_pipes"
+      ],
+      "requirements": {
+        "tensile_strength_mpa": {
+          "min": 10,
+          "max": 20
+        },
+        "elongation_percent": {
+          "min": 150
+        },
+        "tear_strength_n_m": {
+          "min": 20
+        }
+      }
+    }
+  },
+  "ISO_STANDARDS": {
+    "ISO_9001": {
+      "title": "Quality Management System",
+      "requirements": [
+        "Quality management system documentation",
+        "Process control and monitoring",
+        "Traceability of all inputs",
+        "Regular internal audits",
+        "Management review",
+        "Corrective and preventive actions"
+      ]
+    },
+    "ISO_14001": {
+      "title": "Environmental Management System",
+      "requirements": [
+        "Environmental policy",
+        "Waste management procedures",
+        "Energy efficiency targets",
+        "Emissions monitoring"
+      ]
+    },
+    "ISO_45001": {
+      "title": "Occupational Health and Safety",
+      "requirements": [
+        "Hazard identification",
+        "Risk assessment",
+        "Safety procedures",
+        "Employee training"
+      ]
+    }
+  },
+  "EXPORT_STANDARDS": {
+    "RoHS": {
+      "title": "Restriction of Hazardous Substances",
+      "enforcement": "Mandatory for export to EU",
+      "restricted_substances": [
+        {
+          "name": "Lead (Pb)",
+          "limit_percent": 0.1
+        },
+        {
+          "name": "Cadmium (Cd)",
+          "limit_percent": 0.01
+        },
+        {
+          "name": "Mercury (Hg)",
+          "limit_percent": 0.1
+        },
+        {
+          "name": "Hexavalent Chromium (Cr6+)",
+          "limit_percent": 0.1
+        },
+        {
+          "name": "PBB (Polybrominated Biphenyls)",
+          "limit_percent": 0.1
+        },
+        {
+          "name": "PBDE (Polybrominated Diphenyl Ethers)",
+          "limit_percent": 0.1
+        }
+      ],
+      "compliance_check": "Use Ca/Zn or organic tin stabilizers (never Pb-based)"
+    },
+    "REACH": {
+      "title": "Registration, Evaluation, Authorization and Restriction of Chemicals",
+      "enforcement": "Mandatory for export to EU",
+      "requirement": "All chemicals must be registered with European Chemical Agency",
+      "compliance_check": "Verify supplier documentation for all ingredients",
+      "substances_of_concern": [
+        "DEHP (Diethylhexyl Phthalate)",
+        "DBP (Dibutyl Phthalate)",
+        "DIDP (Diisodecyl Phthalate)",
+        "DNOP (Di-n-octyl Phthalate)"
+      ]
+    },
+    "IEC_60811": {
+      "title": "Cable Insulation and Sheath Materials - Test Methods",
+      "scope": "International standard for electrical testing"
+    },
+    "UL": {
+      "title": "Underwriters Laboratories (USA Market)",
+      "requirements": [
+        "Electrical property testing",
+        "Fire safety testing",
+        "Chemical testing for restricted substances"
+      ]
+    }
+  },
+  "REGULATORY_MATRIX": {
+    "India_Domestic": [
+      "IS_5831",
+      "ISO_9001"
+    ],
+    "EU_Export": [
+      "IS_5831",
+      "RoHS",
+      "REACH",
+      "ISO_9001"
+    ],
+    "USA_Export": [
+      "IS_5831",
+      "UL",
+      "ISO_9001"
+    ],
+    "Premium_Market": [
+      "IS_5831",
+      "RoHS",
+      "REACH",
+      "ISO_9001",
+      "ISO_14001"
+    ]
+  }
+}

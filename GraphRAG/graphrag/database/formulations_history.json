@@ -1,0 +1,5072 @@
+[
+  {
+    "id": "FM-0001",
+    "date": "2023-01-02",
+    "app": "cable_insulation_low_voltage",
+    "std": "IS_5831",
+    "cust": "Tesa Cable",
+    "vol_kg": 500,
+    "formula": {
+      "PVC_K72": 100,
+      "DBP": 48,
+      "CaCO3": 6,
+      "Ca_Zn": 2,
+      "Additives": 1.5
+    },
+    "cost_per_kg": 63,
+    "prop": {
+      "tens_mpa": 19.2,
+      "elong_pct": 266.0,
+      "hard_shore": 68.0,
+      "brit_temp_c": -31.0,
+      "visc_cps": 995
+    },
+    "verdict": "PASS",
+    "yield": 95.5,
+    "notes": "Batch 1: cable_insulation_low_voltage variant 1"
+  },
+  {
+    "id": "FM-0002",
+    "date": "2023-01-03",
+    "app": "cable_insulation_low_voltage",
+    "std": "IS_5831",
+    "cust": "Himachal Futuristic",
+    "vol_kg": 700,
+    "formula": {
+      "PVC_K70": 100,
+      "DOTP": 37,
+      "CaCO3": 8,
+      "Ca_Zn": 2,
+      "Additives": 1.5
+    },
+    "cost_per_kg": 65,
+    "prop": {
+      "tens_mpa": 17.7,
+      "elong_pct": 216.0,
+      "hard_shore": 70.0,
+      "brit_temp_c": -17.0,
+      "visc_cps": 760
+    },
+    "verdict": "PASS",
+    "yield": 96.0,
+    "notes": "Batch 2: cable_insulation_low_voltage variant 2"
+  },
+  {
+    "id": "FM-0003",
+    "date": "2023-01-04",
+    "app": "cable_insulation_low_voltage",
+    "std": "IS_5831",
+    "cust": "Jayashree Textiles",
+    "vol_kg": 900,
+    "formula": {
+      "PVC_K67": 100,
+      "DINP": 40,
+      "CaCO3": 11,
+      "Ba_Zn": 2,
+      "Additives": 1.5
+    },
+    "cost_per_kg": 63,
+    "prop": {
+      "tens_mpa": 17.8,
+      "elong_pct": 246.0,
+      "hard_shore": 70.0,
+      "brit_temp_c": -21.0,
+      "visc_cps": 895
+    },
+    "verdict": "PASS",
+    "yield": 97.1,
+    "notes": "Batch 3: cable_insulation_low_voltage variant 3"
+  },
+  {
+    "id": "FM-0004",
+    "date": "2023-01-05",
+    "app": "cable_insulation_low_voltage",
+    "std": "IS_5831",
+    "cust": "Jayashree Textiles",
+    "vol_kg": 1100,
+    "formula": {
+      "PVC_K70": 100,
+      "DOTP": 31,
+      "CaCO3": 15,
+      "Organic_Tin": 2,
+      "Additives": 1.5
+    },
+    "cost_per_kg": 64,
+    "prop": {
+      "tens_mpa": 16.3,
+      "elong_pct": 190.0,
+      "hard_shore": 70.0,
+      "brit_temp_c": -10.0,
+      "visc_cps": 750
+    },
+    "verdict": "PASS",
+    "yield": 96.8,
+    "notes": "Batch 4: cable_insulation_low_voltage variant 4"
+  },
+  {
+    "id": "FM-0005",
+    "date": "2023-01-06",
+    "app": "cable_insulation_low_voltage",
+    "std": "IS_5831",
+    "cust": "Indore Composite",
+    "vol_kg": 1300,
+    "formula": {
+      "PVC_K65": 100,
+      "DBP": 39,
+      "CaCO3": 14,
+      "Ba_Zn": 2,
+      "Additives": 1.5
+    },
+    "cost_per_kg": 65,
+    "prop": {
+      "tens_mpa": 17.0,
+      "elong_pct": 232.0,
+      "hard_shore": 69.0,
+      "brit_temp_c": -20.0,
+      "visc_cps": 930
+    },
+    "verdict": "PASS",
+    "yield": 95.8,
+    "notes": "Batch 5: cable_insulation_low_voltage variant 5"
+  },
+  {
+    "id": "FM-0006",
+    "date": "2023-01-07",
+    "app": "cable_insulation_low_voltage",
+    "std": "IS_5831",
+    "cust": "Indore Composite",
+    "vol_kg": 1500,
+    "formula": {
+      "PVC_K70": 100,
+      "DOTP": 34,
+      "CaCO3": 14,
+      "Ca_Zn": 2,
+      "Additives": 1.5
+    },
+    "cost_per_kg": 65,
+    "prop": {
+      "tens_mpa": 16.9,
+      "elong_pct": 222.0,
+      "hard_shore": 69.0,
+      "brit_temp_c": -14.0,
+      "visc_cps": 805
+    },
+    "verdict": "PASS",
+    "yield": 95.0,
+    "notes": "Batch 6: cable_insulation_low_voltage variant 6"
+  },
+  {
+    "id": "FM-0007",
+    "date": "2023-01-08",
+    "app": "cable_insulation_low_voltage",
+    "std": "IS_5831",
+    "cust": "Tesa Cable",
+    "vol_kg": 1700,
+    "formula": {
+      "PVC_K65": 100,
+      "DINP": 45,
+      "CaCO3": 8,
+      "Ca_Zn": 2,
+      "Additives": 1.5
+    },
+    "cost_per_kg": 65,
+    "prop": {
+      "tens_mpa": 18.9,
+      "elong_pct": 246.0,
+      "hard_shore": 68.0,
+      "brit_temp_c": -27.0,
+      "visc_cps": 960
+    },
+    "verdict": "PASS",
+    "yield": 95.2,
+    "notes": "Batch 7: cable_insulation_low_voltage variant 7"
+  },
+  {
+    "id": "FM-0008",
+    "date": "2023-01-09",
+    "app": "cable_insulation_low_voltage",
+    "std": "IS_5831",
+    "cust": "Mittal Polymers",
+    "vol_kg": 300,
+    "formula": {
+      "PVC_K72": 100,
+      "DOP": 40,
+      "Clay": 8,
+      "Organic_Tin": 2,
+      "Additives": 1.5
+    },
+    "cost_per_kg": 63,
+    "prop": {
+      "tens_mpa": 18.1,
+      "elong_pct": 232.0,
+      "hard_shore": 68.0,
+      "brit_temp_c": -21.0,
+      "visc_cps": 835
+    },
+    "verdict": "PASS",
+    "yield": 93.4,
+    "notes": "Batch 8: cable_insulation_low_voltage variant 8"
+  },
+  {
+    "id": "FM-0009",
+    "date": "2023-01-10",
+    "app": "cable_insulation_low_voltage",
+    "std": "IS_5831",
+    "cust": "Arpit Industries",
+    "vol_kg": 500,
+    "formula": {
+      "PVC_K67": 100,
+      "DOP": 42,
+      "CaCO3": 7,
+      "Ca_Zn": 2,
+      "Additives": 1.5
+    },
+    "cost_per_kg": 63,
+    "prop": {
+      "tens_mpa": 18.3,
+      "elong_pct": 230.0,
+      "hard_shore": 69.0,
+      "brit_temp_c": -23.0,
+      "visc_cps": 865
+    },
+    "verdict": "PASS",
+    "yield": 94.9,
+    "notes": "Batch 9: cable_insulation_low_voltage variant 9"
+  },
+  {
+    "id": "FM-0010",
+    "date": "2023-01-11",
+    "app": "cable_insulation_low_voltage",
+    "std": "IS_5831",
+    "cust": "Bharat Polymers",
+    "vol_kg": 700,
+    "formula": {
+      "PVC_K72": 100,
+      "DINP": 36,
+      "Barite": 14,
+      "Ba_Zn": 2,
+      "Additives": 1.5
+    },
+    "cost_per_kg": 64,
+    "prop": {
+      "tens_mpa": 17.2,
+      "elong_pct": 228.0,
+      "hard_shore": 69.0,
+      "brit_temp_c": -16.0,
+      "visc_cps": 855
+    },
+    "verdict": "PASS",
+    "yield": 94.4,
+    "notes": "Batch 10: cable_insulation_low_voltage variant 10"
+  },
+  {
+    "id": "FM-0011",
+    "date": "2023-01-12",
+    "app": "cable_insulation_low_voltage",
+    "std": "IS_5831",
+    "cust": "KEI Industries",
+    "vol_kg": 900,
+    "formula": {
+      "PVC_K67": 100,
+      "DINP": 40,
+      "Barite": 15,
+      "Organic_Tin": 2,
+      "Additives": 1.5
+    },
+    "cost_per_kg": 65,
+    "prop": {
+      "tens_mpa": 17.4,
+      "elong_pct": 232.0,
+      "hard_shore": 70.0,
+      "brit_temp_c": -21.0,
+      "visc_cps": 975
+    },
+    "verdict": "PASS",
+    "yield": 96.2,
+    "notes": "Batch 11: cable_insulation_low_voltage variant 11"
+  },
+  {
+    "id": "FM-0012",
+    "date": "2023-01-13",
+    "app": "cable_insulation_low_voltage",
+    "std": "IS_5831",
+    "cust": "Himachal Futuristic",
+    "vol_kg": 1100,
+    "formula": {
+      "PVC_K57": 100,
+      "DBP": 48,
+      "CaCO3": 10,
+      "Organic_Tin": 2,
+      "Additives": 1.5
+    },
+    "cost_per_kg": 63,
+    "prop": {
+      "tens_mpa": 18.4,
+      "elong_pct": 268.0,
+      "hard_shore": 70.0,
+      "brit_temp_c": -31.0,
+      "visc_cps": 1075
+    },
+    "verdict": "PASS",
+    "yield": 93.3,
+    "notes": "Batch 12: cable_insulation_low_voltage variant 12"
+  },
+  {
+    "id": "FM-0013",
+    "date": "2023-01-14",
+    "app": "cable_insulation_low_voltage",
+    "std": "IS_5831",
+    "cust": "Premier Polymers",
+    "vol_kg": 1300,
+    "formula": {
+      "PVC_K67": 100,
+      "DOP": 42,
+      "Clay": 10,
+      "Ba_Zn": 2,
+      "Additives": 1.5
+    },
+    "cost_per_kg": 65,
+    "prop": {
+      "tens_mpa": 17.9,
+      "elong_pct": 222.0,
+      "hard_shore": 69.0,
+      "brit_temp_c": -23.0,
+      "visc_cps": 925
+    },
+    "verdict": "PASS",
+    "yield": 97.0,
+    "notes": "Batch 13: cable_insulation_low_voltage variant 13"
+  },
+  {
+    "id": "FM-0014",
+    "date": "2023-01-15",
+    "app": "cable_insulation_medium_voltage",
+    "std": "IS_5831",
+    "cust": "Premier Polymers",
+    "vol_kg": 1500,
+    "formula": {
+      "PVC_K65": 100,
+      "DBP": 48,
+      "Clay": 11,
+      "Ca_Zn": 2,
+      "Additives": 1.5
+    },
+    "cost_per_kg": 69,
+    "prop": {
+      "tens_mpa": 18.3,
+      "elong_pct": 258.0,
+      "hard_shore": 69.0,
+      "brit_temp_c": -31.0,
+      "visc_cps": 1095
+    },
+    "verdict": "PASS",
+    "yield": 97.8,
+    "notes": "Batch 14: cable_insulation_medium_voltage variant 1"
+  },
+  {
+    "id": "FM-0015",
+    "date": "2023-01-16",
+    "app": "cable_insulation_medium_voltage",
+    "std": "IS_5831",
+    "cust": "Crompton Cables",
+    "vol_kg": 1700,
+    "formula": {
+      "PVC_K67": 100,
+      "DBP": 43,
+      "Clay": 12,
+      "Organic_Tin": 2,
+      "Additives": 1.5
+    },
+    "cost_per_kg": 67,
+    "prop": {
+      "tens_mpa": 18.0,
+      "elong_pct": 236.0,
+      "hard_shore": 69.0,
+      "brit_temp_c": -25.0,
+      "visc_cps": 990
+    },
+    "verdict": "PASS",
+    "yield": 94.0,
+    "notes": "Batch 15: cable_insulation_medium_voltage variant 2"
+  },
+  {
+    "id": "FM-0016",
+    "date": "2023-01-17",
+    "app": "cable_insulation_medium_voltage",
+    "std": "IS_5831",
+    "cust": "Shyam Polymers",
+    "vol_kg": 300,
+    "formula": {
+      "PVC_K72": 100,
+      "DOTP": 32,
+      "Barite": 15,
+      "Ba_Zn": 2,
+      "Additives": 1.5
+    },
+    "cost_per_kg": 67,
+    "prop": {
+      "tens_mpa": 15.7,
+      "elong_pct": 215.0,
+      "hard_shore": 69.0,
+      "brit_temp_c": -11.0,
+      "visc_cps": 775
+    },
+    "verdict": "PASS",
+    "yield": 95.9,
+    "notes": "Batch 16: cable_insulation_medium_voltage variant 3"
+  },
+  {
+    "id": "FM-0017",
+    "date": "2023-01-18",
+    "app": "cable_insulation_medium_voltage",
+    "std": "IS_5831",
+    "cust": "Tesa Cable",
+    "vol_kg": 500,
+    "formula": {
+      "PVC_K65": 100,
+      "DOTP": 39,
+      "Barite": 20,
+      "Organic_Tin": 2,
+      "Additives": 1.5
+    },
+    "cost_per_kg": 68,
+    "prop": {
+      "tens_mpa": 16.6,
+      "elong_pct": 200.0,
+      "hard_shore": 69.0,
+      "brit_temp_c": -20.0,
+      "visc_cps": 1050
+    },
+    "verdict": "PASS",
+    "yield": 94.7,
+    "notes": "Batch 17: cable_insulation_medium_voltage variant 4"
+  },
+  {
+    "id": "FM-0018",
+    "date": "2023-01-19",
+    "app": "cable_insulation_medium_voltage",
+    "std": "IS_5831",
+    "cust": "Havells India",
+    "vol_kg": 700,
+    "formula": {
+      "PVC_K67": 100,
+      "DINP": 40,
+      "Clay": 11,
+      "Organic_Tin": 2,
+      "Additives": 1.5
+    },
+    "cost_per_kg": 67,
+    "prop": {
+      "tens_mpa": 17.4,
+      "elong_pct": 235.0,
+      "hard_shore": 69.0,
+      "brit_temp_c": -21.0,
+      "visc_cps": 895
+    },
+    "verdict": "PASS",
+    "yield": 96.6,
+    "notes": "Batch 18: cable_insulation_medium_voltage variant 5"
+  },
+  {
+    "id": "FM-0019",
+    "date": "2023-01-20",
+    "app": "cable_insulation_medium_voltage",
+    "std": "IS_5831",
+    "cust": "Tesa Cable",
+    "vol_kg": 900,
+    "formula": {
+      "PVC_K70": 100,
+      "DBP": 44,
+      "Clay": 11,
+      "Ca_Zn": 2,
+      "Additives": 1.5
+    },
+    "cost_per_kg": 69,
+    "prop": {
+      "tens_mpa": 18.2,
+      "elong_pct": 256.0,
+      "hard_shore": 69.0,
+      "brit_temp_c": -26.0,
+      "visc_cps": 995
+    },
+    "verdict": "PASS",
+    "yield": 95.8,
+    "notes": "Batch 19: cable_insulation_medium_voltage variant 6"
+  },
+  {
+    "id": "FM-0020",
+    "date": "2023-01-21",
+    "app": "cable_insulation_medium_voltage",
+    "std": "IS_5831",
+    "cust": "Mittal Polymers",
+    "vol_kg": 1100,
+    "formula": {
+      "PVC_K67": 100,
+      "DBP": 40,
+      "Barite": 12,
+      "Organic_Tin": 2,
+      "Additives": 1.5
+    },
+    "cost_per_kg": 70,
+    "prop": {
+      "tens_mpa": 17.8,
+      "elong_pct": 224.0,
+      "hard_shore": 69.0,
+      "brit_temp_c": -21.0,
+      "visc_cps": 915
+    },
+    "verdict": "PASS",
+    "yield": 97.6,
+    "notes": "Batch 20: cable_insulation_medium_voltage variant 7"
+  },
+  {
+    "id": "FM-0021",
+    "date": "2023-01-22",
+    "app": "cable_insulation_medium_voltage",
+    "std": "IS_5831",
+    "cust": "Indore Composite",
+    "vol_kg": 1300,
+    "formula": {
+      "PVC_K65": 100,
+      "DBP": 42,
+      "CaCO3": 7,
+      "Ca_Zn": 2,
+      "Additives": 1.5
+    },
+    "cost_per_kg": 67,
+    "prop": {
+      "tens_mpa": 18.3,
+      "elong_pct": 229.0,
+      "hard_shore": 69.0,
+      "brit_temp_c": -23.0,
+      "visc_cps": 865
+    },
+    "verdict": "PASS",
+    "yield": 95.0,
+    "notes": "Batch 21: cable_insulation_medium_voltage variant 8"
+  },
+  {
+    "id": "FM-0022",
+    "date": "2023-01-23",
+    "app": "cable_insulation_medium_voltage",
+    "std": "IS_5831",
+    "cust": "Polycab Industries",
+    "vol_kg": 1500,
+    "formula": {
+      "PVC_K72": 100,
+      "DINP": 35,
+      "Clay": 10,
+      "Organic_Tin": 2,
+      "Additives": 1.5
+    },
+    "cost_per_kg": 67,
+    "prop": {
+      "tens_mpa": 16.7,
+      "elong_pct": 224.0,
+      "hard_shore": 69.0,
+      "brit_temp_c": -15.0,
+      "visc_cps": 750
+    },
+    "verdict": "PASS",
+    "yield": 93.8,
+    "notes": "Batch 22: cable_insulation_medium_voltage variant 9"
+  },
+  {
+    "id": "FM-0023",
+    "date": "2023-01-24",
+    "app": "cable_insulation_medium_voltage",
+    "std": "IS_5831",
+    "cust": "Jayashree Textiles",
+    "vol_kg": 1700,
+    "formula": {
+      "PVC_K65": 100,
+      "DINP": 43,
+      "CaCO3": 6,
+      "Ba_Zn": 2,
+      "Additives": 1.5
+    },
+    "cost_per_kg": 70,
+    "prop": {
+      "tens_mpa": 18.3,
+      "elong_pct": 237.0,
+      "hard_shore": 68.0,
+      "brit_temp_c": -25.0,
+      "visc_cps": 870
+    },
+    "verdict": "PASS",
+    "yield": 97.5,
+    "notes": "Batch 23: cable_insulation_medium_voltage variant 10"
+  },
+  {
+    "id": "FM-0024",
+    "date": "2023-01-25",
+    "app": "cable_insulation_medium_voltage",
+    "std": "IS_5831",
+    "cust": "Bharat Polymers",
+    "vol_kg": 300,
+    "formula": {
+      "PVC_K67": 100,
+      "DOTP": 31,
+      "Barite": 11,
+      "Ca_Zn": 2,
+      "Additives": 1.5
+    },
+    "cost_per_kg": 67,
+    "prop": {
+      "tens_mpa": 17.0,
+      "elong_pct": 207.0,
+      "hard_shore": 71.0,
+      "brit_temp_c": -10.0,
+      "visc_cps": 670
+    },
+    "verdict": "PASS",
+    "yield": 96.1,
+    "notes": "Batch 24: cable_insulation_medium_voltage variant 11"
+  },
+  {
+    "id": "FM-0025",
+    "date": "2023-01-26",
+    "app": "cable_insulation_medium_voltage",
+    "std": "IS_5831",
+    "cust": "Bharat Polymers",
+    "vol_kg": 500,
+    "formula": {
+      "PVC_K65": 100,
+      "DINP": 44,
+      "Barite": 13,
+      "Ca_Zn": 2,
+      "Additives": 1.5
+    },
+    "cost_per_kg": 68,
+    "prop": {
+      "tens_mpa": 17.7,
+      "elong_pct": 237.0,
+      "hard_shore": 70.0,
+      "brit_temp_c": -26.0,
+      "visc_cps": 1035
+    },
+    "verdict": "PASS",
+    "yield": 96.9,
+    "notes": "Batch 25: cable_insulation_medium_voltage variant 12"
+  },
+  {
+    "id": "FM-0026",
+    "date": "2023-01-27",
+    "app": "cable_insulation_medium_voltage",
+    "std": "IS_5831",
+    "cust": "Finolex Cables",
+    "vol_kg": 700,
+    "formula": {
+      "PVC_K70": 100,
+      "DOTP": 37,
+      "Barite": 14,
+      "Ba_Zn": 2,
+      "Additives": 1.5
+    },
+    "cost_per_kg": 67,
+    "prop": {
+      "tens_mpa": 16.5,
+      "elong_pct": 209.0,
+      "hard_shore": 69.0,
+      "brit_temp_c": -17.0,
+      "visc_cps": 880
+    },
+    "verdict": "PASS",
+    "yield": 97.6,
+    "notes": "Batch 26: cable_insulation_medium_voltage variant 13"
+  },
+  {
+    "id": "FM-0027",
+    "date": "2023-01-28",
+    "app": "cable_insulation_high_voltage",
+    "std": "IS_5831",
+    "cust": "Indore Composite",
+    "vol_kg": 900,
+    "formula": {
+      "PVC_K67": 100,
+      "DOTP": 30,
+      "Clay": 10,
+      "Ba_Zn": 2,
+      "Additives": 1.5
+    },
+    "cost_per_kg": 75,
+    "prop": {
+      "tens_mpa": 16.2,
+      "elong_pct": 212.0,
+      "hard_shore": 69.0,
+      "brit_temp_c": -9.0,
+      "visc_cps": 625
+    },
+    "verdict": "PASS",
+    "yield": 94.4,
+    "notes": "Batch 27: cable_insulation_high_voltage variant 1"
+  },
+  {
+    "id": "FM-0028",
+    "date": "2023-01-29",
+    "app": "cable_insulation_high_voltage",
+    "std": "IS_5831",
+    "cust": "Arpit Industries",
+    "vol_kg": 1100,
+    "formula": {
+      "PVC_K67": 100,
+      "DOP": 44,
+      "CaCO3": 13,
+      "Organic_Tin": 2,
+      "Additives": 1.5
+    },
+    "cost_per_kg": 73,
+    "prop": {
+      "tens_mpa": 18.0,
+      "elong_pct": 231.0,
+      "hard_shore": 69.0,
+      "brit_temp_c": -26.0,
+      "visc_cps": 1035
+    },
+    "verdict": "PASS",
+    "yield": 93.1,
+    "notes": "Batch 28: cable_insulation_high_voltage variant 2"
+  },
+  {
+    "id": "FM-0029",
+    "date": "2023-01-30",
+    "app": "cable_insulation_high_voltage",
+    "std": "IS_5831",
+    "cust": "Tesa Cable",
+    "vol_kg": 1300,
+    "formula": {
+      "PVC_K57": 100,
+      "DOP": 42,
+      "Barite": 11,
+      "Organic_Tin": 2,
+      "Additives": 1.5
+    },
+    "cost_per_kg": 73,
+    "prop": {
+      "tens_mpa": 18.3,
+      "elong_pct": 246.0,
+      "hard_shore": 70.0,
+      "brit_temp_c": -23.0,
+      "visc_cps": 945
+    },
+    "verdict": "PASS",
+    "yield": 97.4,
+    "notes": "Batch 29: cable_insulation_high_voltage variant 3"
+  },
+  {
+    "id": "FM-0030",
+    "date": "2023-01-31",
+    "app": "cable_insulation_high_voltage",
+    "std": "IS_5831",
+    "cust": "Mittal Polymers",
+    "vol_kg": 1500,
+    "formula": {
+      "PVC_K72": 100,
+      "DOTP": 39,
+      "CaCO3": 14,
+      "Ca_Zn": 2,
+      "Additives": 1.5
+    },
+    "cost_per_kg": 73,
+    "prop": {
+      "tens_mpa": 17.5,
+      "elong_pct": 213.0,
+      "hard_shore": 69.0,
+      "brit_temp_c": -20.0,
+      "visc_cps": 930
+    },
+    "verdict": "PASS",
+    "yield": 95.2,
+    "notes": "Batch 30: cable_insulation_high_voltage variant 4"
+  },
+  {
+    "id": "FM-0031",
+    "date": "2023-02-01",
+    "app": "cable_insulation_high_voltage",
+    "std": "IS_5831",
+    "cust": "Himachal Futuristic",
+    "vol_kg": 1700,
+    "formula": {
+      "PVC_K67": 100,
+      "DINP": 37,
+      "CaCO3": 14,
+      "Organic_Tin": 2,
+      "Additives": 1.5
+    },
+    "cost_per_kg": 75,
+    "prop": {
+      "tens_mpa": 17.1,
+      "elong_pct": 198.0,
+      "hard_shore": 69.0,
+      "brit_temp_c": -17.0,
+      "visc_cps": 880
+    },
+    "verdict": "PASS",
+    "yield": 96.9,
+    "notes": "Batch 31: cable_insulation_high_voltage variant 5"
+  },
+  {
+    "id": "FM-0032",
+    "date": "2023-02-02",
+    "app": "cable_insulation_high_voltage",
+    "std": "IS_5831",
+    "cust": "Shyam Polymers",
+    "vol_kg": 300,
+    "formula": {
+      "PVC_K70": 100,
+      "DOTP": 35,
+      "Clay": 8,
+      "Organic_Tin": 2,
+      "Additives": 1.5
+    },
+    "cost_per_kg": 75,
+    "prop": {
+      "tens_mpa": 17.6,
+      "elong_pct": 212.0,
+      "hard_shore": 70.0,
+      "brit_temp_c": -15.0,
+      "visc_cps": 710
+    },
+    "verdict": "PASS",
+    "yield": 94.9,
+    "notes": "Batch 32: cable_insulation_high_voltage variant 6"
+  },
+  {
+    "id": "FM-0033",
+    "date": "2023-02-03",
+    "app": "cable_insulation_high_voltage",
+    "std": "IS_5831",
+    "cust": "Jayashree Textiles",
+    "vol_kg": 500,
+    "formula": {
+      "PVC_K65": 100,
+      "DOP": 40,
+      "Clay": 10,
+      "Ba_Zn": 2,
+      "Additives": 1.5
+    },
+    "cost_per_kg": 75,
+    "prop": {
+      "tens_mpa": 17.3,
+      "elong_pct": 232.0,
+      "hard_shore": 69.0,
+      "brit_temp_c": -21.0,
+      "visc_cps": 875
+    },
+    "verdict": "PASS",
+    "yield": 97.2,
+    "notes": "Batch 33: cable_insulation_high_voltage variant 7"
+  },
+  {
+    "id": "FM-0034",
+    "date": "2023-02-04",
+    "app": "cable_insulation_high_voltage",
+    "std": "IS_5831",
+    "cust": "Indore Composite",
+    "vol_kg": 700,
+    "formula": {
+      "PVC_K57": 100,
+      "DOTP": 35,
+      "CaCO3": 7,
+      "Organic_Tin": 2,
+      "Additives": 1.5
+    },
+    "cost_per_kg": 74,
+    "prop": {
+      "tens_mpa": 18.0,
+      "elong_pct": 214.0,
+      "hard_shore": 69.0,
+      "brit_temp_c": -15.0,
+      "visc_cps": 690
+    },
+    "verdict": "PASS",
+    "yield": 94.5,
+    "notes": "Batch 34: cable_insulation_high_voltage variant 8"
+  },
+  {
+    "id": "FM-0035",
+    "date": "2023-02-05",
+    "app": "cable_insulation_high_voltage",
+    "std": "IS_5831",
+    "cust": "Jayashree Textiles",
+    "vol_kg": 900,
+    "formula": {
+      "PVC_K65": 100,
+      "DINP": 44,
+      "Barite": 12,
+      "Organic_Tin": 2,
+      "Additives": 1.5
+    },
+    "cost_per_kg": 75,
+    "prop": {
+      "tens_mpa": 17.7,
+      "elong_pct": 248.0,
+      "hard_shore": 69.0,
+      "brit_temp_c": -26.0,
+      "visc_cps": 1015
+    },
+    "verdict": "PASS",
+    "yield": 95.1,
+    "notes": "Batch 35: cable_insulation_high_voltage variant 9"
+  },
+  {
+    "id": "FM-0036",
+    "date": "2023-02-06",
+    "app": "cable_insulation_high_voltage",
+    "std": "IS_5831",
+    "cust": "Shyam Polymers",
+    "vol_kg": 1100,
+    "formula": {
+      "PVC_K70": 100,
+      "DINP": 47,
+      "Barite": 16,
+      "Ba_Zn": 2,
+      "Additives": 1.5
+    },
+    "cost_per_kg": 75,
+    "prop": {
+      "tens_mpa": 17.8,
+      "elong_pct": 248.0,
+      "hard_shore": 70.0,
+      "brit_temp_c": -29.0,
+      "visc_cps": 1170
+    },
+    "verdict": "PASS",
+    "yield": 93.2,
+    "notes": "Batch 36: cable_insulation_high_voltage variant 10"
+  },
+  {
+    "id": "FM-0037",
+    "date": "2023-02-07",
+    "app": "cable_insulation_high_voltage",
+    "std": "IS_5831",
+    "cust": "Arpit Industries",
+    "vol_kg": 1300,
+    "formula": {
+      "PVC_K65": 100,
+      "DINP": 44,
+      "Barite": 17,
+      "Organic_Tin": 2,
+      "Additives": 1.5
+    },
+    "cost_per_kg": 74,
+    "prop": {
+      "tens_mpa": 17.7,
+      "elong_pct": 242.0,
+      "hard_shore": 69.0,
+      "brit_temp_c": -26.0,
+      "visc_cps": 1115
+    },
+    "verdict": "PASS",
+    "yield": 93.3,
+    "notes": "Batch 37: cable_insulation_high_voltage variant 11"
+  },
+  {
+    "id": "FM-0038",
+    "date": "2023-02-08",
+    "app": "cable_insulation_high_voltage",
+    "std": "IS_5831",
+    "cust": "Havells India",
+    "vol_kg": 1500,
+    "formula": {
+      "PVC_K70": 100,
+      "DOTP": 33,
+      "CaCO3": 14,
+      "Ba_Zn": 2,
+      "Additives": 1.5
+    },
+    "cost_per_kg": 73,
+    "prop": {
+      "tens_mpa": 16.5,
+      "elong_pct": 214.0,
+      "hard_shore": 71.0,
+      "brit_temp_c": -13.0,
+      "visc_cps": 780
+    },
+    "verdict": "PASS",
+    "yield": 97.9,
+    "notes": "Batch 38: cable_insulation_high_voltage variant 12"
+  },
+  {
+    "id": "FM-0039",
+    "date": "2023-02-09",
+    "app": "cable_insulation_high_voltage",
+    "std": "IS_5831",
+    "cust": "Arpit Industries",
+    "vol_kg": 1700,
+    "formula": {
+      "PVC_K72": 100,
+      "DOTP": 35,
+      "Barite": 14,
+      "Organic_Tin": 2,
+      "Additives": 1.5
+    },
+    "cost_per_kg": 73,
+    "prop": {
+      "tens_mpa": 16.8,
+      "elong_pct": 212.0,
+      "hard_shore": 69.0,
+      "brit_temp_c": -15.0,
+      "visc_cps": 830
+    },
+    "verdict": "PASS",
+    "yield": 97.4,
+    "notes": "Batch 39: cable_insulation_high_voltage variant 13"
+  },
+  {
+    "id": "FM-0040",
+    "date": "2023-02-10",
+    "app": "cable_sheath_fire_resistant",
+    "std": "IEC_60811",
+    "cust": "Premier Polymers",
+    "vol_kg": 300,
+    "formula": {
+      "PVC_K65": 100,
+      "DBP": 40,
+      "Clay": 11,
+      "Organic_Tin": 2,
+      "Additives": 1.5
+    },
+    "cost_per_kg": 66,
+    "prop": {
+      "tens_mpa": 17.6,
+      "elong_pct": 210.0,
+      "hard_shore": 69.0,
+      "brit_temp_c": -21.0,
+      "visc_cps": 895
+    },
+    "verdict": "PASS",
+    "yield": 97.6,
+    "notes": "Batch 40: cable_sheath_fire_resistant variant 1"
+  },
+  {
+    "id": "FM-0041",
+    "date": "2023-02-11",
+    "app": "cable_sheath_fire_resistant",
+    "std": "IEC_60811",
+    "cust": "Havells India",
+    "vol_kg": 500,
+    "formula": {
+      "PVC_K57": 100,
+      "DOTP": 33,
+      "Barite": 16,
+      "Ca_Zn": 2,
+      "Additives": 1.5
+    },
+    "cost_per_kg": 65,
+    "prop": {
+      "tens_mpa": 16.5,
+      "elong_pct": 182.0,
+      "hard_shore": 70.0,
+      "brit_temp_c": -13.0,
+      "visc_cps": 820
+    },
+    "verdict": "PASS",
+    "yield": 94.7,
+    "notes": "Batch 41: cable_sheath_fire_resistant variant 2"
+  },
+  {
+    "id": "FM-0042",
+    "date": "2023-02-12",
+    "app": "cable_sheath_fire_resistant",
+    "std": "IEC_60811",
+    "cust": "Bharat Polymers",
+    "vol_kg": 700,
+    "formula": {
+      "PVC_K67": 100,
+      "DBP": 46,
+      "Clay": 8,
+      "Ca_Zn": 2,
+      "Additives": 1.5
+    },
+    "cost_per_kg": 65,
+    "prop": {
+      "tens_mpa": 19.2,
+      "elong_pct": 239.0,
+      "hard_shore": 69.0,
+      "brit_temp_c": -28.0,
+      "visc_cps": 985
+    },
+    "verdict": "PASS",
+    "yield": 95.0,
+    "notes": "Batch 42: cable_sheath_fire_resistant variant 3"
+  },
+  {
+    "id": "FM-0043",
+    "date": "2023-02-13",
+    "app": "cable_sheath_fire_resistant",
+    "std": "IEC_60811",
+    "cust": "Crompton Cables",
+    "vol_kg": 900,
+    "formula": {
+      "PVC_K70": 100,
+      "DINP": 40,
+      "Clay": 9,
+      "Ba_Zn": 2,
+      "Additives": 1.5
+    },
+    "cost_per_kg": 68,
+    "prop": {
+      "tens_mpa": 18.2,
+      "elong_pct": 211.0,
+      "hard_shore": 70.0,
+      "brit_temp_c": -21.0,
+      "visc_cps": 855
+    },
+    "verdict": "PASS",
+    "yield": 96.5,
+    "notes": "Batch 43: cable_sheath_fire_resistant variant 4"
+  },
+  {
+    "id": "FM-0044",
+    "date": "2023-02-14",
+    "app": "cable_sheath_fire_resistant",
+    "std": "IEC_60811",
+    "cust": "Jayashree Textiles",
+    "vol_kg": 1100,
+    "formula": {
+      "PVC_K70": 100,
+      "DOP": 43,
+      "CaCO3": 11,
+      "Organic_Tin": 2,
+      "Additives": 1.5
+    },
+    "cost_per_kg": 66,
+    "prop": {
+      "tens_mpa": 18.2,
+      "elong_pct": 243.0,
+      "hard_shore": 69.0,
+      "brit_temp_c": -25.0,
+      "visc_cps": 970
+    },
+    "verdict": "PASS",
+    "yield": 96.6,
+    "notes": "Batch 44: cable_sheath_fire_resistant variant 5"
+  },
+  {
+    "id": "FM-0045",
+    "date": "2023-02-15",
+    "app": "cable_sheath_fire_resistant",
+    "std": "IEC_60811",
+    "cust": "Arpit Industries",
+    "vol_kg": 1300,
+    "formula": {
+      "PVC_K65": 100,
+      "DOTP": 40,
+      "Clay": 9,
+      "Organic_Tin": 2,
+      "Additives": 1.5
+    },
+    "cost_per_kg": 66,
+    "prop": {
+      "tens_mpa": 17.7,
+      "elong_pct": 220.0,
+      "hard_shore": 69.0,
+      "brit_temp_c": -21.0,
+      "visc_cps": 855
+    },
+    "verdict": "PASS",
+    "yield": 93.1,
+    "notes": "Batch 45: cable_sheath_fire_resistant variant 6"
+  },
+  {
+    "id": "FM-0046",
+    "date": "2023-02-16",
+    "app": "cable_sheath_fire_resistant",
+    "std": "IEC_60811",
+    "cust": "Finolex Cables",
+    "vol_kg": 1500,
+    "formula": {
+      "PVC_K72": 100,
+      "DBP": 45,
+      "Barite": 17,
+      "Ba_Zn": 2,
+      "Additives": 1.5
+    },
+    "cost_per_kg": 67,
+    "prop": {
+      "tens_mpa": 17.1,
+      "elong_pct": 246.0,
+      "hard_shore": 70.0,
+      "brit_temp_c": -27.0,
+      "visc_cps": 1140
+    },
+    "verdict": "PASS",
+    "yield": 93.5,
+    "notes": "Batch 46: cable_sheath_fire_resistant variant 7"
+  },
+  {
+    "id": "FM-0047",
+    "date": "2023-02-17",
+    "app": "cable_sheath_fire_resistant",
+    "std": "IEC_60811",
+    "cust": "Nana's Polymers",
+    "vol_kg": 1700,
+    "formula": {
+      "PVC_K70": 100,
+      "DOTP": 38,
+      "Barite": 19,
+      "Ba_Zn": 2,
+      "Additives": 1.5
+    },
+    "cost_per_kg": 66,
+    "prop": {
+      "tens_mpa": 16.6,
+      "elong_pct": 226.0,
+      "hard_shore": 70.0,
+      "brit_temp_c": -19.0,
+      "visc_cps": 1005
+    },
+    "verdict": "PASS",
+    "yield": 96.2,
+    "notes": "Batch 47: cable_sheath_fire_resistant variant 8"
+  },
+  {
+    "id": "FM-0048",
+    "date": "2023-02-18",
+    "app": "cable_sheath_fire_resistant",
+    "std": "IEC_60811",
+    "cust": "KEI Industries",
+    "vol_kg": 300,
+    "formula": {
+      "PVC_K67": 100,
+      "DBP": 43,
+      "Clay": 9,
+      "Ca_Zn": 2,
+      "Additives": 1.5
+    },
+    "cost_per_kg": 68,
+    "prop": {
+      "tens_mpa": 18.5,
+      "elong_pct": 245.0,
+      "hard_shore": 69.0,
+      "brit_temp_c": -25.0,
+      "visc_cps": 930
+    },
+    "verdict": "PASS",
+    "yield": 96.4,
+    "notes": "Batch 48: cable_sheath_fire_resistant variant 9"
+  },
+  {
+    "id": "FM-0049",
+    "date": "2023-02-19",
+    "app": "cable_sheath_fire_resistant",
+    "std": "IEC_60811",
+    "cust": "Polycab Industries",
+    "vol_kg": 500,
+    "formula": {
+      "PVC_K65": 100,
+      "DINP": 45,
+      "CaCO3": 14,
+      "Ca_Zn": 2,
+      "Additives": 1.5
+    },
+    "cost_per_kg": 68,
+    "prop": {
+      "tens_mpa": 18.3,
+      "elong_pct": 243.0,
+      "hard_shore": 69.0,
+      "brit_temp_c": -27.0,
+      "visc_cps": 1080
+    },
+    "verdict": "PASS",
+    "yield": 95.8,
+    "notes": "Batch 49: cable_sheath_fire_resistant variant 10"
+  },
+  {
+    "id": "FM-0050",
+    "date": "2023-02-20",
+    "app": "cable_sheath_fire_resistant",
+    "std": "IEC_60811",
+    "cust": "Finolex Cables",
+    "vol_kg": 700,
+    "formula": {
+      "PVC_K65": 100,
+      "DOP": 36,
+      "Barite": 15,
+      "Organic_Tin": 2,
+      "Additives": 1.5
+    },
+    "cost_per_kg": 67,
+    "prop": {
+      "tens_mpa": 16.1,
+      "elong_pct": 213.0,
+      "hard_shore": 70.0,
+      "brit_temp_c": -16.0,
+      "visc_cps": 875
+    },
+    "verdict": "PASS",
+    "yield": 93.5,
+    "notes": "Batch 50: cable_sheath_fire_resistant variant 11"
+  },
+  {
+    "id": "FM-0051",
+    "date": "2023-02-21",
+    "app": "cable_sheath_fire_resistant",
+    "std": "IEC_60811",
+    "cust": "Flex Films",
+    "vol_kg": 900,
+    "formula": {
+      "PVC_K70": 100,
+      "DOP": 40,
+      "Clay": 8,
+      "Ba_Zn": 2,
+      "Additives": 1.5
+    },
+    "cost_per_kg": 66,
+    "prop": {
+      "tens_mpa": 17.8,
+      "elong_pct": 231.0,
+      "hard_shore": 69.0,
+      "brit_temp_c": -21.0,
+      "visc_cps": 835
+    },
+    "verdict": "PASS",
+    "yield": 95.7,
+    "notes": "Batch 51: cable_sheath_fire_resistant variant 12"
+  },
+  {
+    "id": "FM-0052",
+    "date": "2023-02-22",
+    "app": "cable_sheath_fire_resistant",
+    "std": "IEC_60811",
+    "cust": "Tesa Cable",
+    "vol_kg": 1100,
+    "formula": {
+      "PVC_K57": 100,
+      "DBP": 48,
+      "Barite": 19,
+      "Ca_Zn": 2,
+      "Additives": 1.5
+    },
+    "cost_per_kg": 66,
+    "prop": {
+      "tens_mpa": 18.0,
+      "elong_pct": 243.0,
+      "hard_shore": 69.0,
+      "brit_temp_c": -31.0,
+      "visc_cps": 1255
+    },
+    "verdict": "PASS",
+    "yield": 96.5,
+    "notes": "Batch 52: cable_sheath_fire_resistant variant 13"
+  },
+  {
+    "id": "FM-0053",
+    "date": "2023-02-23",
+    "app": "rigid_pipe_water",
+    "std": "IS_14926",
+    "cust": "Mittal Polymers",
+    "vol_kg": 1300,
+    "formula": {
+      "PVC_K65": 100,
+      "DOTP": 32,
+      "Barite": 11,
+      "Ba_Zn": 2,
+      "Additives": 1.5
+    },
+    "cost_per_kg": 54,
+    "prop": {
+      "tens_mpa": 16.9,
+      "elong_pct": 197.0,
+      "hard_shore": 69.0,
+      "brit_temp_c": -11.0,
+      "visc_cps": 695
+    },
+    "verdict": "PASS",
+    "yield": 94.7,
+    "notes": "Batch 53: rigid_pipe_water variant 1"
+  },
+  {
+    "id": "FM-0054",
+    "date": "2023-02-24",
+    "app": "rigid_pipe_water",
+    "std": "IS_14926",
+    "cust": "Jayashree Textiles",
+    "vol_kg": 1500,
+    "formula": {
+      "PVC_K72": 100,
+      "DBP": 41,
+      "Barite": 12,
+      "Ca_Zn": 2,
+      "Additives": 1.5
+    },
+    "cost_per_kg": 55,
+    "prop": {
+      "tens_mpa": 17.6,
+      "elong_pct": 216.0,
+      "hard_shore": 69.0,
+      "brit_temp_c": -22.0,
+      "visc_cps": 940
+    },
+    "verdict": "PASS",
+    "yield": 93.2,
+    "notes": "Batch 54: rigid_pipe_water variant 2"
+  },
+  {
+    "id": "FM-0055",
+    "date": "2023-02-25",
+    "app": "rigid_pipe_water",
+    "std": "IS_14926",
+    "cust": "Jayashree Textiles",
+    "vol_kg": 1700,
+    "formula": {
+      "PVC_K65": 100,
+      "DOTP": 30,
+      "Barite": 12,
+      "Ca_Zn": 2,
+      "Additives": 1.5
+    },
+    "cost_per_kg": 55,
+    "prop": {
+      "tens_mpa": 16.2,
+      "elong_pct": 185.0,
+      "hard_shore": 70.0,
+      "brit_temp_c": -9.0,
+      "visc_cps": 665
+    },
+    "verdict": "PASS",
+    "yield": 94.3,
+    "notes": "Batch 55: rigid_pipe_water variant 3"
+  },
+  {
+    "id": "FM-0056",
+    "date": "2023-02-26",
+    "app": "rigid_pipe_water",
+    "std": "IS_14926",
+    "cust": "Jayashree Textiles",
+    "vol_kg": 300,
+    "formula": {
+      "PVC_K65": 100,
+      "DBP": 48,
+      "CaCO3": 7,
+      "Ba_Zn": 2,
+      "Additives": 1.5
+    },
+    "cost_per_kg": 53,
+    "prop": {
+      "tens_mpa": 19.0,
+      "elong_pct": 262.0,
+      "hard_shore": 68.0,
+      "brit_temp_c": -31.0,
+      "visc_cps": 1015
+    },
+    "verdict": "PASS",
+    "yield": 96.2,
+    "notes": "Batch 56: rigid_pipe_water variant 4"
+  },
+  {
+    "id": "FM-0057",
+    "date": "2023-02-27",
+    "app": "rigid_pipe_water",
+    "std": "IS_14926",
+    "cust": "Mittal Polymers",
+    "vol_kg": 500,
+    "formula": {
+      "PVC_K65": 100,
+      "DOP": 42,
+      "Clay": 9,
+      "Ca_Zn": 2,
+      "Additives": 1.5
+    },
+    "cost_per_kg": 53,
+    "prop": {
+      "tens_mpa": 18.2,
+      "elong_pct": 230.0,
+      "hard_shore": 69.0,
+      "brit_temp_c": -23.0,
+      "visc_cps": 905
+    },
+    "verdict": "PASS",
+    "yield": 94.5,
+    "notes": "Batch 57: rigid_pipe_water variant 5"
+  },
+  {
+    "id": "FM-0058",
+    "date": "2023-02-28",
+    "app": "rigid_pipe_water",
+    "std": "IS_14926",
+    "cust": "Flex Films",
+    "vol_kg": 700,
+    "formula": {
+      "PVC_K67": 100,
+      "DBP": 43,
+      "Barite": 12,
+      "Organic_Tin": 2,
+      "Additives": 1.5
+    },
+    "cost_per_kg": 55,
+    "prop": {
+      "tens_mpa": 18.0,
+      "elong_pct": 214.0,
+      "hard_shore": 69.0,
+      "brit_temp_c": -25.0,
+      "visc_cps": 990
+    },
+    "verdict": "PASS",
+    "yield": 94.3,
+    "notes": "Batch 58: rigid_pipe_water variant 6"
+  },
+  {
+    "id": "FM-0059",
+    "date": "2023-03-01",
+    "app": "rigid_pipe_water",
+    "std": "IS_14926",
+    "cust": "KEI Industries",
+    "vol_kg": 900,
+    "formula": {
+      "PVC_K70": 100,
+      "DOTP": 35,
+      "Barite": 12,
+      "Ba_Zn": 2,
+      "Additives": 1.5
+    },
+    "cost_per_kg": 55,
+    "prop": {
+      "tens_mpa": 17.0,
+      "elong_pct": 222.0,
+      "hard_shore": 70.0,
+      "brit_temp_c": -15.0,
+      "visc_cps": 790
+    },
+    "verdict": "PASS",
+    "yield": 95.0,
+    "notes": "Batch 59: rigid_pipe_water variant 7"
+  },
+  {
+    "id": "FM-0060",
+    "date": "2023-03-02",
+    "app": "rigid_pipe_water",
+    "std": "IS_14926",
+    "cust": "Tesa Cable",
+    "vol_kg": 1100,
+    "formula": {
+      "PVC_K57": 100,
+      "DOTP": 40,
+      "Barite": 20,
+      "Ca_Zn": 2,
+      "Additives": 1.5
+    },
+    "cost_per_kg": 54,
+    "prop": {
+      "tens_mpa": 16.2,
+      "elong_pct": 213.0,
+      "hard_shore": 70.0,
+      "brit_temp_c": -21.0,
+      "visc_cps": 1075
+    },
+    "verdict": "PASS",
+    "yield": 97.1,
+    "notes": "Batch 60: rigid_pipe_water variant 8"
+  },
+  {
+    "id": "FM-0061",
+    "date": "2023-03-03",
+    "app": "rigid_pipe_water",
+    "std": "IS_14926",
+    "cust": "Polycab Industries",
+    "vol_kg": 1300,
+    "formula": {
+      "PVC_K57": 100,
+      "DOP": 40,
+      "Barite": 13,
+      "Ba_Zn": 2,
+      "Additives": 1.5
+    },
+    "cost_per_kg": 54,
+    "prop": {
+      "tens_mpa": 17.6,
+      "elong_pct": 208.0,
+      "hard_shore": 70.0,
+      "brit_temp_c": -21.0,
+      "visc_cps": 935
+    },
+    "verdict": "PASS",
+    "yield": 97.9,
+    "notes": "Batch 61: rigid_pipe_water variant 9"
+  },
+  {
+    "id": "FM-0062",
+    "date": "2023-03-04",
+    "app": "rigid_pipe_water",
+    "std": "IS_14926",
+    "cust": "Flex Films",
+    "vol_kg": 1500,
+    "formula": {
+      "PVC_K72": 100,
+      "DINP": 41,
+      "CaCO3": 6,
+      "Organic_Tin": 2,
+      "Additives": 1.5
+    },
+    "cost_per_kg": 52,
+    "prop": {
+      "tens_mpa": 18.6,
+      "elong_pct": 243.0,
+      "hard_shore": 69.0,
+      "brit_temp_c": -22.0,
+      "visc_cps": 820
+    },
+    "verdict": "PASS",
+    "yield": 96.3,
+    "notes": "Batch 62: rigid_pipe_water variant 10"
+  },
+  {
+    "id": "FM-0063",
+    "date": "2023-03-05",
+    "app": "rigid_pipe_water",
+    "std": "IS_14926",
+    "cust": "Flex Films",
+    "vol_kg": 1700,
+    "formula": {
+      "PVC_K65": 100,
+      "DOP": 39,
+      "Clay": 9,
+      "Ca_Zn": 2,
+      "Additives": 1.5
+    },
+    "cost_per_kg": 54,
+    "prop": {
+      "tens_mpa": 17.6,
+      "elong_pct": 229.0,
+      "hard_shore": 69.0,
+      "brit_temp_c": -20.0,
+      "visc_cps": 830
+    },
+    "verdict": "PASS",
+    "yield": 94.9,
+    "notes": "Batch 63: rigid_pipe_water variant 11"
+  },
+  {
+    "id": "FM-0064",
+    "date": "2023-03-06",
+    "app": "rigid_pipe_water",
+    "std": "IS_14926",
+    "cust": "Crompton Cables",
+    "vol_kg": 300,
+    "formula": {
+      "PVC_K72": 100,
+      "DOP": 42,
+      "CaCO3": 6,
+      "Ba_Zn": 2,
+      "Additives": 1.5
+    },
+    "cost_per_kg": 55,
+    "prop": {
+      "tens_mpa": 18.4,
+      "elong_pct": 252.0,
+      "hard_shore": 69.0,
+      "brit_temp_c": -23.0,
+      "visc_cps": 845
+    },
+    "verdict": "PASS",
+    "yield": 97.5,
+    "notes": "Batch 64: rigid_pipe_water variant 12"
+  },
+  {
+    "id": "FM-0065",
+    "date": "2023-03-07",
+    "app": "rigid_pipe_water",
+    "std": "IS_14926",
+    "cust": "Flex Films",
+    "vol_kg": 500,
+    "formula": {
+      "PVC_K65": 100,
+      "DINP": 48,
+      "Clay": 8,
+      "Organic_Tin": 2,
+      "Additives": 1.5
+    },
+    "cost_per_kg": 53,
+    "prop": {
+      "tens_mpa": 18.9,
+      "elong_pct": 236.0,
+      "hard_shore": 68.0,
+      "brit_temp_c": -31.0,
+      "visc_cps": 1035
+    },
+    "verdict": "PASS",
+    "yield": 93.3,
+    "notes": "Batch 65: rigid_pipe_water variant 13"
+  },
+  {
+    "id": "FM-0066",
+    "date": "2023-03-08",
+    "app": "rigid_pipe_drainage",
+    "std": "IS_14926",
+    "cust": "Polycab Industries",
+    "vol_kg": 700,
+    "formula": {
+      "PVC_K70": 100,
+      "DINP": 40,
+      "CaCO3": 10,
+      "Ba_Zn": 2,
+      "Additives": 1.5
+    },
+    "cost_per_kg": 49,
+    "prop": {
+      "tens_mpa": 18.2,
+      "elong_pct": 226.0,
+      "hard_shore": 68.0,
+      "brit_temp_c": -21.0,
+      "visc_cps": 875
+    },
+    "verdict": "PASS",
+    "yield": 96.5,
+    "notes": "Batch 66: rigid_pipe_drainage variant 1"
+  },
+  {
+    "id": "FM-0067",
+    "date": "2023-03-09",
+    "app": "rigid_pipe_drainage",
+    "std": "IS_14926",
+    "cust": "Mittal Polymers",
+    "vol_kg": 900,
+    "formula": {
+      "PVC_K57": 100,
+      "DBP": 48,
+      "Clay": 10,
+      "Organic_Tin": 2,
+      "Additives": 1.5
+    },
+    "cost_per_kg": 51,
+    "prop": {
+      "tens_mpa": 18.4,
+      "elong_pct": 248.0,
+      "hard_shore": 68.0,
+      "brit_temp_c": -31.0,
+      "visc_cps": 1075
+    },
+    "verdict": "PASS",
+    "yield": 94.2,
+    "notes": "Batch 67: rigid_pipe_drainage variant 2"
+  },
+  {
+    "id": "FM-0068",
+    "date": "2023-03-10",
+    "app": "rigid_pipe_drainage",
+    "std": "IS_14926",
+    "cust": "Arpit Industries",
+    "vol_kg": 1100,
+    "formula": {
+      "PVC_K65": 100,
+      "DOTP": 30,
+      "Barite": 17,
+      "Ca_Zn": 2,
+      "Additives": 1.5
+    },
+    "cost_per_kg": 49,
+    "prop": {
+      "tens_mpa": 15.5,
+      "elong_pct": 185.0,
+      "hard_shore": 70.0,
+      "brit_temp_c": -9.0,
+      "visc_cps": 765
+    },
+    "verdict": "PASS",
+    "yield": 94.9,
+    "notes": "Batch 68: rigid_pipe_drainage variant 3"
+  },
+  {
+    "id": "FM-0069",
+    "date": "2023-03-11",
+    "app": "rigid_pipe_drainage",
+    "std": "IS_14926",
+    "cust": "Indore Composite",
+    "vol_kg": 1300,
+    "formula": {
+      "PVC_K65": 100,
+      "DBP": 42,
+      "Clay": 12,
+      "Organic_Tin": 2,
+      "Additives": 1.5
+    },
+    "cost_per_kg": 51,
+    "prop": {
+      "tens_mpa": 18.0,
+      "elong_pct": 243.0,
+      "hard_shore": 69.0,
+      "brit_temp_c": -23.0,
+      "visc_cps": 965
+    },
+    "verdict": "PASS",
+    "yield": 93.5,
+    "notes": "Batch 69: rigid_pipe_drainage variant 4"
+  },
+  {
+    "id": "FM-0070",
+    "date": "2023-03-12",
+    "app": "rigid_pipe_drainage",
+    "std": "IS_14926",
+    "cust": "Indore Composite",
+    "vol_kg": 1500,
+    "formula": {
+      "PVC_K72": 100,
+      "DOTP": 31,
+      "Barite": 11,
+      "Ca_Zn": 2,
+      "Additives": 1.5
+    },
+    "cost_per_kg": 50,
+    "prop": {
+      "tens_mpa": 17.0,
+      "elong_pct": 207.0,
+      "hard_shore": 70.0,
+      "brit_temp_c": -10.0,
+      "visc_cps": 670
+    },
+    "verdict": "PASS",
+    "yield": 96.1,
+    "notes": "Batch 70: rigid_pipe_drainage variant 5"
+  },
+  {
+    "id": "FM-0071",
+    "date": "2023-03-13",
+    "app": "rigid_pipe_drainage",
+    "std": "IS_14926",
+    "cust": "Crompton Cables",
+    "vol_kg": 1700,
+    "formula": {
+      "PVC_K70": 100,
+      "DINP": 48,
+      "Barite": 15,
+      "Ca_Zn": 2,
+      "Additives": 1.5
+    },
+    "cost_per_kg": 51,
+    "prop": {
+      "tens_mpa": 18.3,
+      "elong_pct": 223.0,
+      "hard_shore": 68.0,
+      "brit_temp_c": -31.0,
+      "visc_cps": 1175
+    },
+    "verdict": "PASS",
+    "yield": 93.8,
+    "notes": "Batch 71: rigid_pipe_drainage variant 6"
+  },
+  {
+    "id": "FM-0072",
+    "date": "2023-03-14",
+    "app": "rigid_pipe_drainage",
+    "std": "IS_14926",
+    "cust": "Nana's Polymers",
+    "vol_kg": 300,
+    "formula": {
+      "PVC_K72": 100,
+      "DOP": 35,
+      "Clay": 12,
+      "Ba_Zn": 2,
+      "Additives": 1.5
+    },
+    "cost_per_kg": 51,
+    "prop": {
+      "tens_mpa": 16.9,
+      "elong_pct": 224.0,
+      "hard_shore": 69.0,
+      "brit_temp_c": -15.0,
+      "visc_cps": 790
+    },
+    "verdict": "PASS",
+    "yield": 96.9,
+    "notes": "Batch 72: rigid_pipe_drainage variant 7"
+  },
+  {
+    "id": "FM-0073",
+    "date": "2023-03-15",
+    "app": "rigid_pipe_drainage",
+    "std": "IS_14926",
+    "cust": "Shyam Polymers",
+    "vol_kg": 500,
+    "formula": {
+      "PVC_K65": 100,
+      "DOTP": 34,
+      "Clay": 11,
+      "Ca_Zn": 2,
+      "Additives": 1.5
+    },
+    "cost_per_kg": 50,
+    "prop": {
+      "tens_mpa": 17.0,
+      "elong_pct": 220.0,
+      "hard_shore": 69.0,
+      "brit_temp_c": -14.0,
+      "visc_cps": 745
+    },
+    "verdict": "PASS",
+    "yield": 93.1,
+    "notes": "Batch 73: rigid_pipe_drainage variant 8"
+  },
+  {
+    "id": "FM-0074",
+    "date": "2023-03-16",
+    "app": "rigid_pipe_drainage",
+    "std": "IS_14926",
+    "cust": "KEI Industries",
+    "vol_kg": 700,
+    "formula": {
+      "PVC_K72": 100,
+      "DBP": 43,
+      "Barite": 20,
+      "Ca_Zn": 2,
+      "Additives": 1.5
+    },
+    "cost_per_kg": 52,
+    "prop": {
+      "tens_mpa": 17.2,
+      "elong_pct": 230.0,
+      "hard_shore": 69.0,
+      "brit_temp_c": -25.0,
+      "visc_cps": 1150
+    },
+    "verdict": "PASS",
+    "yield": 93.6,
+    "notes": "Batch 74: rigid_pipe_drainage variant 9"
+  },
+  {
+    "id": "FM-0075",
+    "date": "2023-03-17",
+    "app": "rigid_pipe_drainage",
+    "std": "IS_14926",
+    "cust": "Jayashree Textiles",
+    "vol_kg": 900,
+    "formula": {
+      "PVC_K67": 100,
+      "DOTP": 39,
+      "Barite": 19,
+      "Ba_Zn": 2,
+      "Additives": 1.5
+    },
+    "cost_per_kg": 52,
+    "prop": {
+      "tens_mpa": 16.4,
+      "elong_pct": 200.0,
+      "hard_shore": 70.0,
+      "brit_temp_c": -20.0,
+      "visc_cps": 1030
+    },
+    "verdict": "PASS",
+    "yield": 95.1,
+    "notes": "Batch 75: rigid_pipe_drainage variant 10"
+  },
+  {
+    "id": "FM-0076",
+    "date": "2023-03-18",
+    "app": "rigid_pipe_drainage",
+    "std": "IS_14926",
+    "cust": "Shyam Polymers",
+    "vol_kg": 1100,
+    "formula": {
+      "PVC_K72": 100,
+      "DBP": 48,
+      "Barite": 15,
+      "Ba_Zn": 2,
+      "Additives": 1.5
+    },
+    "cost_per_kg": 52,
+    "prop": {
+      "tens_mpa": 17.7,
+      "elong_pct": 227.0,
+      "hard_shore": 69.0,
+      "brit_temp_c": -31.0,
+      "visc_cps": 1175
+    },
+    "verdict": "PASS",
+    "yield": 96.0,
+    "notes": "Batch 76: rigid_pipe_drainage variant 11"
+  },
+  {
+    "id": "FM-0077",
+    "date": "2023-03-19",
+    "app": "rigid_pipe_drainage",
+    "std": "IS_14926",
+    "cust": "Premier Polymers",
+    "vol_kg": 1300,
+    "formula": {
+      "PVC_K65": 100,
+      "DOP": 40,
+      "CaCO3": 11,
+      "Organic_Tin": 2,
+      "Additives": 1.5
+    },
+    "cost_per_kg": 51,
+    "prop": {
+      "tens_mpa": 17.1,
+      "elong_pct": 219.0,
+      "hard_shore": 68.0,
+      "brit_temp_c": -21.0,
+      "visc_cps": 895
+    },
+    "verdict": "PASS",
+    "yield": 95.7,
+    "notes": "Batch 77: rigid_pipe_drainage variant 12"
+  },
+  {
+    "id": "FM-0078",
+    "date": "2023-03-20",
+    "app": "rigid_pipe_drainage",
+    "std": "IS_14926",
+    "cust": "Havells India",
+    "vol_kg": 1500,
+    "formula": {
+      "PVC_K57": 100,
+      "DBP": 47,
+      "Clay": 10,
+      "Ba_Zn": 2,
+      "Additives": 1.5
+    },
+    "cost_per_kg": 51,
+    "prop": {
+      "tens_mpa": 18.3,
+      "elong_pct": 240.0,
+      "hard_shore": 68.0,
+      "brit_temp_c": -29.0,
+      "visc_cps": 1050
+    },
+    "verdict": "PASS",
+    "yield": 93.5,
+    "notes": "Batch 78: rigid_pipe_drainage variant 13"
+  },
+  {
+    "id": "FM-0079",
+    "date": "2023-03-21",
+    "app": "flexible_tubing",
+    "std": "IS_5714",
+    "cust": "Bharat Polymers",
+    "vol_kg": 1700,
+    "formula": {
+      "PVC_K67": 100,
+      "DINP": 41,
+      "CaCO3": 9,
+      "Ba_Zn": 2,
+      "Additives": 1.5
+    },
+    "cost_per_kg": 60,
+    "prop": {
+      "tens_mpa": 18.1,
+      "elong_pct": 234.0,
+      "hard_shore": 69.0,
+      "brit_temp_c": -22.0,
+      "visc_cps": 880
+    },
+    "verdict": "PASS",
+    "yield": 95.1,
+    "notes": "Batch 79: flexible_tubing variant 1"
+  },
+  {
+    "id": "FM-0080",
+    "date": "2023-03-22",
+    "app": "flexible_tubing",
+    "std": "IS_5714",
+    "cust": "Arpit Industries",
+    "vol_kg": 300,
+    "formula": {
+      "PVC_K67": 100,
+      "DOTP": 31,
+      "Clay": 12,
+      "Ca_Zn": 2,
+      "Additives": 1.5
+    },
+    "cost_per_kg": 59,
+    "prop": {
+      "tens_mpa": 16.5,
+      "elong_pct": 218.0,
+      "hard_shore": 70.0,
+      "brit_temp_c": -10.0,
+      "visc_cps": 690
+    },
+    "verdict": "PASS",
+    "yield": 97.9,
+    "notes": "Batch 80: flexible_tubing variant 2"
+  },
+  {
+    "id": "FM-0081",
+    "date": "2023-03-23",
+    "app": "flexible_tubing",
+    "std": "IS_5714",
+    "cust": "Flex Films",
+    "vol_kg": 500,
+    "formula": {
+      "PVC_K67": 100,
+      "DOP": 40,
+      "CaCO3": 6,
+      "Ba_Zn": 2,
+      "Additives": 1.5
+    },
+    "cost_per_kg": 61,
+    "prop": {
+      "tens_mpa": 18.7,
+      "elong_pct": 222.0,
+      "hard_shore": 68.0,
+      "brit_temp_c": -21.0,
+      "visc_cps": 795
+    },
+    "verdict": "PASS",
+    "yield": 95.4,
+    "notes": "Batch 81: flexible_tubing variant 3"
+  },
+  {
+    "id": "FM-0082",
+    "date": "2023-03-24",
+    "app": "flexible_tubing",
+    "std": "IS_5714",
+    "cust": "Crompton Cables",
+    "vol_kg": 700,
+    "formula": {
+      "PVC_K65": 100,
+      "DOTP": 40,
+      "Clay": 10,
+      "Organic_Tin": 2,
+      "Additives": 1.5
+    },
+    "cost_per_kg": 62,
+    "prop": {
+      "tens_mpa": 17.7,
+      "elong_pct": 240.0,
+      "hard_shore": 70.0,
+      "brit_temp_c": -21.0,
+      "visc_cps": 875
+    },
+    "verdict": "PASS",
+    "yield": 96.4,
+    "notes": "Batch 82: flexible_tubing variant 4"
+  },
+  {
+    "id": "FM-0083",
+    "date": "2023-03-25",
+    "app": "flexible_tubing",
+    "std": "IS_5714",
+    "cust": "Himachal Futuristic",
+    "vol_kg": 900,
+    "formula": {
+      "PVC_K70": 100,
+      "DBP": 43,
+      "Barite": 15,
+      "Ba_Zn": 2,
+      "Additives": 1.5
+    },
+    "cost_per_kg": 62,
+    "prop": {
+      "tens_mpa": 18.0,
+      "elong_pct": 224.0,
+      "hard_shore": 68.0,
+      "brit_temp_c": -25.0,
+      "visc_cps": 1050
+    },
+    "verdict": "PASS",
+    "yield": 95.6,
+    "notes": "Batch 83: flexible_tubing variant 5"
+  },
+  {
+    "id": "FM-0084",
+    "date": "2023-03-26",
+    "app": "flexible_tubing",
+    "std": "IS_5714",
+    "cust": "Premier Polymers",
+    "vol_kg": 1100,
+    "formula": {
+      "PVC_K72": 100,
+      "DBP": 50,
+      "CaCO3": 11,
+      "Organic_Tin": 2,
+      "Additives": 1.5
+    },
+    "cost_per_kg": 59,
+    "prop": {
+      "tens_mpa": 19.0,
+      "elong_pct": 270.0,
+      "hard_shore": 68.0,
+      "brit_temp_c": -33.0,
+      "visc_cps": 1145
+    },
+    "verdict": "PASS",
+    "yield": 94.7,
+    "notes": "Batch 84: flexible_tubing variant 6"
+  },
+  {
+    "id": "FM-0085",
+    "date": "2023-03-27",
+    "app": "flexible_tubing",
+    "std": "IS_5714",
+    "cust": "Havells India",
+    "vol_kg": 1300,
+    "formula": {
+      "PVC_K57": 100,
+      "DBP": 43,
+      "Barite": 16,
+      "Ca_Zn": 2,
+      "Additives": 1.5
+    },
+    "cost_per_kg": 62,
+    "prop": {
+      "tens_mpa": 17.6,
+      "elong_pct": 218.0,
+      "hard_shore": 69.0,
+      "brit_temp_c": -25.0,
+      "visc_cps": 1070
+    },
+    "verdict": "PASS",
+    "yield": 93.6,
+    "notes": "Batch 85: flexible_tubing variant 7"
+  },
+  {
+    "id": "FM-0086",
+    "date": "2023-03-28",
+    "app": "flexible_tubing",
+    "std": "IS_5714",
+    "cust": "KEI Industries",
+    "vol_kg": 1500,
+    "formula": {
+      "PVC_K65": 100,
+      "DOTP": 40,
+      "CaCO3": 9,
+      "Organic_Tin": 2,
+      "Additives": 1.5
+    },
+    "cost_per_kg": 61,
+    "prop": {
+      "tens_mpa": 18.2,
+      "elong_pct": 215.0,
+      "hard_shore": 69.0,
+      "brit_temp_c": -21.0,
+      "visc_cps": 855
+    },
+    "verdict": "PASS",
+    "yield": 97.9,
+    "notes": "Batch 86: flexible_tubing variant 8"
+  },
+  {
+    "id": "FM-0087",
+    "date": "2023-03-29",
+    "app": "flexible_tubing",
+    "std": "IS_5714",
+    "cust": "Finolex Cables",
+    "vol_kg": 1700,
+    "formula": {
+      "PVC_K67": 100,
+      "DOP": 38,
+      "Barite": 12,
+      "Ba_Zn": 2,
+      "Additives": 1.5
+    },
+    "cost_per_kg": 59,
+    "prop": {
+      "tens_mpa": 17.4,
+      "elong_pct": 204.0,
+      "hard_shore": 70.0,
+      "brit_temp_c": -19.0,
+      "visc_cps": 865
+    },
+    "verdict": "PASS",
+    "yield": 96.1,
+    "notes": "Batch 87: flexible_tubing variant 9"
+  },
+  {
+    "id": "FM-0088",
+    "date": "2023-03-30",
+    "app": "flexible_tubing",
+    "std": "IS_5714",
+    "cust": "Himachal Futuristic",
+    "vol_kg": 300,
+    "formula": {
+      "PVC_K72": 100,
+      "DOP": 45,
+      "Clay": 11,
+      "Ca_Zn": 2,
+      "Additives": 1.5
+    },
+    "cost_per_kg": 61,
+    "prop": {
+      "tens_mpa": 18.5,
+      "elong_pct": 243.0,
+      "hard_shore": 68.0,
+      "brit_temp_c": -27.0,
+      "visc_cps": 1020
+    },
+    "verdict": "PASS",
+    "yield": 96.9,
+    "notes": "Batch 88: flexible_tubing variant 10"
+  },
+  {
+    "id": "FM-0089",
+    "date": "2023-03-31",
+    "app": "flexible_tubing",
+    "std": "IS_5714",
+    "cust": "Flex Films",
+    "vol_kg": 500,
+    "formula": {
+      "PVC_K65": 100,
+      "DBP": 49,
+      "Barite": 12,
+      "Ba_Zn": 2,
+      "Additives": 1.5
+    },
+    "cost_per_kg": 59,
+    "prop": {
+      "tens_mpa": 18.4,
+      "elong_pct": 248.0,
+      "hard_shore": 69.0,
+      "brit_temp_c": -32.0,
+      "visc_cps": 1140
+    },
+    "verdict": "PASS",
+    "yield": 97.0,
+    "notes": "Batch 89: flexible_tubing variant 11"
+  },
+  {
+    "id": "FM-0090",
+    "date": "2023-04-01",
+    "app": "flexible_tubing",
+    "std": "IS_5714",
+    "cust": "Flex Films",
+    "vol_kg": 700,
+    "formula": {
+      "PVC_K72": 100,
+      "DBP": 44,
+      "Clay": 12,
+      "Ba_Zn": 2,
+      "Additives": 1.5
+    },
+    "cost_per_kg": 61,
+    "prop": {
+      "tens_mpa": 17.7,
+      "elong_pct": 228.0,
+      "hard_shore": 70.0,
+      "brit_temp_c": -26.0,
+      "visc_cps": 1015
+    },
+    "verdict": "PASS",
+    "yield": 93.5,
+    "notes": "Batch 90: flexible_tubing variant 12"
+  },
+  {
+    "id": "FM-0091",
+    "date": "2023-04-02",
+    "app": "flexible_tubing",
+    "std": "IS_5714",
+    "cust": "Arpit Industries",
+    "vol_kg": 900,
+    "formula": {
+      "PVC_K67": 100,
+      "DOP": 42,
+      "Barite": 16,
+      "Organic_Tin": 2,
+      "Additives": 1.5
+    },
+    "cost_per_kg": 62,
+    "prop": {
+      "tens_mpa": 17.1,
+      "elong_pct": 228.0,
+      "hard_shore": 69.0,
+      "brit_temp_c": -23.0,
+      "visc_cps": 1045
+    },
+    "verdict": "PASS",
+    "yield": 93.4,
+    "notes": "Batch 91: flexible_tubing variant 13"
+  },
+  {
+    "id": "FM-0092",
+    "date": "2023-04-03",
+    "app": "flooring_commercial",
+    "std": "ISO_9001",
+    "cust": "Jayashree Textiles",
+    "vol_kg": 1100,
+    "formula": {
+      "PVC_K67": 100,
+      "DBP": 44,
+      "Clay": 11,
+      "Organic_Tin": 2,
+      "Additives": 1.5
+    },
+    "cost_per_kg": 58,
+    "prop": {
+      "tens_mpa": 17.9,
+      "elong_pct": 219.0,
+      "hard_shore": 68.0,
+      "brit_temp_c": -26.0,
+      "visc_cps": 995
+    },
+    "verdict": "PASS",
+    "yield": 96.0,
+    "notes": "Batch 92: flooring_commercial variant 1"
+  },
+  {
+    "id": "FM-0093",
+    "date": "2023-04-04",
+    "app": "flooring_commercial",
+    "std": "ISO_9001",
+    "cust": "Crompton Cables",
+    "vol_kg": 1300,
+    "formula": {
+      "PVC_K72": 100,
+      "DOP": 37,
+      "CaCO3": 10,
+      "Ba_Zn": 2,
+      "Additives": 1.5
+    },
+    "cost_per_kg": 58,
+    "prop": {
+      "tens_mpa": 17.5,
+      "elong_pct": 206.0,
+      "hard_shore": 70.0,
+      "brit_temp_c": -17.0,
+      "visc_cps": 800
+    },
+    "verdict": "PASS",
+    "yield": 96.9,
+    "notes": "Batch 93: flooring_commercial variant 2"
+  },
+  {
+    "id": "FM-0094",
+    "date": "2023-04-05",
+    "app": "flooring_commercial",
+    "std": "ISO_9001",
+    "cust": "Havells India",
+    "vol_kg": 1500,
+    "formula": {
+      "PVC_K57": 100,
+      "DOTP": 36,
+      "Clay": 10,
+      "Ba_Zn": 2,
+      "Additives": 1.5
+    },
+    "cost_per_kg": 59,
+    "prop": {
+      "tens_mpa": 17.4,
+      "elong_pct": 198.0,
+      "hard_shore": 68.0,
+      "brit_temp_c": -16.0,
+      "visc_cps": 775
+    },
+    "verdict": "PASS",
+    "yield": 97.2,
+    "notes": "Batch 94: flooring_commercial variant 3"
+  },
+  {
+    "id": "FM-0095",
+    "date": "2023-04-06",
+    "app": "flooring_commercial",
+    "std": "ISO_9001",
+    "cust": "Shyam Polymers",
+    "vol_kg": 1700,
+    "formula": {
+      "PVC_K65": 100,
+      "DOTP": 36,
+      "CaCO3": 14,
+      "Ba_Zn": 2,
+      "Additives": 1.5
+    },
+    "cost_per_kg": 59,
+    "prop": {
+      "tens_mpa": 16.3,
+      "elong_pct": 212.0,
+      "hard_shore": 70.0,
+      "brit_temp_c": -16.0,
+      "visc_cps": 855
+    },
+    "verdict": "PASS",
+    "yield": 94.8,
+    "notes": "Batch 95: flooring_commercial variant 4"
+  },
+  {
+    "id": "FM-0096",
+    "date": "2023-04-07",
+    "app": "flooring_commercial",
+    "std": "ISO_9001",
+    "cust": "Arpit Industries",
+    "vol_kg": 300,
+    "formula": {
+      "PVC_K70": 100,
+      "DOTP": 30,
+      "Barite": 17,
+      "Organic_Tin": 2,
+      "Additives": 1.5
+    },
+    "cost_per_kg": 58,
+    "prop": {
+      "tens_mpa": 15.2,
+      "elong_pct": 192.0,
+      "hard_shore": 70.0,
+      "brit_temp_c": -9.0,
+      "visc_cps": 765
+    },
+    "verdict": "PASS",
+    "yield": 93.2,
+    "notes": "Batch 96: flooring_commercial variant 5"
+  },
+  {
+    "id": "FM-0097",
+    "date": "2023-04-08",
+    "app": "flooring_commercial",
+    "std": "ISO_9001",
+    "cust": "Mittal Polymers",
+    "vol_kg": 500,
+    "formula": {
+      "PVC_K72": 100,
+      "DBP": 45,
+      "CaCO3": 8,
+      "Organic_Tin": 2,
+      "Additives": 1.5
+    },
+    "cost_per_kg": 59,
+    "prop": {
+      "tens_mpa": 18.2,
+      "elong_pct": 230.0,
+      "hard_shore": 69.0,
+      "brit_temp_c": -27.0,
+      "visc_cps": 960
+    },
+    "verdict": "PASS",
+    "yield": 96.4,
+    "notes": "Batch 97: flooring_commercial variant 6"
+  },
+  {
+    "id": "FM-0098",
+    "date": "2023-04-09",
+    "app": "flooring_commercial",
+    "std": "ISO_9001",
+    "cust": "Jayashree Textiles",
+    "vol_kg": 700,
+    "formula": {
+      "PVC_K65": 100,
+      "DOTP": 30,
+      "CaCO3": 13,
+      "Ca_Zn": 2,
+      "Additives": 1.5
+    },
+    "cost_per_kg": 59,
+    "prop": {
+      "tens_mpa": 15.9,
+      "elong_pct": 185.0,
+      "hard_shore": 70.0,
+      "brit_temp_c": -9.0,
+      "visc_cps": 685
+    },
+    "verdict": "PASS",
+    "yield": 96.0,
+    "notes": "Batch 98: flooring_commercial variant 7"
+  },
+  {
+    "id": "FM-0099",
+    "date": "2023-04-10",
+    "app": "flooring_commercial",
+    "std": "ISO_9001",
+    "cust": "Polycab Industries",
+    "vol_kg": 900,
+    "formula": {
+      "PVC_K72": 100,
+      "DINP": 36,
+      "Barite": 11,
+      "Ca_Zn": 2,
+      "Additives": 1.5
+    },
+    "cost_per_kg": 57,
+    "prop": {
+      "tens_mpa": 17.3,
+      "elong_pct": 210.0,
+      "hard_shore": 70.0,
+      "brit_temp_c": -16.0,
+      "visc_cps": 795
+    },
+    "verdict": "PASS",
+    "yield": 93.3,
+    "notes": "Batch 99: flooring_commercial variant 8"
+  },
+  {
+    "id": "FM-0100",
+    "date": "2023-04-11",
+    "app": "flooring_commercial",
+    "std": "ISO_9001",
+    "cust": "Shyam Polymers",
+    "vol_kg": 1100,
+    "formula": {
+      "PVC_K70": 100,
+      "DOTP": 35,
+      "Barite": 16,
+      "Ba_Zn": 2,
+      "Additives": 1.5
+    },
+    "cost_per_kg": 57,
+    "prop": {
+      "tens_mpa": 16.8,
+      "elong_pct": 192.0,
+      "hard_shore": 71.0,
+      "brit_temp_c": -15.0,
+      "visc_cps": 870
+    },
+    "verdict": "PASS",
+    "yield": 93.5,
+    "notes": "Batch 100: flooring_commercial variant 9"
+  },
+  {
+    "id": "FM-0101",
+    "date": "2023-04-12",
+    "app": "flooring_commercial",
+    "std": "ISO_9001",
+    "cust": "Arpit Industries",
+    "vol_kg": 1300,
+    "formula": {
+      "PVC_K67": 100,
+      "DOTP": 38,
+      "Clay": 11,
+      "Ba_Zn": 2,
+      "Additives": 1.5
+    },
+    "cost_per_kg": 58,
+    "prop": {
+      "tens_mpa": 17.0,
+      "elong_pct": 223.0,
+      "hard_shore": 70.0,
+      "brit_temp_c": -19.0,
+      "visc_cps": 845
+    },
+    "verdict": "PASS",
+    "yield": 93.7,
+    "notes": "Batch 101: flooring_commercial variant 10"
+  },
+  {
+    "id": "FM-0102",
+    "date": "2023-04-13",
+    "app": "flooring_commercial",
+    "std": "ISO_9001",
+    "cust": "KEI Industries",
+    "vol_kg": 1500,
+    "formula": {
+      "PVC_K70": 100,
+      "DINP": 45,
+      "CaCO3": 15,
+      "Ba_Zn": 2,
+      "Additives": 1.5
+    },
+    "cost_per_kg": 57,
+    "prop": {
+      "tens_mpa": 17.6,
+      "elong_pct": 224.0,
+      "hard_shore": 69.0,
+      "brit_temp_c": -27.0,
+      "visc_cps": 1100
+    },
+    "verdict": "PASS",
+    "yield": 95.9,
+    "notes": "Batch 102: flooring_commercial variant 11"
+  },
+  {
+    "id": "FM-0103",
+    "date": "2023-04-14",
+    "app": "flooring_commercial",
+    "std": "ISO_9001",
+    "cust": "Finolex Cables",
+    "vol_kg": 1700,
+    "formula": {
+      "PVC_K70": 100,
+      "DINP": 46,
+      "CaCO3": 14,
+      "Ca_Zn": 2,
+      "Additives": 1.5
+    },
+    "cost_per_kg": 58,
+    "prop": {
+      "tens_mpa": 18.1,
+      "elong_pct": 244.0,
+      "hard_shore": 69.0,
+      "brit_temp_c": -28.0,
+      "visc_cps": 1105
+    },
+    "verdict": "PASS",
+    "yield": 96.6,
+    "notes": "Batch 103: flooring_commercial variant 12"
+  },
+  {
+    "id": "FM-0104",
+    "date": "2023-04-15",
+    "app": "flooring_commercial",
+    "std": "ISO_9001",
+    "cust": "Bharat Polymers",
+    "vol_kg": 300,
+    "formula": {
+      "PVC_K70": 100,
+      "DINP": 40,
+      "Clay": 12,
+      "Ca_Zn": 2,
+      "Additives": 1.5
+    },
+    "cost_per_kg": 59,
+    "prop": {
+      "tens_mpa": 17.6,
+      "elong_pct": 216.0,
+      "hard_shore": 68.0,
+      "brit_temp_c": -21.0,
+      "visc_cps": 915
+    },
+    "verdict": "PASS",
+    "yield": 94.9,
+    "notes": "Batch 104: flooring_commercial variant 13"
+  },
+  {
+    "id": "FM-0105",
+    "date": "2023-04-16",
+    "app": "flooring_industrial",
+    "std": "ISO_9001",
+    "cust": "Bharat Polymers",
+    "vol_kg": 500,
+    "formula": {
+      "PVC_K70": 100,
+      "DOP": 38,
+      "Clay": 11,
+      "Ba_Zn": 2,
+      "Additives": 1.5
+    },
+    "cost_per_kg": 60,
+    "prop": {
+      "tens_mpa": 17.9,
+      "elong_pct": 232.0,
+      "hard_shore": 70.0,
+      "brit_temp_c": -19.0,
+      "visc_cps": 845
+    },
+    "verdict": "PASS",
+    "yield": 95.9,
+    "notes": "Batch 105: flooring_industrial variant 1"
+  },
+  {
+    "id": "FM-0106",
+    "date": "2023-04-17",
+    "app": "flooring_industrial",
+    "std": "ISO_9001",
+    "cust": "Havells India",
+    "vol_kg": 700,
+    "formula": {
+      "PVC_K72": 100,
+      "DBP": 47,
+      "Barite": 20,
+      "Ca_Zn": 2,
+      "Additives": 1.5
+    },
+    "cost_per_kg": 61,
+    "prop": {
+      "tens_mpa": 17.3,
+      "elong_pct": 248.0,
+      "hard_shore": 71.0,
+      "brit_temp_c": -29.0,
+      "visc_cps": 1250
+    },
+    "verdict": "PASS",
+    "yield": 94.9,
+    "notes": "Batch 106: flooring_industrial variant 2"
+  },
+  {
+    "id": "FM-0107",
+    "date": "2023-04-18",
+    "app": "flooring_industrial",
+    "std": "ISO_9001",
+    "cust": "Flex Films",
+    "vol_kg": 900,
+    "formula": {
+      "PVC_K67": 100,
+      "DINP": 40,
+      "Barite": 18,
+      "Ba_Zn": 2,
+      "Additives": 1.5
+    },
+    "cost_per_kg": 62,
+    "prop": {
+      "tens_mpa": 16.4,
+      "elong_pct": 230.0,
+      "hard_shore": 70.0,
+      "brit_temp_c": -21.0,
+      "visc_cps": 1035
+    },
+    "verdict": "PASS",
+    "yield": 94.6,
+    "notes": "Batch 107: flooring_industrial variant 3"
+  },
+  {
+    "id": "FM-0108",
+    "date": "2023-04-19",
+    "app": "flooring_industrial",
+    "std": "ISO_9001",
+    "cust": "Jayashree Textiles",
+    "vol_kg": 1100,
+    "formula": {
+      "PVC_K70": 100,
+      "DINP": 45,
+      "CaCO3": 6,
+      "Ca_Zn": 2,
+      "Additives": 1.5
+    },
+    "cost_per_kg": 61,
+    "prop": {
+      "tens_mpa": 19.3,
+      "elong_pct": 243.0,
+      "hard_shore": 68.0,
+      "brit_temp_c": -27.0,
+      "visc_cps": 920
+    },
+    "verdict": "PASS",
+    "yield": 95.8,
+    "notes": "Batch 108: flooring_industrial variant 4"
+  },
+  {
+    "id": "FM-0109",
+    "date": "2023-04-20",
+    "app": "flooring_industrial",
+    "std": "ISO_9001",
+    "cust": "Polycab Industries",
+    "vol_kg": 1300,
+    "formula": {
+      "PVC_K67": 100,
+      "DBP": 44,
+      "CaCO3": 9,
+      "Organic_Tin": 2,
+      "Additives": 1.5
+    },
+    "cost_per_kg": 59,
+    "prop": {
+      "tens_mpa": 18.3,
+      "elong_pct": 246.0,
+      "hard_shore": 69.0,
+      "brit_temp_c": -26.0,
+      "visc_cps": 955
+    },
+    "verdict": "PASS",
+    "yield": 96.4,
+    "notes": "Batch 109: flooring_industrial variant 5"
+  },
+  {
+    "id": "FM-0110",
+    "date": "2023-04-21",
+    "app": "flooring_industrial",
+    "std": "ISO_9001",
+    "cust": "Crompton Cables",
+    "vol_kg": 1500,
+    "formula": {
+      "PVC_K67": 100,
+      "DINP": 44,
+      "Barite": 17,
+      "Ca_Zn": 2,
+      "Additives": 1.5
+    },
+    "cost_per_kg": 59,
+    "prop": {
+      "tens_mpa": 17.5,
+      "elong_pct": 226.0,
+      "hard_shore": 70.0,
+      "brit_temp_c": -26.0,
+      "visc_cps": 1115
+    },
+    "verdict": "PASS",
+    "yield": 96.3,
+    "notes": "Batch 110: flooring_industrial variant 6"
+  },
+  {
+    "id": "FM-0111",
+    "date": "2023-04-22",
+    "app": "flooring_industrial",
+    "std": "ISO_9001",
+    "cust": "Flex Films",
+    "vol_kg": 1700,
+    "formula": {
+      "PVC_K67": 100,
+      "DBP": 39,
+      "Barite": 11,
+      "Ba_Zn": 2,
+      "Additives": 1.5
+    },
+    "cost_per_kg": 62,
+    "prop": {
+      "tens_mpa": 17.3,
+      "elong_pct": 240.0,
+      "hard_shore": 69.0,
+      "brit_temp_c": -20.0,
+      "visc_cps": 870
+    },
+    "verdict": "PASS",
+    "yield": 97.9,
+    "notes": "Batch 111: flooring_industrial variant 7"
+  },
+  {
+    "id": "FM-0112",
+    "date": "2023-04-23",
+    "app": "flooring_industrial",
+    "std": "ISO_9001",
+    "cust": "Flex Films",
+    "vol_kg": 300,
+    "formula": {
+      "PVC_K65": 100,
+      "DBP": 45,
+      "Clay": 8,
+      "Organic_Tin": 2,
+      "Additives": 1.5
+    },
+    "cost_per_kg": 59,
+    "prop": {
+      "tens_mpa": 18.7,
+      "elong_pct": 228.0,
+      "hard_shore": 69.0,
+      "brit_temp_c": -27.0,
+      "visc_cps": 960
+    },
+    "verdict": "PASS",
+    "yield": 93.2,
+    "notes": "Batch 112: flooring_industrial variant 8"
+  },
+  {
+    "id": "FM-0113",
+    "date": "2023-04-24",
+    "app": "flooring_industrial",
+    "std": "ISO_9001",
+    "cust": "Premier Polymers",
+    "vol_kg": 500,
+    "formula": {
+      "PVC_K65": 100,
+      "DOP": 45,
+      "Clay": 11,
+      "Ca_Zn": 2,
+      "Additives": 1.5
+    },
+    "cost_per_kg": 62,
+    "prop": {
+      "tens_mpa": 17.8,
+      "elong_pct": 249.0,
+      "hard_shore": 68.0,
+      "brit_temp_c": -27.0,
+      "visc_cps": 1020
+    },
+    "verdict": "PASS",
+    "yield": 95.6,
+    "notes": "Batch 113: flooring_industrial variant 9"
+  },
+  {
+    "id": "FM-0114",
+    "date": "2023-04-25",
+    "app": "flooring_industrial",
+    "std": "ISO_9001",
+    "cust": "Havells India",
+    "vol_kg": 700,
+    "formula": {
+      "PVC_K72": 100,
+      "DOTP": 34,
+      "CaCO3": 9,
+      "Organic_Tin": 2,
+      "Additives": 1.5
+    },
+    "cost_per_kg": 59,
+    "prop": {
+      "tens_mpa": 17.2,
+      "elong_pct": 202.0,
+      "hard_shore": 69.0,
+      "brit_temp_c": -14.0,
+      "visc_cps": 705
+    },
+    "verdict": "PASS",
+    "yield": 96.6,
+    "notes": "Batch 114: flooring_industrial variant 10"
+  },
+  {
+    "id": "FM-0115",
+    "date": "2023-04-26",
+    "app": "flooring_industrial",
+    "std": "ISO_9001",
+    "cust": "Nana's Polymers",
+    "vol_kg": 900,
+    "formula": {
+      "PVC_K72": 100,
+      "DOP": 36,
+      "Barite": 19,
+      "Organic_Tin": 2,
+      "Additives": 1.5
+    },
+    "cost_per_kg": 61,
+    "prop": {
+      "tens_mpa": 16.6,
+      "elong_pct": 192.0,
+      "hard_shore": 70.0,
+      "brit_temp_c": -16.0,
+      "visc_cps": 955
+    },
+    "verdict": "PASS",
+    "yield": 96.7,
+    "notes": "Batch 115: flooring_industrial variant 11"
+  },
+  {
+    "id": "FM-0116",
+    "date": "2023-04-27",
+    "app": "flooring_industrial",
+    "std": "ISO_9001",
+    "cust": "Premier Polymers",
+    "vol_kg": 1100,
+    "formula": {
+      "PVC_K65": 100,
+      "DOP": 38,
+      "CaCO3": 10,
+      "Organic_Tin": 2,
+      "Additives": 1.5
+    },
+    "cost_per_kg": 61,
+    "prop": {
+      "tens_mpa": 17.5,
+      "elong_pct": 218.0,
+      "hard_shore": 68.0,
+      "brit_temp_c": -19.0,
+      "visc_cps": 825
+    },
+    "verdict": "PASS",
+    "yield": 96.9,
+    "notes": "Batch 116: flooring_industrial variant 12"
+  },
+  {
+    "id": "FM-0117",
+    "date": "2023-04-28",
+    "app": "flooring_industrial",
+    "std": "ISO_9001",
+    "cust": "Tesa Cable",
+    "vol_kg": 1300,
+    "formula": {
+      "PVC_K67": 100,
+      "DINP": 43,
+      "CaCO3": 8,
+      "Organic_Tin": 2,
+      "Additives": 1.5
+    },
+    "cost_per_kg": 62,
+    "prop": {
+      "tens_mpa": 18.7,
+      "elong_pct": 240.0,
+      "hard_shore": 68.0,
+      "brit_temp_c": -25.0,
+      "visc_cps": 910
+    },
+    "verdict": "PASS",
+    "yield": 93.1,
+    "notes": "Batch 117: flooring_industrial variant 13"
+  },
+  {
+    "id": "FM-0118",
+    "date": "2023-04-29",
+    "app": "sheet_material",
+    "std": "ISO_9001",
+    "cust": "Jayashree Textiles",
+    "vol_kg": 1500,
+    "formula": {
+      "PVC_K70": 100,
+      "DOTP": 37,
+      "Barite": 19,
+      "Ca_Zn": 2,
+      "Additives": 1.5
+    },
+    "cost_per_kg": 64,
+    "prop": {
+      "tens_mpa": 15.9,
+      "elong_pct": 194.0,
+      "hard_shore": 70.0,
+      "brit_temp_c": -17.0,
+      "visc_cps": 980
+    },
+    "verdict": "PASS",
+    "yield": 97.9,
+    "notes": "Batch 118: sheet_material variant 1"
+  },
+  {
+    "id": "FM-0119",
+    "date": "2023-04-30",
+    "app": "sheet_material",
+    "std": "ISO_9001",
+    "cust": "Shyam Polymers",
+    "vol_kg": 1700,
+    "formula": {
+      "PVC_K57": 100,
+      "DINP": 35,
+      "Clay": 11,
+      "Organic_Tin": 2,
+      "Additives": 1.5
+    },
+    "cost_per_kg": 64,
+    "prop": {
+      "tens_mpa": 16.8,
+      "elong_pct": 198.0,
+      "hard_shore": 69.0,
+      "brit_temp_c": -15.0,
+      "visc_cps": 770
+    },
+    "verdict": "PASS",
+    "yield": 96.2,
+    "notes": "Batch 119: sheet_material variant 2"
+  },
+  {
+    "id": "FM-0120",
+    "date": "2023-05-01",
+    "app": "sheet_material",
+    "std": "ISO_9001",
+    "cust": "Shyam Polymers",
+    "vol_kg": 300,
+    "formula": {
+      "PVC_K70": 100,
+      "DINP": 46,
+      "Barite": 12,
+      "Ba_Zn": 2,
+      "Additives": 1.5
+    },
+    "cost_per_kg": 64,
+    "prop": {
+      "tens_mpa": 18.1,
+      "elong_pct": 259.0,
+      "hard_shore": 69.0,
+      "brit_temp_c": -28.0,
+      "visc_cps": 1065
+    },
+    "verdict": "PASS",
+    "yield": 95.8,
+    "notes": "Batch 120: sheet_material variant 3"
+  },
+  {
+    "id": "FM-0121",
+    "date": "2023-05-02",
+    "app": "sheet_material",
+    "std": "ISO_9001",
+    "cust": "Tesa Cable",
+    "vol_kg": 500,
+    "formula": {
+      "PVC_K72": 100,
+      "DOTP": 38,
+      "Barite": 16,
+      "Organic_Tin": 2,
+      "Additives": 1.5
+    },
+    "cost_per_kg": 64,
+    "prop": {
+      "tens_mpa": 17.1,
+      "elong_pct": 211.0,
+      "hard_shore": 69.0,
+      "brit_temp_c": -19.0,
+      "visc_cps": 945
+    },
+    "verdict": "PASS",
+    "yield": 96.4,
+    "notes": "Batch 121: sheet_material variant 4"
+  },
+  {
+    "id": "FM-0122",
+    "date": "2023-05-03",
+    "app": "sheet_material",
+    "std": "ISO_9001",
+    "cust": "Arpit Industries",
+    "vol_kg": 700,
+    "formula": {
+      "PVC_K70": 100,
+      "DBP": 44,
+      "Clay": 11,
+      "Ca_Zn": 2,
+      "Additives": 1.5
+    },
+    "cost_per_kg": 63,
+    "prop": {
+      "tens_mpa": 17.8,
+      "elong_pct": 243.0,
+      "hard_shore": 68.0,
+      "brit_temp_c": -26.0,
+      "visc_cps": 995
+    },
+    "verdict": "PASS",
+    "yield": 93.4,
+    "notes": "Batch 122: sheet_material variant 5"
+  },
+  {
+    "id": "FM-0123",
+    "date": "2023-05-04",
+    "app": "sheet_material",
+    "std": "ISO_9001",
+    "cust": "Havells India",
+    "vol_kg": 900,
+    "formula": {
+      "PVC_K65": 100,
+      "DOP": 37,
+      "Clay": 9,
+      "Organic_Tin": 2,
+      "Additives": 1.5
+    },
+    "cost_per_kg": 63,
+    "prop": {
+      "tens_mpa": 18.0,
+      "elong_pct": 202.0,
+      "hard_shore": 68.0,
+      "brit_temp_c": -17.0,
+      "visc_cps": 780
+    },
+    "verdict": "PASS",
+    "yield": 95.1,
+    "notes": "Batch 123: sheet_material variant 6"
+  },
+  {
+    "id": "FM-0124",
+    "date": "2023-05-05",
+    "app": "sheet_material",
+    "std": "ISO_9001",
+    "cust": "KEI Industries",
+    "vol_kg": 1100,
+    "formula": {
+      "PVC_K70": 100,
+      "DOTP": 31,
+      "Clay": 12,
+      "Ca_Zn": 2,
+      "Additives": 1.5
+    },
+    "cost_per_kg": 63,
+    "prop": {
+      "tens_mpa": 16.2,
+      "elong_pct": 222.0,
+      "hard_shore": 70.0,
+      "brit_temp_c": -10.0,
+      "visc_cps": 690
+    },
+    "verdict": "PASS",
+    "yield": 97.3,
+    "notes": "Batch 124: sheet_material variant 7"
+  },
+  {
+    "id": "FM-0125",
+    "date": "2023-05-06",
+    "app": "sheet_material",
+    "std": "ISO_9001",
+    "cust": "Arpit Industries",
+    "vol_kg": 1300,
+    "formula": {
+      "PVC_K72": 100,
+      "DOP": 36,
+      "Clay": 9,
+      "Ca_Zn": 2,
+      "Additives": 1.5
+    },
+    "cost_per_kg": 64,
+    "prop": {
+      "tens_mpa": 17.5,
+      "elong_pct": 206.0,
+      "hard_shore": 69.0,
+      "brit_temp_c": -16.0,
+      "visc_cps": 755
+    },
+    "verdict": "PASS",
+    "yield": 96.1,
+    "notes": "Batch 125: sheet_material variant 8"
+  },
+  {
+    "id": "FM-0126",
+    "date": "2023-05-07",
+    "app": "sheet_material",
+    "std": "ISO_9001",
+    "cust": "Indore Composite",
+    "vol_kg": 1500,
+    "formula": {
+      "PVC_K72": 100,
+      "DINP": 40,
+      "Clay": 11,
+      "Ca_Zn": 2,
+      "Additives": 1.5
+    },
+    "cost_per_kg": 62,
+    "prop": {
+      "tens_mpa": 17.2,
+      "elong_pct": 240.0,
+      "hard_shore": 68.0,
+      "brit_temp_c": -21.0,
+      "visc_cps": 895
+    },
+    "verdict": "PASS",
+    "yield": 96.4,
+    "notes": "Batch 126: sheet_material variant 9"
+  },
+  {
+    "id": "FM-0127",
+    "date": "2023-05-08",
+    "app": "sheet_material",
+    "std": "ISO_9001",
+    "cust": "Premier Polymers",
+    "vol_kg": 1700,
+    "formula": {
+      "PVC_K67": 100,
+      "DOP": 38,
+      "Clay": 9,
+      "Ba_Zn": 2,
+      "Additives": 1.5
+    },
+    "cost_per_kg": 62,
+    "prop": {
+      "tens_mpa": 17.5,
+      "elong_pct": 231.0,
+      "hard_shore": 70.0,
+      "brit_temp_c": -19.0,
+      "visc_cps": 805
+    },
+    "verdict": "PASS",
+    "yield": 97.7,
+    "notes": "Batch 127: sheet_material variant 10"
+  },
+  {
+    "id": "FM-0128",
+    "date": "2023-05-09",
+    "app": "sheet_material",
+    "std": "ISO_9001",
+    "cust": "Tesa Cable",
+    "vol_kg": 300,
+    "formula": {
+      "PVC_K67": 100,
+      "DBP": 49,
+      "Clay": 12,
+      "Ca_Zn": 2,
+      "Additives": 1.5
+    },
+    "cost_per_kg": 62,
+    "prop": {
+      "tens_mpa": 18.3,
+      "elong_pct": 252.0,
+      "hard_shore": 68.0,
+      "brit_temp_c": -32.0,
+      "visc_cps": 1140
+    },
+    "verdict": "PASS",
+    "yield": 93.7,
+    "notes": "Batch 128: sheet_material variant 11"
+  },
+  {
+    "id": "FM-0129",
+    "date": "2023-05-10",
+    "app": "sheet_material",
+    "std": "ISO_9001",
+    "cust": "Tesa Cable",
+    "vol_kg": 500,
+    "formula": {
+      "PVC_K65": 100,
+      "DBP": 41,
+      "Barite": 18,
+      "Organic_Tin": 2,
+      "Additives": 1.5
+    },
+    "cost_per_kg": 63,
+    "prop": {
+      "tens_mpa": 16.9,
+      "elong_pct": 201.0,
+      "hard_shore": 69.0,
+      "brit_temp_c": -22.0,
+      "visc_cps": 1060
+    },
+    "verdict": "PASS",
+    "yield": 96.2,
+    "notes": "Batch 129: sheet_material variant 12"
+  },
+  {
+    "id": "FM-0130",
+    "date": "2023-05-11",
+    "app": "sheet_material",
+    "std": "ISO_9001",
+    "cust": "KEI Industries",
+    "vol_kg": 700,
+    "formula": {
+      "PVC_K72": 100,
+      "DOP": 40,
+      "Clay": 9,
+      "Ca_Zn": 2,
+      "Additives": 1.5
+    },
+    "cost_per_kg": 65,
+    "prop": {
+      "tens_mpa": 17.5,
+      "elong_pct": 211.0,
+      "hard_shore": 70.0,
+      "brit_temp_c": -21.0,
+      "visc_cps": 855
+    },
+    "verdict": "PASS",
+    "yield": 97.0,
+    "notes": "Batch 130: sheet_material variant 13"
+  },
+  {
+    "id": "FM-0131",
+    "date": "2023-05-12",
+    "app": "film_packaging",
+    "std": "ISO_9001",
+    "cust": "Nana's Polymers",
+    "vol_kg": 900,
+    "formula": {
+      "PVC_K65": 100,
+      "DBP": 48,
+      "CaCO3": 12,
+      "Ca_Zn": 2,
+      "Additives": 1.5
+    },
+    "cost_per_kg": 50,
+    "prop": {
+      "tens_mpa": 18.3,
+      "elong_pct": 244.0,
+      "hard_shore": 70.0,
+      "brit_temp_c": -31.0,
+      "visc_cps": 1115
+    },
+    "verdict": "PASS",
+    "yield": 93.1,
+    "notes": "Batch 131: film_packaging variant 1"
+  },
+  {
+    "id": "FM-0132",
+    "date": "2023-05-13",
+    "app": "film_packaging",
+    "std": "ISO_9001",
+    "cust": "Premier Polymers",
+    "vol_kg": 1100,
+    "formula": {
+      "PVC_K57": 100,
+      "DOP": 40,
+      "Barite": 20,
+      "Ba_Zn": 2,
+      "Additives": 1.5
+    },
+    "cost_per_kg": 49,
+    "prop": {
+      "tens_mpa": 16.6,
+      "elong_pct": 213.0,
+      "hard_shore": 70.0,
+      "brit_temp_c": -21.0,
+      "visc_cps": 1075
+    },
+    "verdict": "PASS",
+    "yield": 94.9,
+    "notes": "Batch 132: film_packaging variant 2"
+  },
+  {
+    "id": "FM-0133",
+    "date": "2023-05-14",
+    "app": "film_packaging",
+    "std": "ISO_9001",
+    "cust": "Finolex Cables",
+    "vol_kg": 1300,
+    "formula": {
+      "PVC_K65": 100,
+      "DINP": 47,
+      "Barite": 16,
+      "Ba_Zn": 2,
+      "Additives": 1.5
+    },
+    "cost_per_kg": 47,
+    "prop": {
+      "tens_mpa": 18.2,
+      "elong_pct": 236.0,
+      "hard_shore": 69.0,
+      "brit_temp_c": -29.0,
+      "visc_cps": 1170
+    },
+    "verdict": "PASS",
+    "yield": 96.4,
+    "notes": "Batch 133: film_packaging variant 3"
+  },
+  {
+    "id": "FM-0134",
+    "date": "2023-05-15",
+    "app": "film_packaging",
+    "std": "ISO_9001",
+    "cust": "Tesa Cable",
+    "vol_kg": 1500,
+    "formula": {
+      "PVC_K72": 100,
+      "DOP": 35,
+      "Barite": 16,
+      "Ca_Zn": 2,
+      "Additives": 1.5
+    },
+    "cost_per_kg": 47,
+    "prop": {
+      "tens_mpa": 16.7,
+      "elong_pct": 226.0,
+      "hard_shore": 70.0,
+      "brit_temp_c": -15.0,
+      "visc_cps": 870
+    },
+    "verdict": "PASS",
+    "yield": 96.2,
+    "notes": "Batch 134: film_packaging variant 4"
+  },
+  {
+    "id": "FM-0135",
+    "date": "2023-05-16",
+    "app": "film_packaging",
+    "std": "ISO_9001",
+    "cust": "Bharat Polymers",
+    "vol_kg": 1700,
+    "formula": {
+      "PVC_K65": 100,
+      "DOP": 36,
+      "Barite": 20,
+      "Ba_Zn": 2,
+      "Additives": 1.5
+    },
+    "cost_per_kg": 50,
+    "prop": {
+      "tens_mpa": 15.8,
+      "elong_pct": 223.0,
+      "hard_shore": 70.0,
+      "brit_temp_c": -16.0,
+      "visc_cps": 975
+    },
+    "verdict": "PASS",
+    "yield": 97.4,
+    "notes": "Batch 135: film_packaging variant 5"
+  },
+  {
+    "id": "FM-0136",
+    "date": "2023-05-17",
+    "app": "film_packaging",
+    "std": "ISO_9001",
+    "cust": "Premier Polymers",
+    "vol_kg": 300,
+    "formula": {
+      "PVC_K65": 100,
+      "DOTP": 32,
+      "Barite": 17,
+      "Ca_Zn": 2,
+      "Additives": 1.5
+    },
+    "cost_per_kg": 50,
+    "prop": {
+      "tens_mpa": 16.3,
+      "elong_pct": 194.0,
+      "hard_shore": 71.0,
+      "brit_temp_c": -11.0,
+      "visc_cps": 815
+    },
+    "verdict": "PASS",
+    "yield": 93.7,
+    "notes": "Batch 136: film_packaging variant 6"
+  },
+  {
+    "id": "FM-0137",
+    "date": "2023-05-18",
+    "app": "film_packaging",
+    "std": "ISO_9001",
+    "cust": "Tesa Cable",
+    "vol_kg": 500,
+    "formula": {
+      "PVC_K57": 100,
+      "DINP": 35,
+      "Barite": 20,
+      "Ba_Zn": 2,
+      "Additives": 1.5
+    },
+    "cost_per_kg": 50,
+    "prop": {
+      "tens_mpa": 16.2,
+      "elong_pct": 206.0,
+      "hard_shore": 70.0,
+      "brit_temp_c": -15.0,
+      "visc_cps": 950
+    },
+    "verdict": "PASS",
+    "yield": 94.6,
+    "notes": "Batch 137: film_packaging variant 7"
+  },
+  {
+    "id": "FM-0138",
+    "date": "2023-05-19",
+    "app": "film_packaging",
+    "std": "ISO_9001",
+    "cust": "Shyam Polymers",
+    "vol_kg": 700,
+    "formula": {
+      "PVC_K70": 100,
+      "DBP": 46,
+      "Clay": 9,
+      "Ba_Zn": 2,
+      "Additives": 1.5
+    },
+    "cost_per_kg": 49,
+    "prop": {
+      "tens_mpa": 18.9,
+      "elong_pct": 262.0,
+      "hard_shore": 68.0,
+      "brit_temp_c": -28.0,
+      "visc_cps": 1005
+    },
+    "verdict": "PASS",
+    "yield": 93.5,
+    "notes": "Batch 138: film_packaging variant 8"
+  },
+  {
+    "id": "FM-0139",
+    "date": "2023-05-20",
+    "app": "film_packaging",
+    "std": "ISO_9001",
+    "cust": "Mittal Polymers",
+    "vol_kg": 900,
+    "formula": {
+      "PVC_K67": 100,
+      "DOP": 41,
+      "Barite": 12,
+      "Ba_Zn": 2,
+      "Additives": 1.5
+    },
+    "cost_per_kg": 48,
+    "prop": {
+      "tens_mpa": 17.5,
+      "elong_pct": 230.0,
+      "hard_shore": 70.0,
+      "brit_temp_c": -22.0,
+      "visc_cps": 940
+    },
+    "verdict": "PASS",
+    "yield": 94.6,
+    "notes": "Batch 139: film_packaging variant 9"
+  },
+  {
+    "id": "FM-0140",
+    "date": "2023-05-21",
+    "app": "film_packaging",
+    "std": "ISO_9001",
+    "cust": "Flex Films",
+    "vol_kg": 1100,
+    "formula": {
+      "PVC_K72": 100,
+      "DBP": 39,
+      "CaCO3": 7,
+      "Ba_Zn": 2,
+      "Additives": 1.5
+    },
+    "cost_per_kg": 47,
+    "prop": {
+      "tens_mpa": 18.5,
+      "elong_pct": 219.0,
+      "hard_shore": 69.0,
+      "brit_temp_c": -20.0,
+      "visc_cps": 790
+    },
+    "verdict": "PASS",
+    "yield": 96.5,
+    "notes": "Batch 140: film_packaging variant 10"
+  },
+  {
+    "id": "FM-0141",
+    "date": "2023-05-22",
+    "app": "film_packaging",
+    "std": "ISO_9001",
+    "cust": "Havells India",
+    "vol_kg": 1300,
+    "formula": {
+      "PVC_K65": 100,
+      "DOTP": 33,
+      "Barite": 16,
+      "Ba_Zn": 2,
+      "Additives": 1.5
+    },
+    "cost_per_kg": 49,
+    "prop": {
+      "tens_mpa": 15.8,
+      "elong_pct": 204.0,
+      "hard_shore": 69.0,
+      "brit_temp_c": -13.0,
+      "visc_cps": 820
+    },
+    "verdict": "PASS",
+    "yield": 94.0,
+    "notes": "Batch 141: film_packaging variant 11"
+  },
+  {
+    "id": "FM-0142",
+    "date": "2023-05-23",
+    "app": "film_packaging",
+    "std": "ISO_9001",
+    "cust": "Arpit Industries",
+    "vol_kg": 1500,
+    "formula": {
+      "PVC_K72": 100,
+      "DBP": 39,
+      "Barite": 17,
+      "Organic_Tin": 2,
+      "Additives": 1.5
+    },
+    "cost_per_kg": 50,
+    "prop": {
+      "tens_mpa": 16.4,
+      "elong_pct": 220.0,
+      "hard_shore": 71.0,
+      "brit_temp_c": -20.0,
+      "visc_cps": 990
+    },
+    "verdict": "PASS",
+    "yield": 96.5,
+    "notes": "Batch 142: film_packaging variant 12"
+  },
+  {
+    "id": "FM-0143",
+    "date": "2023-05-24",
+    "app": "film_packaging",
+    "std": "ISO_9001",
+    "cust": "Nana's Polymers",
+    "vol_kg": 1700,
+    "formula": {
+      "PVC_K67": 100,
+      "DOTP": 32,
+      "CaCO3": 10,
+      "Organic_Tin": 2,
+      "Additives": 1.5
+    },
+    "cost_per_kg": 49,
+    "prop": {
+      "tens_mpa": 16.3,
+      "elong_pct": 222.0,
+      "hard_shore": 70.0,
+      "brit_temp_c": -11.0,
+      "visc_cps": 675
+    },
+    "verdict": "PASS",
+    "yield": 97.8,
+    "notes": "Batch 143: film_packaging variant 13"
+  },
+  {
+    "id": "FM-0144",
+    "date": "2023-05-25",
+    "app": "inflatable_products",
+    "std": "ISO_9001",
+    "cust": "KEI Industries",
+    "vol_kg": 300,
+    "formula": {
+      "PVC_K57": 100,
+      "DBP": 38,
+      "Barite": 10,
+      "Ba_Zn": 2,
+      "Additives": 1.5
+    },
+    "cost_per_kg": 62,
+    "prop": {
+      "tens_mpa": 17.3,
+      "elong_pct": 218.0,
+      "hard_shore": 68.0,
+      "brit_temp_c": -19.0,
+      "visc_cps": 825
+    },
+    "verdict": "PASS",
+    "yield": 96.0,
+    "notes": "Batch 144: inflatable_products variant 1"
+  },
+  {
+    "id": "FM-0145",
+    "date": "2023-05-26",
+    "app": "inflatable_products",
+    "std": "ISO_9001",
+    "cust": "Flex Films",
+    "vol_kg": 500,
+    "formula": {
+      "PVC_K65": 100,
+      "DOTP": 32,
+      "Barite": 11,
+      "Ba_Zn": 2,
+      "Additives": 1.5
+    },
+    "cost_per_kg": 61,
+    "prop": {
+      "tens_mpa": 16.7,
+      "elong_pct": 206.0,
+      "hard_shore": 70.0,
+      "brit_temp_c": -11.0,
+      "visc_cps": 695
+    },
+    "verdict": "PASS",
+    "yield": 97.8,
+    "notes": "Batch 145: inflatable_products variant 2"
+  },
+  {
+    "id": "FM-0146",
+    "date": "2023-05-27",
+    "app": "inflatable_products",
+    "std": "ISO_9001",
+    "cust": "Premier Polymers",
+    "vol_kg": 700,
+    "formula": {
+      "PVC_K72": 100,
+      "DOP": 39,
+      "Barite": 15,
+      "Ca_Zn": 2,
+      "Additives": 1.5
+    },
+    "cost_per_kg": 59,
+    "prop": {
+      "tens_mpa": 16.8,
+      "elong_pct": 221.0,
+      "hard_shore": 70.0,
+      "brit_temp_c": -20.0,
+      "visc_cps": 950
+    },
+    "verdict": "PASS",
+    "yield": 96.7,
+    "notes": "Batch 146: inflatable_products variant 3"
+  },
+  {
+    "id": "FM-0147",
+    "date": "2023-05-28",
+    "app": "inflatable_products",
+    "std": "ISO_9001",
+    "cust": "KEI Industries",
+    "vol_kg": 900,
+    "formula": {
+      "PVC_K57": 100,
+      "DOTP": 39,
+      "Clay": 12,
+      "Ba_Zn": 2,
+      "Additives": 1.5
+    },
+    "cost_per_kg": 60,
+    "prop": {
+      "tens_mpa": 17.3,
+      "elong_pct": 204.0,
+      "hard_shore": 68.0,
+      "brit_temp_c": -20.0,
+      "visc_cps": 890
+    },
+    "verdict": "PASS",
+    "yield": 97.7,
+    "notes": "Batch 147: inflatable_products variant 4"
+  },
+  {
+    "id": "FM-0148",
+    "date": "2023-05-29",
+    "app": "inflatable_products",
+    "std": "ISO_9001",
+    "cust": "Bharat Polymers",
+    "vol_kg": 1100,
+    "formula": {
+      "PVC_K65": 100,
+      "DBP": 38,
+      "Barite": 19,
+      "Ba_Zn": 2,
+      "Additives": 1.5
+    },
+    "cost_per_kg": 60,
+    "prop": {
+      "tens_mpa": 16.5,
+      "elong_pct": 212.0,
+      "hard_shore": 69.0,
+      "brit_temp_c": -19.0,
+      "visc_cps": 1005
+    },
+    "verdict": "PASS",
+    "yield": 97.5,
+    "notes": "Batch 148: inflatable_products variant 5"
+  },
+  {
+    "id": "FM-0149",
+    "date": "2023-05-30",
+    "app": "inflatable_products",
+    "std": "ISO_9001",
+    "cust": "KEI Industries",
+    "vol_kg": 1300,
+    "formula": {
+      "PVC_K67": 100,
+      "DOP": 43,
+      "Barite": 11,
+      "Ba_Zn": 2,
+      "Additives": 1.5
+    },
+    "cost_per_kg": 62,
+    "prop": {
+      "tens_mpa": 18.1,
+      "elong_pct": 240.0,
+      "hard_shore": 69.0,
+      "brit_temp_c": -25.0,
+      "visc_cps": 970
+    },
+    "verdict": "PASS",
+    "yield": 97.2,
+    "notes": "Batch 149: inflatable_products variant 6"
+  },
+  {
+    "id": "FM-0150",
+    "date": "2023-05-31",
+    "app": "inflatable_products",
+    "std": "ISO_9001",
+    "cust": "Flex Films",
+    "vol_kg": 1500,
+    "formula": {
+      "PVC_K67": 100,
+      "DBP": 40,
+      "CaCO3": 15,
+      "Ba_Zn": 2,
+      "Additives": 1.5
+    },
+    "cost_per_kg": 60,
+    "prop": {
+      "tens_mpa": 17.1,
+      "elong_pct": 222.0,
+      "hard_shore": 69.0,
+      "brit_temp_c": -21.0,
+      "visc_cps": 975
+    },
+    "verdict": "PASS",
+    "yield": 94.4,
+    "notes": "Batch 150: inflatable_products variant 7"
+  },
+  {
+    "id": "FM-0151",
+    "date": "2023-06-01",
+    "app": "inflatable_products",
+    "std": "ISO_9001",
+    "cust": "Jayashree Textiles",
+    "vol_kg": 1700,
+    "formula": {
+      "PVC_K57": 100,
+      "DINP": 39,
+      "Barite": 11,
+      "Ca_Zn": 2,
+      "Additives": 1.5
+    },
+    "cost_per_kg": 62,
+    "prop": {
+      "tens_mpa": 17.2,
+      "elong_pct": 241.0,
+      "hard_shore": 70.0,
+      "brit_temp_c": -20.0,
+      "visc_cps": 870
+    },
+    "verdict": "PASS",
+    "yield": 97.5,
+    "notes": "Batch 151: inflatable_products variant 8"
+  },
+  {
+    "id": "FM-0152",
+    "date": "2023-06-02",
+    "app": "inflatable_products",
+    "std": "ISO_9001",
+    "cust": "Finolex Cables",
+    "vol_kg": 300,
+    "formula": {
+      "PVC_K72": 100,
+      "DOTP": 36,
+      "CaCO3": 14,
+      "Ca_Zn": 2,
+      "Additives": 1.5
+    },
+    "cost_per_kg": 61,
+    "prop": {
+      "tens_mpa": 17.2,
+      "elong_pct": 212.0,
+      "hard_shore": 70.0,
+      "brit_temp_c": -16.0,
+      "visc_cps": 855
+    },
+    "verdict": "PASS",
+    "yield": 93.8,
+    "notes": "Batch 152: inflatable_products variant 9"
+  },
+  {
+    "id": "FM-0153",
+    "date": "2023-06-03",
+    "app": "inflatable_products",
+    "std": "ISO_9001",
+    "cust": "Shyam Polymers",
+    "vol_kg": 500,
+    "formula": {
+      "PVC_K72": 100,
+      "DBP": 44,
+      "Barite": 15,
+      "Ba_Zn": 2,
+      "Additives": 1.5
+    },
+    "cost_per_kg": 59,
+    "prop": {
+      "tens_mpa": 18.0,
+      "elong_pct": 236.0,
+      "hard_shore": 69.0,
+      "brit_temp_c": -26.0,
+      "visc_cps": 1075
+    },
+    "verdict": "PASS",
+    "yield": 96.3,
+    "notes": "Batch 153: inflatable_products variant 10"
+  },
+  {
+    "id": "FM-0154",
+    "date": "2023-06-04",
+    "app": "inflatable_products",
+    "std": "ISO_9001",
+    "cust": "Arpit Industries",
+    "vol_kg": 700,
+    "formula": {
+      "PVC_K65": 100,
+      "DOP": 43,
+      "CaCO3": 14,
+      "Ba_Zn": 2,
+      "Additives": 1.5
+    },
+    "cost_per_kg": 60,
+    "prop": {
+      "tens_mpa": 17.6,
+      "elong_pct": 231.0,
+      "hard_shore": 68.0,
+      "brit_temp_c": -25.0,
+      "visc_cps": 1030
+    },
+    "verdict": "PASS",
+    "yield": 93.0,
+    "notes": "Batch 154: inflatable_products variant 11"
+  },
+  {
+    "id": "FM-0155",
+    "date": "2023-06-05",
+    "app": "inflatable_products",
+    "std": "ISO_9001",
+    "cust": "Premier Polymers",
+    "vol_kg": 900,
+    "formula": {
+      "PVC_K72": 100,
+      "DINP": 35,
+      "Barite": 14,
+      "Ca_Zn": 2,
+      "Additives": 1.5
+    },
+    "cost_per_kg": 62,
+    "prop": {
+      "tens_mpa": 16.8,
+      "elong_pct": 230.0,
+      "hard_shore": 69.0,
+      "brit_temp_c": -15.0,
+      "visc_cps": 830
+    },
+    "verdict": "PASS",
+    "yield": 93.1,
+    "notes": "Batch 155: inflatable_products variant 12"
+  },
+  {
+    "id": "FM-0156",
+    "date": "2023-06-06",
+    "app": "inflatable_products",
+    "std": "ISO_9001",
+    "cust": "KEI Industries",
+    "vol_kg": 1100,
+    "formula": {
+      "PVC_K67": 100,
+      "DBP": 47,
+      "Clay": 12,
+      "Ca_Zn": 2,
+      "Additives": 1.5
+    },
+    "cost_per_kg": 61,
+    "prop": {
+      "tens_mpa": 18.5,
+      "elong_pct": 224.0,
+      "hard_shore": 70.0,
+      "brit_temp_c": -29.0,
+      "visc_cps": 1090
+    },
+    "verdict": "PASS",
+    "yield": 97.1,
+    "notes": "Batch 156: inflatable_products variant 13"
+  },
+  {
+    "id": "FM-0157",
+    "date": "2023-06-07",
+    "app": "medical_tubing",
+    "std": "ISO_13485",
+    "cust": "Nana's Polymers",
+    "vol_kg": 1300,
+    "formula": {
+      "PVC_K72": 100,
+      "DINP": 48,
+      "Clay": 12,
+      "Ba_Zn": 2,
+      "Additives": 1.5
+    },
+    "cost_per_kg": 69,
+    "prop": {
+      "tens_mpa": 18.2,
+      "elong_pct": 236.0,
+      "hard_shore": 69.0,
+      "brit_temp_c": -31.0,
+      "visc_cps": 1115
+    },
+    "verdict": "PASS",
+    "yield": 93.8,
+    "notes": "Batch 157: medical_tubing variant 1"
+  },
+  {
+    "id": "FM-0158",
+    "date": "2023-06-08",
+    "app": "medical_tubing",
+    "std": "ISO_13485",
+    "cust": "Polycab Industries",
+    "vol_kg": 1500,
+    "formula": {
+      "PVC_K57": 100,
+      "DINP": 46,
+      "Clay": 8,
+      "Organic_Tin": 2,
+      "Additives": 1.5
+    },
+    "cost_per_kg": 69,
+    "prop": {
+      "tens_mpa": 19.2,
+      "elong_pct": 226.0,
+      "hard_shore": 68.0,
+      "brit_temp_c": -28.0,
+      "visc_cps": 985
+    },
+    "verdict": "PASS",
+    "yield": 93.5,
+    "notes": "Batch 158: medical_tubing variant 2"
+  },
+  {
+    "id": "FM-0159",
+    "date": "2023-06-09",
+    "app": "medical_tubing",
+    "std": "ISO_13485",
+    "cust": "Indore Composite",
+    "vol_kg": 1700,
+    "formula": {
+      "PVC_K70": 100,
+      "DINP": 37,
+      "Clay": 11,
+      "Ba_Zn": 2,
+      "Additives": 1.5
+    },
+    "cost_per_kg": 70,
+    "prop": {
+      "tens_mpa": 17.6,
+      "elong_pct": 212.0,
+      "hard_shore": 70.0,
+      "brit_temp_c": -17.0,
+      "visc_cps": 820
+    },
+    "verdict": "PASS",
+    "yield": 93.5,
+    "notes": "Batch 159: medical_tubing variant 3"
+  },
+  {
+    "id": "FM-0160",
+    "date": "2023-06-10",
+    "app": "medical_tubing",
+    "std": "ISO_13485",
+    "cust": "Tesa Cable",
+    "vol_kg": 300,
+    "formula": {
+      "PVC_K70": 100,
+      "DBP": 49,
+      "Clay": 8,
+      "Organic_Tin": 2,
+      "Additives": 1.5
+    },
+    "cost_per_kg": 67,
+    "prop": {
+      "tens_mpa": 19.2,
+      "elong_pct": 266.0,
+      "hard_shore": 67.0,
+      "brit_temp_c": -32.0,
+      "visc_cps": 1060
+    },
+    "verdict": "PASS",
+    "yield": 96.0,
+    "notes": "Batch 160: medical_tubing variant 4"
+  },
+  {
+    "id": "FM-0161",
+    "date": "2023-06-11",
+    "app": "medical_tubing",
+    "std": "ISO_13485",
+    "cust": "Polycab Industries",
+    "vol_kg": 500,
+    "formula": {
+      "PVC_K65": 100,
+      "DOP": 37,
+      "Barite": 17,
+      "Ca_Zn": 2,
+      "Additives": 1.5
+    },
+    "cost_per_kg": 68,
+    "prop": {
+      "tens_mpa": 16.0,
+      "elong_pct": 204.0,
+      "hard_shore": 70.0,
+      "brit_temp_c": -17.0,
+      "visc_cps": 940
+    },
+    "verdict": "PASS",
+    "yield": 93.5,
+    "notes": "Batch 161: medical_tubing variant 5"
+  },
+  {
+    "id": "FM-0162",
+    "date": "2023-06-12",
+    "app": "medical_tubing",
+    "std": "ISO_13485",
+    "cust": "KEI Industries",
+    "vol_kg": 700,
+    "formula": {
+      "PVC_K67": 100,
+      "DOTP": 39,
+      "Clay": 9,
+      "Ba_Zn": 2,
+      "Additives": 1.5
+    },
+    "cost_per_kg": 67,
+    "prop": {
+      "tens_mpa": 17.4,
+      "elong_pct": 245.0,
+      "hard_shore": 70.0,
+      "brit_temp_c": -20.0,
+      "visc_cps": 830
+    },
+    "verdict": "PASS",
+    "yield": 94.7,
+    "notes": "Batch 162: medical_tubing variant 6"
+  },
+  {
+    "id": "FM-0163",
+    "date": "2023-06-13",
+    "app": "medical_tubing",
+    "std": "ISO_13485",
+    "cust": "Nana's Polymers",
+    "vol_kg": 900,
+    "formula": {
+      "PVC_K70": 100,
+      "DBP": 39,
+      "CaCO3": 14,
+      "Organic_Tin": 2,
+      "Additives": 1.5
+    },
+    "cost_per_kg": 68,
+    "prop": {
+      "tens_mpa": 17.2,
+      "elong_pct": 225.0,
+      "hard_shore": 69.0,
+      "brit_temp_c": -20.0,
+      "visc_cps": 930
+    },
+    "verdict": "PASS",
+    "yield": 97.8,
+    "notes": "Batch 163: medical_tubing variant 7"
+  },
+  {
+    "id": "FM-0164",
+    "date": "2023-06-14",
+    "app": "medical_tubing",
+    "std": "ISO_13485",
+    "cust": "Himachal Futuristic",
+    "vol_kg": 1100,
+    "formula": {
+      "PVC_K57": 100,
+      "DINP": 41,
+      "Clay": 12,
+      "Ba_Zn": 2,
+      "Additives": 1.5
+    },
+    "cost_per_kg": 69,
+    "prop": {
+      "tens_mpa": 17.8,
+      "elong_pct": 234.0,
+      "hard_shore": 69.0,
+      "brit_temp_c": -22.0,
+      "visc_cps": 940
+    },
+    "verdict": "PASS",
+    "yield": 95.7,
+    "notes": "Batch 164: medical_tubing variant 8"
+  },
+  {
+    "id": "FM-0165",
+    "date": "2023-06-15",
+    "app": "medical_tubing",
+    "std": "ISO_13485",
+    "cust": "Tesa Cable",
+    "vol_kg": 1300,
+    "formula": {
+      "PVC_K65": 100,
+      "DOP": 38,
+      "Barite": 13,
+      "Ba_Zn": 2,
+      "Additives": 1.5
+    },
+    "cost_per_kg": 68,
+    "prop": {
+      "tens_mpa": 17.5,
+      "elong_pct": 201.0,
+      "hard_shore": 69.0,
+      "brit_temp_c": -19.0,
+      "visc_cps": 885
+    },
+    "verdict": "PASS",
+    "yield": 93.9,
+    "notes": "Batch 165: medical_tubing variant 9"
+  },
+  {
+    "id": "FM-0166",
+    "date": "2023-06-16",
+    "app": "medical_tubing",
+    "std": "ISO_13485",
+    "cust": "Arpit Industries",
+    "vol_kg": 1500,
+    "formula": {
+      "PVC_K72": 100,
+      "DOP": 45,
+      "Barite": 19,
+      "Ca_Zn": 2,
+      "Additives": 1.5
+    },
+    "cost_per_kg": 70,
+    "prop": {
+      "tens_mpa": 16.9,
+      "elong_pct": 221.0,
+      "hard_shore": 70.0,
+      "brit_temp_c": -27.0,
+      "visc_cps": 1180
+    },
+    "verdict": "PASS",
+    "yield": 95.3,
+    "notes": "Batch 166: medical_tubing variant 10"
+  },
+  {
+    "id": "FM-0167",
+    "date": "2023-06-17",
+    "app": "medical_tubing",
+    "std": "ISO_13485",
+    "cust": "Arpit Industries",
+    "vol_kg": 1700,
+    "formula": {
+      "PVC_K65": 100,
+      "DBP": 48,
+      "Clay": 12,
+      "Ca_Zn": 2,
+      "Additives": 1.5
+    },
+    "cost_per_kg": 67,
+    "prop": {
+      "tens_mpa": 18.9,
+      "elong_pct": 237.0,
+      "hard_shore": 68.0,
+      "brit_temp_c": -31.0,
+      "visc_cps": 1115
+    },
+    "verdict": "PASS",
+    "yield": 93.9,
+    "notes": "Batch 167: medical_tubing variant 11"
+  },
+  {
+    "id": "FM-0168",
+    "date": "2023-06-18",
+    "app": "medical_tubing",
+    "std": "ISO_13485",
+    "cust": "Flex Films",
+    "vol_kg": 300,
+    "formula": {
+      "PVC_K67": 100,
+      "DBP": 44,
+      "Barite": 15,
+      "Ba_Zn": 2,
+      "Additives": 1.5
+    },
+    "cost_per_kg": 67,
+    "prop": {
+      "tens_mpa": 17.7,
+      "elong_pct": 219.0,
+      "hard_shore": 70.0,
+      "brit_temp_c": -26.0,
+      "visc_cps": 1075
+    },
+    "verdict": "PASS",
+    "yield": 93.4,
+    "notes": "Batch 168: medical_tubing variant 12"
+  },
+  {
+    "id": "FM-0169",
+    "date": "2023-06-19",
+    "app": "medical_tubing",
+    "std": "ISO_13485",
+    "cust": "Jayashree Textiles",
+    "vol_kg": 500,
+    "formula": {
+      "PVC_K70": 100,
+      "DBP": 47,
+      "CaCO3": 15,
+      "Organic_Tin": 2,
+      "Additives": 1.5
+    },
+    "cost_per_kg": 68,
+    "prop": {
+      "tens_mpa": 17.6,
+      "elong_pct": 250.0,
+      "hard_shore": 69.0,
+      "brit_temp_c": -29.0,
+      "visc_cps": 1150
+    },
+    "verdict": "PASS",
+    "yield": 94.7,
+    "notes": "Batch 169: medical_tubing variant 13"
+  },
+  {
+    "id": "FM-0170",
+    "date": "2023-06-20",
+    "app": "automotive_trim",
+    "std": "ISO_9001",
+    "cust": "Mittal Polymers",
+    "vol_kg": 700,
+    "formula": {
+      "PVC_K57": 100,
+      "DOP": 44,
+      "Clay": 10,
+      "Ca_Zn": 2,
+      "Additives": 1.5
+    },
+    "cost_per_kg": 62,
+    "prop": {
+      "tens_mpa": 18.1,
+      "elong_pct": 242.0,
+      "hard_shore": 70.0,
+      "brit_temp_c": -26.0,
+      "visc_cps": 975
+    },
+    "verdict": "PASS",
+    "yield": 96.4,
+    "notes": "Batch 170: automotive_trim variant 1"
+  },
+  {
+    "id": "FM-0171",
+    "date": "2023-06-21",
+    "app": "automotive_trim",
+    "std": "ISO_9001",
+    "cust": "Finolex Cables",
+    "vol_kg": 900,
+    "formula": {
+      "PVC_K70": 100,
+      "DBP": 44,
+      "Barite": 16,
+      "Ba_Zn": 2,
+      "Additives": 1.5
+    },
+    "cost_per_kg": 60,
+    "prop": {
+      "tens_mpa": 17.5,
+      "elong_pct": 238.0,
+      "hard_shore": 69.0,
+      "brit_temp_c": -26.0,
+      "visc_cps": 1095
+    },
+    "verdict": "PASS",
+    "yield": 96.0,
+    "notes": "Batch 171: automotive_trim variant 2"
+  },
+  {
+    "id": "FM-0172",
+    "date": "2023-06-22",
+    "app": "automotive_trim",
+    "std": "ISO_9001",
+    "cust": "Havells India",
+    "vol_kg": 1100,
+    "formula": {
+      "PVC_K70": 100,
+      "DOTP": 33,
+      "Clay": 8,
+      "Ba_Zn": 2,
+      "Additives": 1.5
+    },
+    "cost_per_kg": 60,
+    "prop": {
+      "tens_mpa": 17.0,
+      "elong_pct": 226.0,
+      "hard_shore": 69.0,
+      "brit_temp_c": -13.0,
+      "visc_cps": 660
+    },
+    "verdict": "PASS",
+    "yield": 95.9,
+    "notes": "Batch 172: automotive_trim variant 3"
+  },
+  {
+    "id": "FM-0173",
+    "date": "2023-06-23",
+    "app": "automotive_trim",
+    "std": "ISO_9001",
+    "cust": "Premier Polymers",
+    "vol_kg": 1300,
+    "formula": {
+      "PVC_K67": 100,
+      "DBP": 38,
+      "Clay": 8,
+      "Organic_Tin": 2,
+      "Additives": 1.5
+    },
+    "cost_per_kg": 61,
+    "prop": {
+      "tens_mpa": 17.9,
+      "elong_pct": 236.0,
+      "hard_shore": 69.0,
+      "brit_temp_c": -19.0,
+      "visc_cps": 785
+    },
+    "verdict": "PASS",
+    "yield": 97.0,
+    "notes": "Batch 173: automotive_trim variant 4"
+  },
+  {
+    "id": "FM-0174",
+    "date": "2023-06-24",
+    "app": "automotive_trim",
+    "std": "ISO_9001",
+    "cust": "Crompton Cables",
+    "vol_kg": 1500,
+    "formula": {
+      "PVC_K57": 100,
+      "DOTP": 33,
+      "Barite": 11,
+      "Ba_Zn": 2,
+      "Additives": 1.5
+    },
+    "cost_per_kg": 59,
+    "prop": {
+      "tens_mpa": 16.6,
+      "elong_pct": 213.0,
+      "hard_shore": 69.0,
+      "brit_temp_c": -13.0,
+      "visc_cps": 720
+    },
+    "verdict": "PASS",
+    "yield": 94.8,
+    "notes": "Batch 174: automotive_trim variant 5"
+  },
+  {
+    "id": "FM-0175",
+    "date": "2023-06-25",
+    "app": "automotive_trim",
+    "std": "ISO_9001",
+    "cust": "Premier Polymers",
+    "vol_kg": 1700,
+    "formula": {
+      "PVC_K57": 100,
+      "DBP": 41,
+      "Clay": 10,
+      "Ba_Zn": 2,
+      "Additives": 1.5
+    },
+    "cost_per_kg": 60,
+    "prop": {
+      "tens_mpa": 17.6,
+      "elong_pct": 220.0,
+      "hard_shore": 70.0,
+      "brit_temp_c": -22.0,
+      "visc_cps": 900
+    },
+    "verdict": "PASS",
+    "yield": 93.2,
+    "notes": "Batch 175: automotive_trim variant 6"
+  },
+  {
+    "id": "FM-0176",
+    "date": "2023-06-26",
+    "app": "automotive_trim",
+    "std": "ISO_9001",
+    "cust": "Premier Polymers",
+    "vol_kg": 300,
+    "formula": {
+      "PVC_K70": 100,
+      "DOP": 43,
+      "CaCO3": 9,
+      "Ba_Zn": 2,
+      "Additives": 1.5
+    },
+    "cost_per_kg": 60,
+    "prop": {
+      "tens_mpa": 18.3,
+      "elong_pct": 229.0,
+      "hard_shore": 69.0,
+      "brit_temp_c": -25.0,
+      "visc_cps": 930
+    },
+    "verdict": "PASS",
+    "yield": 93.8,
+    "notes": "Batch 176: automotive_trim variant 7"
+  },
+  {
+    "id": "FM-0177",
+    "date": "2023-06-27",
+    "app": "automotive_trim",
+    "std": "ISO_9001",
+    "cust": "Tesa Cable",
+    "vol_kg": 500,
+    "formula": {
+      "PVC_K67": 100,
+      "DBP": 46,
+      "Clay": 11,
+      "Organic_Tin": 2,
+      "Additives": 1.5
+    },
+    "cost_per_kg": 61,
+    "prop": {
+      "tens_mpa": 18.3,
+      "elong_pct": 259.0,
+      "hard_shore": 68.0,
+      "brit_temp_c": -28.0,
+      "visc_cps": 1045
+    },
+    "verdict": "PASS",
+    "yield": 96.9,
+    "notes": "Batch 177: automotive_trim variant 8"
+  },
+  {
+    "id": "FM-0178",
+    "date": "2023-06-28",
+    "app": "automotive_trim",
+    "std": "ISO_9001",
+    "cust": "Jayashree Textiles",
+    "vol_kg": 700,
+    "formula": {
+      "PVC_K72": 100,
+      "DBP": 45,
+      "Barite": 17,
+      "Ca_Zn": 2,
+      "Additives": 1.5
+    },
+    "cost_per_kg": 61,
+    "prop": {
+      "tens_mpa": 17.8,
+      "elong_pct": 223.0,
+      "hard_shore": 69.0,
+      "brit_temp_c": -27.0,
+      "visc_cps": 1140
+    },
+    "verdict": "PASS",
+    "yield": 94.6,
+    "notes": "Batch 178: automotive_trim variant 9"
+  },
+  {
+    "id": "FM-0179",
+    "date": "2023-06-29",
+    "app": "automotive_trim",
+    "std": "ISO_9001",
+    "cust": "Flex Films",
+    "vol_kg": 900,
+    "formula": {
+      "PVC_K70": 100,
+      "DBP": 43,
+      "Clay": 12,
+      "Organic_Tin": 2,
+      "Additives": 1.5
+    },
+    "cost_per_kg": 60,
+    "prop": {
+      "tens_mpa": 17.5,
+      "elong_pct": 244.0,
+      "hard_shore": 68.0,
+      "brit_temp_c": -25.0,
+      "visc_cps": 990
+    },
+    "verdict": "PASS",
+    "yield": 95.2,
+    "notes": "Batch 179: automotive_trim variant 10"
+  },
+  {
+    "id": "FM-0180",
+    "date": "2023-01-01",
+    "app": "automotive_trim",
+    "std": "ISO_9001",
+    "cust": "Mittal Polymers",
+    "vol_kg": 1100,
+    "formula": {
+      "PVC_K67": 100,
+      "DOP": 37,
+      "Barite": 11,
+      "Ba_Zn": 2,
+      "Additives": 1.5
+    },
+    "cost_per_kg": 61,
+    "prop": {
+      "tens_mpa": 17.1,
+      "elong_pct": 212.0,
+      "hard_shore": 70.0,
+      "brit_temp_c": -17.0,
+      "visc_cps": 820
+    },
+    "verdict": "PASS",
+    "yield": 97.5,
+    "notes": "Batch 180: automotive_trim variant 11"
+  },
+  {
+    "id": "FM-0181",
+    "date": "2023-01-02",
+    "app": "automotive_trim",
+    "std": "ISO_9001",
+    "cust": "Tesa Cable",
+    "vol_kg": 1300,
+    "formula": {
+      "PVC_K65": 100,
+      "DOP": 35,
+      "Barite": 18,
+      "Ba_Zn": 2,
+      "Additives": 1.5
+    },
+    "cost_per_kg": 60,
+    "prop": {
+      "tens_mpa": 16.4,
+      "elong_pct": 214.0,
+      "hard_shore": 70.0,
+      "brit_temp_c": -15.0,
+      "visc_cps": 910
+    },
+    "verdict": "PASS",
+    "yield": 97.5,
+    "notes": "Batch 181: automotive_trim variant 12"
+  },
+  {
+    "id": "FM-0182",
+    "date": "2023-01-03",
+    "app": "automotive_trim",
+    "std": "ISO_9001",
+    "cust": "Himachal Futuristic",
+    "vol_kg": 1500,
+    "formula": {
+      "PVC_K72": 100,
+      "DOP": 38,
+      "Clay": 8,
+      "Organic_Tin": 2,
+      "Additives": 1.5
+    },
+    "cost_per_kg": 60,
+    "prop": {
+      "tens_mpa": 18.2,
+      "elong_pct": 232.0,
+      "hard_shore": 69.0,
+      "brit_temp_c": -19.0,
+      "visc_cps": 785
+    },
+    "verdict": "PASS",
+    "yield": 93.4,
+    "notes": "Batch 182: automotive_trim variant 13"
+  },
+  {
+    "id": "FM-0183",
+    "date": "2023-01-04",
+    "app": "footwear_components",
+    "std": "ISO_9001",
+    "cust": "Nana's Polymers",
+    "vol_kg": 1700,
+    "formula": {
+      "PVC_K72": 100,
+      "DOP": 40,
+      "CaCO3": 8,
+      "Ba_Zn": 2,
+      "Additives": 1.5
+    },
+    "cost_per_kg": 59,
+    "prop": {
+      "tens_mpa": 17.6,
+      "elong_pct": 227.0,
+      "hard_shore": 69.0,
+      "brit_temp_c": -21.0,
+      "visc_cps": 835
+    },
+    "verdict": "PASS",
+    "yield": 96.2,
+    "notes": "Batch 183: footwear_components variant 1"
+  },
+  {
+    "id": "FM-0184",
+    "date": "2023-01-05",
+    "app": "footwear_components",
+    "std": "ISO_9001",
+    "cust": "Indore Composite",
+    "vol_kg": 300,
+    "formula": {
+      "PVC_K70": 100,
+      "DOTP": 37,
+      "Barite": 20,
+      "Organic_Tin": 2,
+      "Additives": 1.5
+    },
+    "cost_per_kg": 59,
+    "prop": {
+      "tens_mpa": 15.9,
+      "elong_pct": 200.0,
+      "hard_shore": 71.0,
+      "brit_temp_c": -17.0,
+      "visc_cps": 1000
+    },
+    "verdict": "PASS",
+    "yield": 93.5,
+    "notes": "Batch 184: footwear_components variant 2"
+  },
+  {
+    "id": "FM-0185",
+    "date": "2023-01-06",
+    "app": "footwear_components",
+    "std": "ISO_9001",
+    "cust": "Mittal Polymers",
+    "vol_kg": 500,
+    "formula": {
+      "PVC_K67": 100,
+      "DOP": 35,
+      "CaCO3": 10,
+      "Organic_Tin": 2,
+      "Additives": 1.5
+    },
+    "cost_per_kg": 60,
+    "prop": {
+      "tens_mpa": 17.0,
+      "elong_pct": 211.0,
+      "hard_shore": 68.0,
+      "brit_temp_c": -15.0,
+      "visc_cps": 750
+    },
+    "verdict": "PASS",
+    "yield": 93.3,
+    "notes": "Batch 185: footwear_components variant 3"
+  },
+  {
+    "id": "FM-0186",
+    "date": "2023-01-07",
+    "app": "footwear_components",
+    "std": "ISO_9001",
+    "cust": "Shyam Polymers",
+    "vol_kg": 700,
+    "formula": {
+      "PVC_K70": 100,
+      "DOTP": 34,
+      "CaCO3": 6,
+      "Ca_Zn": 2,
+      "Additives": 1.5
+    },
+    "cost_per_kg": 57,
+    "prop": {
+      "tens_mpa": 17.1,
+      "elong_pct": 212.0,
+      "hard_shore": 70.0,
+      "brit_temp_c": -14.0,
+      "visc_cps": 645
+    },
+    "verdict": "PASS",
+    "yield": 94.4,
+    "notes": "Batch 186: footwear_components variant 4"
+  },
+  {
+    "id": "FM-0187",
+    "date": "2023-01-08",
+    "app": "footwear_components",
+    "std": "ISO_9001",
+    "cust": "Polycab Industries",
+    "vol_kg": 900,
+    "formula": {
+      "PVC_K67": 100,
+      "DBP": 48,
+      "CaCO3": 12,
+      "Ba_Zn": 2,
+      "Additives": 1.5
+    },
+    "cost_per_kg": 59,
+    "prop": {
+      "tens_mpa": 18.3,
+      "elong_pct": 241.0,
+      "hard_shore": 68.0,
+      "brit_temp_c": -31.0,
+      "visc_cps": 1115
+    },
+    "verdict": "PASS",
+    "yield": 97.8,
+    "notes": "Batch 187: footwear_components variant 5"
+  },
+  {
+    "id": "FM-0188",
+    "date": "2023-01-09",
+    "app": "footwear_components",
+    "std": "ISO_9001",
+    "cust": "Finolex Cables",
+    "vol_kg": 1100,
+    "formula": {
+      "PVC_K65": 100,
+      "DOP": 38,
+      "CaCO3": 7,
+      "Ba_Zn": 2,
+      "Additives": 1.5
+    },
+    "cost_per_kg": 57,
+    "prop": {
+      "tens_mpa": 17.9,
+      "elong_pct": 243.0,
+      "hard_shore": 68.0,
+      "brit_temp_c": -19.0,
+      "visc_cps": 765
+    },
+    "verdict": "PASS",
+    "yield": 93.1,
+    "notes": "Batch 188: footwear_components variant 6"
+  },
+  {
+    "id": "FM-0189",
+    "date": "2023-01-10",
+    "app": "footwear_components",
+    "std": "ISO_9001",
+    "cust": "Nana's Polymers",
+    "vol_kg": 1300,
+    "formula": {
+      "PVC_K70": 100,
+      "DOP": 42,
+      "Clay": 9,
+      "Ca_Zn": 2,
+      "Additives": 1.5
+    },
+    "cost_per_kg": 58,
+    "prop": {
+      "tens_mpa": 17.8,
+      "elong_pct": 217.0,
+      "hard_shore": 68.0,
+      "brit_temp_c": -23.0,
+      "visc_cps": 905
+    },
+    "verdict": "PASS",
+    "yield": 93.4,
+    "notes": "Batch 189: footwear_components variant 7"
+  },
+  {
+    "id": "FM-0190",
+    "date": "2023-01-11",
+    "app": "footwear_components",
+    "std": "ISO_9001",
+    "cust": "Premier Polymers",
+    "vol_kg": 1500,
+    "formula": {
+      "PVC_K70": 100,
+      "DOTP": 38,
+      "Clay": 9,
+      "Organic_Tin": 2,
+      "Additives": 1.5
+    },
+    "cost_per_kg": 58,
+    "prop": {
+      "tens_mpa": 17.4,
+      "elong_pct": 213.0,
+      "hard_shore": 69.0,
+      "brit_temp_c": -19.0,
+      "visc_cps": 805
+    },
+    "verdict": "PASS",
+    "yield": 96.4,
+    "notes": "Batch 190: footwear_components variant 8"
+  },
+  {
+    "id": "FM-0191",
+    "date": "2023-01-12",
+    "app": "footwear_components",
+    "std": "ISO_9001",
+    "cust": "Polycab Industries",
+    "vol_kg": 1700,
+    "formula": {
+      "PVC_K57": 100,
+      "DINP": 48,
+      "CaCO3": 8,
+      "Ca_Zn": 2,
+      "Additives": 1.5
+    },
+    "cost_per_kg": 58,
+    "prop": {
+      "tens_mpa": 18.9,
+      "elong_pct": 245.0,
+      "hard_shore": 69.0,
+      "brit_temp_c": -31.0,
+      "visc_cps": 1035
+    },
+    "verdict": "PASS",
+    "yield": 95.9,
+    "notes": "Batch 191: footwear_components variant 9"
+  },
+  {
+    "id": "FM-0192",
+    "date": "2023-01-13",
+    "app": "footwear_components",
+    "std": "ISO_9001",
+    "cust": "Mittal Polymers",
+    "vol_kg": 300,
+    "formula": {
+      "PVC_K72": 100,
+      "DOP": 36,
+      "Clay": 9,
+      "Ca_Zn": 2,
+      "Additives": 1.5
+    },
+    "cost_per_kg": 58,
+    "prop": {
+      "tens_mpa": 17.5,
+      "elong_pct": 209.0,
+      "hard_shore": 68.0,
+      "brit_temp_c": -16.0,
+      "visc_cps": 755
+    },
+    "verdict": "PASS",
+    "yield": 95.7,
+    "notes": "Batch 192: footwear_components variant 10"
+  },
+  {
+    "id": "FM-0193",
+    "date": "2023-01-14",
+    "app": "footwear_components",
+    "std": "ISO_9001",
+    "cust": "Arpit Industries",
+    "vol_kg": 500,
+    "formula": {
+      "PVC_K65": 100,
+      "DINP": 46,
+      "Barite": 14,
+      "Ca_Zn": 2,
+      "Additives": 1.5
+    },
+    "cost_per_kg": 58,
+    "prop": {
+      "tens_mpa": 18.1,
+      "elong_pct": 232.0,
+      "hard_shore": 68.0,
+      "brit_temp_c": -28.0,
+      "visc_cps": 1105
+    },
+    "verdict": "PASS",
+    "yield": 96.7,
+    "notes": "Batch 193: footwear_components variant 11"
+  },
+  {
+    "id": "FM-0194",
+    "date": "2023-01-15",
+    "app": "footwear_components",
+    "std": "ISO_9001",
+    "cust": "Indore Composite",
+    "vol_kg": 700,
+    "formula": {
+      "PVC_K67": 100,
+      "DINP": 39,
+      "Clay": 10,
+      "Organic_Tin": 2,
+      "Additives": 1.5
+    },
+    "cost_per_kg": 58,
+    "prop": {
+      "tens_mpa": 18.0,
+      "elong_pct": 234.0,
+      "hard_shore": 70.0,
+      "brit_temp_c": -20.0,
+      "visc_cps": 850
+    },
+    "verdict": "PASS",
+    "yield": 97.7,
+    "notes": "Batch 194: footwear_components variant 12"
+  },
+  {
+    "id": "FM-0195",
+    "date": "2023-01-16",
+    "app": "footwear_components",
+    "std": "ISO_9001",
+    "cust": "Polycab Industries",
+    "vol_kg": 900,
+    "formula": {
+      "PVC_K57": 100,
+      "DOTP": 35,
+      "CaCO3": 10,
+      "Ba_Zn": 2,
+      "Additives": 1.5
+    },
+    "cost_per_kg": 59,
+    "prop": {
+      "tens_mpa": 17.1,
+      "elong_pct": 234.0,
+      "hard_shore": 68.0,
+      "brit_temp_c": -15.0,
+      "visc_cps": 750
+    },
+    "verdict": "PASS",
+    "yield": 96.9,
+    "notes": "Batch 195: footwear_components variant 13"
+  }
+]

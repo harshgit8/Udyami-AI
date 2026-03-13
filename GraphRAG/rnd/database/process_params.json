@@ -1,0 +1,435 @@
+[
+  {
+    "id": "PROC-001",
+    "equip": "Banbury_Mixer_60L",
+    "app": "cable_insulation",
+    "mix_params": {
+      "temp_min_c": 160,
+      "temp_max_c": 175,
+      "time_min": 8,
+      "time_max": 12
+    },
+    "ext_params": {},
+    "cooling_min": 15,
+    "tips": "Optimize for cable_insulation using Banbury_Mixer_60L"
+  },
+  {
+    "id": "PROC-002",
+    "equip": "Banbury_Mixer_60L",
+    "app": "rigid_pipe",
+    "mix_params": {
+      "temp_min_c": 152,
+      "temp_max_c": 166,
+      "time_min": 8,
+      "time_max": 12
+    },
+    "ext_params": {},
+    "cooling_min": 15,
+    "tips": "Optimize for rigid_pipe using Banbury_Mixer_60L"
+  },
+  {
+    "id": "PROC-003",
+    "equip": "Banbury_Mixer_60L",
+    "app": "flexible_tubing",
+    "mix_params": {
+      "temp_min_c": 168,
+      "temp_max_c": 183,
+      "time_min": 8,
+      "time_max": 12
+    },
+    "ext_params": {},
+    "cooling_min": 15,
+    "tips": "Optimize for flexible_tubing using Banbury_Mixer_60L"
+  },
+  {
+    "id": "PROC-004",
+    "equip": "Banbury_Mixer_60L",
+    "app": "sheet_material",
+    "mix_params": {
+      "temp_min_c": 156,
+      "temp_max_c": 171,
+      "time_min": 8,
+      "time_max": 12
+    },
+    "ext_params": {},
+    "cooling_min": 15,
+    "tips": "Optimize for sheet_material using Banbury_Mixer_60L"
+  },
+  {
+    "id": "PROC-005",
+    "equip": "Banbury_Mixer_60L",
+    "app": "film",
+    "mix_params": {
+      "temp_min_c": 144,
+      "temp_max_c": 157,
+      "time_min": 8,
+      "time_max": 12
+    },
+    "ext_params": {},
+    "cooling_min": 15,
+    "tips": "Optimize for film using Banbury_Mixer_60L"
+  },
+  {
+    "id": "PROC-006",
+    "equip": "Banbury_Mixer_100L",
+    "app": "cable_insulation",
+    "mix_params": {
+      "temp_min_c": 160,
+      "temp_max_c": 175,
+      "time_min": 10,
+      "time_max": 14
+    },
+    "ext_params": {},
+    "cooling_min": 20,
+    "tips": "Optimize for cable_insulation using Banbury_Mixer_100L"
+  },
+  {
+    "id": "PROC-007",
+    "equip": "Banbury_Mixer_100L",
+    "app": "rigid_pipe",
+    "mix_params": {
+      "temp_min_c": 152,
+      "temp_max_c": 166,
+      "time_min": 10,
+      "time_max": 14
+    },
+    "ext_params": {},
+    "cooling_min": 20,
+    "tips": "Optimize for rigid_pipe using Banbury_Mixer_100L"
+  },
+  {
+    "id": "PROC-008",
+    "equip": "Banbury_Mixer_100L",
+    "app": "flexible_tubing",
+    "mix_params": {
+      "temp_min_c": 168,
+      "temp_max_c": 183,
+      "time_min": 10,
+      "time_max": 14
+    },
+    "ext_params": {},
+    "cooling_min": 20,
+    "tips": "Optimize for flexible_tubing using Banbury_Mixer_100L"
+  },
+  {
+    "id": "PROC-009",
+    "equip": "Banbury_Mixer_100L",
+    "app": "sheet_material",
+    "mix_params": {
+      "temp_min_c": 156,
+      "temp_max_c": 171,
+      "time_min": 10,
+      "time_max": 14
+    },
+    "ext_params": {},
+    "cooling_min": 20,
+    "tips": "Optimize for sheet_material using Banbury_Mixer_100L"
+  },
+  {
+    "id": "PROC-010",
+    "equip": "Banbury_Mixer_100L",
+    "app": "film",
+    "mix_params": {
+      "temp_min_c": 144,
+      "temp_max_c": 157,
+      "time_min": 10,
+      "time_max": 14
+    },
+    "ext_params": {},
+    "cooling_min": 20,
+    "tips": "Optimize for film using Banbury_Mixer_100L"
+  },
+  {
+    "id": "PROC-011",
+    "equip": "Single_Screw_Extruder_40mm",
+    "app": "cable_insulation",
+    "mix_params": {},
+    "ext_params": {
+      "cap_min_kg_h": 100,
+      "cap_max_kg_h": 150,
+      "barrel_min_c": 180,
+      "barrel_max_c": 190,
+      "rpm_min": 40,
+      "rpm_max": 60
+    },
+    "cooling_min": 15,
+    "tips": "Optimize for cable_insulation using Single_Screw_Extruder_40mm"
+  },
+  {
+    "id": "PROC-012",
+    "equip": "Single_Screw_Extruder_40mm",
+    "app": "rigid_pipe",
+    "mix_params": {},
+    "ext_params": {
+      "cap_min_kg_h": 95,
+      "cap_max_kg_h": 142,
+      "barrel_min_c": 171,
+      "barrel_max_c": 180,
+      "rpm_min": 40,
+      "rpm_max": 60
+    },
+    "cooling_min": 15,
+    "tips": "Optimize for rigid_pipe using Single_Screw_Extruder_40mm"
+  },
+  {
+    "id": "PROC-013",
+    "equip": "Single_Screw_Extruder_40mm",
+    "app": "flexible_tubing",
+    "mix_params": {},
+    "ext_params": {
+      "cap_min_kg_h": 105,
+      "cap_max_kg_h": 157,
+      "barrel_min_c": 189,
+      "barrel_max_c": 199,
+      "rpm_min": 40,
+      "rpm_max": 60
+    },
+    "cooling_min": 15,
+    "tips": "Optimize for flexible_tubing using Single_Screw_Extruder_40mm"
+  },
+  {
+    "id": "PROC-014",
+    "equip": "Single_Screw_Extruder_40mm",
+    "app": "sheet_material",
+    "mix_params": {},
+    "ext_params": {
+      "cap_min_kg_h": 98,
+      "cap_max_kg_h": 147,
+      "barrel_min_c": 176,
+      "barrel_max_c": 186,
+      "rpm_min": 40,
+      "rpm_max": 60
+    },
+    "cooling_min": 15,
+    "tips": "Optimize for sheet_material using Single_Screw_Extruder_40mm"
+  },
+  {
+    "id": "PROC-015",
+    "equip": "Single_Screw_Extruder_40mm",
+    "app": "film",
+    "mix_params": {},
+    "ext_params": {
+      "cap_min_kg_h": 90,
+      "cap_max_kg_h": 135,
+      "barrel_min_c": 162,
+      "barrel_max_c": 171,
+      "rpm_min": 40,
+      "rpm_max": 60
+    },
+    "cooling_min": 15,
+    "tips": "Optimize for film using Single_Screw_Extruder_40mm"
+  },
+  {
+    "id": "PROC-016",
+    "equip": "Twin_Screw_Extruder_53mm",
+    "app": "cable_insulation",
+    "mix_params": {},
+    "ext_params": {
+      "cap_min_kg_h": 200,
+      "cap_max_kg_h": 350,
+      "barrel_min_c": 175,
+      "barrel_max_c": 185,
+      "rpm_min": 100,
+      "rpm_max": 150
+    },
+    "cooling_min": 15,
+    "tips": "Optimize for cable_insulation using Twin_Screw_Extruder_53mm"
+  },
+  {
+    "id": "PROC-017",
+    "equip": "Twin_Screw_Extruder_53mm",
+    "app": "rigid_pipe",
+    "mix_params": {},
+    "ext_params": {
+      "cap_min_kg_h": 190,
+      "cap_max_kg_h": 332,
+      "barrel_min_c": 166,
+      "barrel_max_c": 175,
+      "rpm_min": 100,
+      "rpm_max": 150
+    },
+    "cooling_min": 15,
+    "tips": "Optimize for rigid_pipe using Twin_Screw_Extruder_53mm"
+  },
+  {
+    "id": "PROC-018",
+    "equip": "Twin_Screw_Extruder_53mm",
+    "app": "flexible_tubing",
+    "mix_params": {},
+    "ext_params": {
+      "cap_min_kg_h": 210,
+      "cap_max_kg_h": 367,
+      "barrel_min_c": 183,
+      "barrel_max_c": 194,
+      "rpm_min": 100,
+      "rpm_max": 150
+    },
+    "cooling_min": 15,
+    "tips": "Optimize for flexible_tubing using Twin_Screw_Extruder_53mm"
+  },
+  {
+    "id": "PROC-019",
+    "equip": "Twin_Screw_Extruder_53mm",
+    "app": "sheet_material",
+    "mix_params": {},
+    "ext_params": {
+      "cap_min_kg_h": 196,
+      "cap_max_kg_h": 343,
+      "barrel_min_c": 171,
+      "barrel_max_c": 181,
+      "rpm_min": 100,
+      "rpm_max": 150
+    },
+    "cooling_min": 15,
+    "tips": "Optimize for sheet_material using Twin_Screw_Extruder_53mm"
+  },
+  {
+    "id": "PROC-020",
+    "equip": "Twin_Screw_Extruder_53mm",
+    "app": "film",
+    "mix_params": {},
+    "ext_params": {
+      "cap_min_kg_h": 180,
+      "cap_max_kg_h": 315,
+      "barrel_min_c": 157,
+      "barrel_max_c": 166,
+      "rpm_min": 100,
+      "rpm_max": 150
+    },
+    "cooling_min": 15,
+    "tips": "Optimize for film using Twin_Screw_Extruder_53mm"
+  },
+  {
+    "id": "PROC-021",
+    "equip": "Single_Screw_Extruder_65mm",
+    "app": "cable_insulation",
+    "mix_params": {},
+    "ext_params": {
+      "cap_min_kg_h": 300,
+      "cap_max_kg_h": 500,
+      "barrel_min_c": 175,
+      "barrel_max_c": 185,
+      "rpm_min": 50,
+      "rpm_max": 80
+    },
+    "cooling_min": 15,
+    "tips": "Optimize for cable_insulation using Single_Screw_Extruder_65mm"
+  },
+  {
+    "id": "PROC-022",
+    "equip": "Single_Screw_Extruder_65mm",
+    "app": "rigid_pipe",
+    "mix_params": {},
+    "ext_params": {
+      "cap_min_kg_h": 285,
+      "cap_max_kg_h": 475,
+      "barrel_min_c": 166,
+      "barrel_max_c": 175,
+      "rpm_min": 50,
+      "rpm_max": 80
+    },
+    "cooling_min": 15,
+    "tips": "Optimize for rigid_pipe using Single_Screw_Extruder_65mm"
+  },
+  {
+    "id": "PROC-023",
+    "equip": "Single_Screw_Extruder_65mm",
+    "app": "flexible_tubing",
+    "mix_params": {},
+    "ext_params": {
+      "cap_min_kg_h": 315,
+      "cap_max_kg_h": 525,
+      "barrel_min_c": 183,
+      "barrel_max_c": 194,
+      "rpm_min": 50,
+      "rpm_max": 80
+    },
+    "cooling_min": 15,
+    "tips": "Optimize for flexible_tubing using Single_Screw_Extruder_65mm"
+  },
+  {
+    "id": "PROC-024",
+    "equip": "Single_Screw_Extruder_65mm",
+    "app": "sheet_material",
+    "mix_params": {},
+    "ext_params": {
+      "cap_min_kg_h": 294,
+      "cap_max_kg_h": 490,
+      "barrel_min_c": 171,
+      "barrel_max_c": 181,
+      "rpm_min": 50,
+      "rpm_max": 80
+    },
+    "cooling_min": 15,
+    "tips": "Optimize for sheet_material using Single_Screw_Extruder_65mm"
+  },
+  {
+    "id": "PROC-025",
+    "equip": "Single_Screw_Extruder_65mm",
+    "app": "film",
+    "mix_params": {},
+    "ext_params": {
+      "cap_min_kg_h": 270,
+      "cap_max_kg_h": 450,
+      "barrel_min_c": 157,
+      "barrel_max_c": 166,
+      "rpm_min": 50,
+      "rpm_max": 80
+    },
+    "cooling_min": 15,
+    "tips": "Optimize for film using Single_Screw_Extruder_65mm"
+  },
+  {
+    "id": "SCALE-001",
+    "scale": 1,
+    "batch_kg": [
+      50,
+      200
+    ],
+    "adj": {},
+    "note": "Small lab batches",
+    "formula": "Increase mixing time by 10-20%, monitor temperature closely for larger batches"
+  },
+  {
+    "id": "SCALE-002",
+    "scale": 2,
+    "batch_kg": [
+      200,
+      500
+    ],
+    "adj": {
+      "temp_increase_c": 0,
+      "time_increase_pct": 10
+    },
+    "note": "Medium production",
+    "formula": "Increase mixing time by 10-20%, monitor temperature closely for larger batches"
+  },
+  {
+    "id": "SCALE-003",
+    "scale": 5,
+    "batch_kg": [
+      500,
+      1500
+    ],
+    "adj": {
+      "temp_increase_c": 2,
+      "time_increase_pct": 15
+    },
+    "note": "Large production",
+    "formula": "Increase mixing time by 10-20%, monitor temperature closely for larger batches"
+  },
+  {
+    "id": "SCALE-004",
+    "scale": 10,
+    "batch_kg": [
+      1500,
+      5000
+    ],
+    "adj": {
+      "temp_increase_c": 5,
+      "time_increase_pct": 20
+    },
+    "note": "Industrial scale",
+    "formula": "Increase mixing time by 10-20%, monitor temperature closely for larger batches"
+  }
+]

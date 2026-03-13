@@ -1,0 +1,67 @@
+[
+  {
+    "id": "SUPP-0001",
+    "name": "Grasim Industries",
+    "location": "Jhagadia, Gujarat",
+    "product": "PVC_K67",
+    "price_per_kg": 86.209,
+    "min_order_kg": 500,
+    "lead_time_days": 2,
+    "reliability_score": 4.9,
+    "certifications": "ISO_9001",
+    "month": "2023-01",
+    "availability": "Yes"
+  },
+  {
+    "id": "SUPP-0002",
+    "name": "Grasim Industries",
+    "location": "Jhagadia, Gujarat",
+    "product": "PVC_K67",
+    "price_per_kg": 91.028,
+    "min_order_kg": 500,
+    "lead_time_days": 2,
+    "reliability_score": 4.9,
+    "certifications": "ISO_9001",
+    "month": "2023-01",
+    "availability": "Yes"
+  },
+  {
+    "id": "SUPP-0003",
+    "name": "Grasim Industries",
+    "location": "Jhagadia, Gujarat",
+    "product": "PVC_K67",
+    "price_per_kg": 87.579,
+    "min_order_kg": 500,
+    "lead_time_days": 2,
+    "reliability_score": 4.9,
+    "certifications": "ISO_9001",
+    "month": "2023-03",
+    "availability": "Yes"
+  },
+  {
+    "id": "SUPP-0004",
+    "name": "Grasim Industries",
+    "location": "Jhagadia, Gujarat",
+    "product": "PVC_K67",
+    "price_per_kg": 93.877,
+    "min_order_kg": 500,
+    "lead_time_days": 2,
+    "reliability_score": 4.9,
+    "certifications": "ISO_9001",
+    "month": "2023-04",
+    "availability": "Yes"
+  },
+  {
+    "id": "SUPP-0005",
+    "name": "Grasim Industries",
+    "location": "Jhagadia, Gujarat",
+    "product": "PVC_K67",
+    "price_per_kg": 87.854,
+    "min_order_kg": 500,
+    "lead_time_days": 2,
+    "reliability_score": 4.9,
+    "certifications": "ISO_9001",
+    "month": "2023-05",
+    "availability": "Yes"
+  }
+]
