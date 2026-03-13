@@ -1,7 +1,8 @@
 import { useState, useEffect, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { FileText, CheckCircle2, Loader2, Save, Download, History, Eye, Trash2 } from "lucide-react";
+import { FileText, CheckCircle2, Loader2, Save, Download, History, Eye, Trash2, Send, AlertCircle } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
 import { supabase } from "@/integrations/supabase/client";
 
 interface QuoteRecord {
@@ -13,6 +14,7 @@ interface QuoteRecord {
   margin: string;
   status: string;
   date: string;
+  rawData?: Record<string, unknown>;
 }
 
 interface AgentStep {
@@ -22,23 +24,27 @@ interface AgentStep {
 }
 
 export function QuotationGeneratorDetail() {
-  const [viewState, setViewState] = useState<"prompts" | "processing" | "result" | "history">("prompts");
+  const [viewState, setViewState] = useState<"chat" | "processing" | "result" | "history">("chat");
   const [quotes, setQuotes] = useState<QuoteRecord[]>([]);
-  const [activePrompt, setActivePrompt] = useState<string | null>(null);
+  const [quotationInputs, setQuotationInputs] = useState<any[]>([]);
+  const [chatInput, setChatInput] = useState("");
+  const [chatMessages, setChatMessages] = useState<{ role: "user" | "ai"; content: string }[]>([]);
   const [agentSteps, setAgentSteps] = useState<AgentStep[]>([]);
   const [savedDocs, setSavedDocs] = useState<QuoteRecord[]>([]);
   const [selectedDoc, setSelectedDoc] = useState<QuoteRecord | null>(null);
+  const [generatedQuote, setGeneratedQuote] = useState<any>(null);
+  const [validationError, setValidationError] = useState("");
   const timerRef = useRef<ReturnType<typeof setTimeout>>();
+  const chatEndRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     async function load() {
-      const { data } = await supabase
-        .from("quotationresult")
-        .select("*")
-        .order("created_at", { ascending: false })
-        .limit(6);
-      if (data) {
-        setQuotes(data.map(d => ({
+      const [resResult, resInput] = await Promise.all([
+        supabase.from("quotationresult").select("*").order("created_at", { ascending: false }),
+        supabase.from("quotation").select("*").order("created_at", { ascending: false }),
+      ]);
+      if (resResult.data) {
+        setQuotes(resResult.data.map(d => ({
           id: d.quote_id || `QT-${d.id}`,
           customer: d.customer || "—",
           product: d.product || "—",
@@ -47,29 +53,139 @@ export function QuotationGeneratorDetail() {
           margin: `${d.profit_margin || 0}%`,
           status: "sent",
           date: d.valid_until || "—",
+          rawData: d as unknown as Record<string, unknown>,
         })));
       }
+      if (resInput.data) setQuotationInputs(resInput.data);
     }
     load();
     const stored = sessionStorage.getItem("udyami-saved-quotes");
     if (stored) setSavedDocs(JSON.parse(stored));
   }, []);
 
-  const prompts = [
-    "Generate quotation for Acme Corp — 500 units widget_a with priority delivery",
-    "Create quote for PowerCable Co — 300 units widget_e, 50% advance terms",
-    "Draft pricing for FastTrack Ltd — 200 units widget_c, competitive bid",
-  ];
+  useEffect(() => { chatEndRef.current?.scrollIntoView({ behavior: "smooth" }); }, [chatMessages]);
 
-  const handlePromptClick = (prompt: string) => {
-    setActivePrompt(prompt);
-    setViewState("processing");
-    setAgentSteps([
-      { label: "Analyzing material cost & current inventory", agent: "CostAnalyzer", status: "pending" },
-      { label: "Calculating production capacity & lead time", agent: "CapacityPlanner", status: "pending" },
-      { label: "Running competitive pricing analysis", agent: "PricingEngine", status: "pending" },
-      { label: "Generating quotation document", agent: "DocumentCrafter", status: "pending" },
-    ]);
+  const validateInput = (input: string): { valid: boolean; customer?: string; product?: string; qty?: number; error?: string } => {
+    const lower = input.toLowerCase();
+    // Must reference a real customer or product from the DB
+    const knownCustomers = quotationInputs.map(q => q.customer?.toLowerCase()).filter(Boolean);
+    const knownProducts = quotationInputs.map(q => q.product_type?.toLowerCase()).filter(Boolean);
+    const allCustomers = [...new Set([...knownCustomers, ...quotes.map(q => q.customer.toLowerCase())])];
+
+    const foundCustomer = allCustomers.find(c => lower.includes(c));
+    if (!foundCustomer && !lower.match(/\b(quote|quotation|price|pricing|cost|estimate)\b/i)) {
+      return { valid: false, error: "Please mention a customer name or ask about quotation/pricing. I can only generate quotes based on existing data." };
+    }
+
+    // Extract quantity
+    const qtyMatch = input.match(/(\d+)\s*(units?|pcs?|pieces?|qty|quantity)?/i);
+    const qty = qtyMatch ? parseInt(qtyMatch[1]) : undefined;
+
+    // Check for unreasonable quantities
+    if (qty && qty > 100000) {
+      return { valid: false, error: "Quantity exceeds maximum batch size of 100,000 units. Please specify a smaller quantity." };
+    }
+
+    // Find best matching product
+    const foundProduct = knownProducts.find(p => lower.includes(p));
+
+    return {
+      valid: true,
+      customer: foundCustomer ? quotationInputs.find(q => q.customer?.toLowerCase() === foundCustomer)?.customer || quotes.find(q => q.customer.toLowerCase() === foundCustomer)?.customer : undefined,
+      product: foundProduct ? quotationInputs.find(q => q.product_type?.toLowerCase() === foundProduct)?.product_type : undefined,
+      qty,
+    };
+  };
+
+  const handleChatSubmit = () => {
+    if (!chatInput.trim()) return;
+    const userMsg = chatInput.trim();
+    setChatMessages(prev => [...prev, { role: "user", content: userMsg }]);
+    setChatInput("");
+    setValidationError("");
+
+    const validation = validateInput(userMsg);
+    if (!validation.valid) {
+      setValidationError(validation.error || "");
+      setChatMessages(prev => [...prev, {
+        role: "ai",
+        content: `⚠️ ${validation.error}\n\n**Available customers:** ${[...new Set(quotationInputs.map(q => q.customer).filter(Boolean))].join(", ")}\n\n**Available products:** ${[...new Set(quotationInputs.map(q => q.product_type).filter(Boolean))].join(", ")}`
+      }]);
+      return;
+    }
+
+    // Find matching data from DB
+    const matchingInput = validation.customer
+      ? quotationInputs.find(q => q.customer?.toLowerCase() === validation.customer?.toLowerCase())
+      : quotationInputs[0];
+
+    const matchingResult = validation.customer
+      ? quotes.find(q => q.customer.toLowerCase() === (validation.customer || "").toLowerCase())
+      : quotes[0];
+
+    if (matchingInput || matchingResult) {
+      const qty = validation.qty || matchingInput?.quantity || 500;
+      const materialCostKg = matchingInput?.material_cost_kg || 120;
+      const weightPerUnit = matchingInput?.weight_per_unit_kg || 0.35;
+      const productionRate = matchingInput?.production_rate || 60;
+      const setupHours = matchingInput?.setup_time_hours || 1.5;
+
+      const materialCost = Math.round(qty * weightPerUnit * materialCostKg);
+      const productionHours = Math.ceil(qty / productionRate) + setupHours;
+      const productionCost = Math.round(productionHours * 1500);
+      const qualityCost = Math.round(qty * 5);
+      const riskPremium = matchingInput?.risk_level === "high" ? Math.round(materialCost * 0.05) : matchingInput?.risk_level === "medium" ? Math.round(materialCost * 0.02) : 0;
+      const subtotal = materialCost + productionCost + qualityCost + riskPremium;
+      const profitMargin = matchingInput?.priority === "critical" ? 28 : matchingInput?.priority === "high" ? 25 : 20;
+      const profitAmount = Math.round(subtotal * profitMargin / 100);
+      const totalBeforeTax = subtotal + profitAmount;
+      const gst = Math.round(totalBeforeTax * 0.18);
+      const grandTotal = totalBeforeTax + gst;
+
+      setGeneratedQuote({
+        id: `QT-2026-${String(Math.floor(100 + Math.random() * 900))}`,
+        customer: matchingInput?.customer || validation.customer || "—",
+        product: `${matchingInput?.product_type || "widget"} (${matchingInput?.material_formulation || "Standard"})`,
+        application: matchingInput?.application || "General",
+        qty,
+        materialCost,
+        productionCost,
+        qualityCost,
+        riskPremium,
+        subtotal,
+        profitMargin,
+        profitAmount,
+        totalBeforeTax,
+        gst,
+        grandTotal,
+        unitPrice: Math.round(grandTotal / qty * 100) / 100,
+        leadTime: matchingResult?.rawData?.lead_time_days || Math.ceil(productionHours / 8) + 3,
+        paymentTerms: matchingResult?.rawData?.payment_terms || matchingInput?.priority === "critical" ? "40% advance, 60% on delivery" : "Net 30",
+        validUntil: new Date(Date.now() + 30 * 86400000).toISOString().slice(0, 10),
+        compliance: matchingInput?.compliance || "RoHS",
+        ul94: matchingInput?.ul94_rating || "HB",
+        sourceRequest: matchingInput?.quote_request_id || "—",
+        machine: matchingInput?.machine || "—",
+      });
+
+      setChatMessages(prev => [...prev, {
+        role: "ai",
+        content: `✅ Found matching data for **${matchingInput?.customer || validation.customer}**.\n\n📋 Source: Request **${matchingInput?.quote_request_id || "—"}** | Product: **${matchingInput?.product_type || "widget"}** | Application: **${matchingInput?.application || "General"}**\n\nGenerating optimized quotation for **${qty} units**...`
+      }]);
+
+      setViewState("processing");
+      setAgentSteps([
+        { label: `Loading cost data for ${matchingInput?.material_formulation || "material"} @ ₹${materialCostKg}/kg`, agent: "CostAnalyzer", status: "pending" },
+        { label: `Calculating production on ${matchingInput?.machine || "machine"} @ ${productionRate} units/hr`, agent: "CapacityPlanner", status: "pending" },
+        { label: `Applying ${matchingInput?.compliance || "RoHS"} compliance & ${matchingInput?.risk_level || "low"} risk premium`, agent: "ComplianceEngine", status: "pending" },
+        { label: "Generating final quotation with GST", agent: "DocumentCrafter", status: "pending" },
+      ]);
+    } else {
+      setChatMessages(prev => [...prev, {
+        role: "ai",
+        content: `I couldn't find matching data in the database. Here are the available options:\n\n**Customers:** ${[...new Set(quotationInputs.map(q => q.customer).filter(Boolean))].join(", ") || "No data yet"}\n\n**Products:** ${[...new Set(quotationInputs.map(q => q.product_type).filter(Boolean))].join(", ") || "No data yet"}\n\nTry: *"Generate quotation for Quantum Materials — 500 units widget_a"*`
+      }]);
+    }
   };
 
   useEffect(() => {
@@ -77,10 +193,7 @@ export function QuotationGeneratorDetail() {
     let step = 0;
     const run = () => {
       if (step < agentSteps.length) {
-        setAgentSteps(prev => prev.map((s, i) => ({
-          ...s,
-          status: i === step ? "running" : i < step ? "done" : "pending"
-        })));
+        setAgentSteps(prev => prev.map((s, i) => ({ ...s, status: i === step ? "running" : i < step ? "done" : "pending" })));
         step++;
         timerRef.current = setTimeout(run, 1100);
       } else {
@@ -92,59 +205,39 @@ export function QuotationGeneratorDetail() {
     return () => { if (timerRef.current) clearTimeout(timerRef.current); };
   }, [viewState]);
 
-  const mockQuote = {
-    id: `QT-2026-${String(Math.floor(100 + Math.random() * 900))}`,
-    customer: activePrompt?.includes("Acme") ? "Acme Corp" : activePrompt?.includes("PowerCable") ? "PowerCable Co" : "FastTrack Ltd",
-    product: activePrompt?.includes("widget_a") ? "Widget A (ABS Compound)" : activePrompt?.includes("widget_e") ? "Widget E (PVC K70)" : "Widget C (PP-Talc)",
-    qty: activePrompt?.includes("500") ? 500 : activePrompt?.includes("300") ? 300 : 200,
-    materialCost: activePrompt?.includes("500") ? 58498 : activePrompt?.includes("300") ? 50321 : 29411,
-    productionCost: activePrompt?.includes("500") ? 44520 : activePrompt?.includes("300") ? 26208 : 15092,
-    qualityCost: 2500,
-    profitMargin: 25,
-    get subtotal() { return this.materialCost + this.productionCost + this.qualityCost; },
-    get profitAmount() { return Math.round(this.subtotal * this.profitMargin / 100); },
-    get totalBeforeTax() { return this.subtotal + this.profitAmount; },
-    get gst() { return Math.round(this.totalBeforeTax * 0.18); },
-    get grandTotal() { return this.totalBeforeTax + this.gst; },
-    get unitPrice() { return Math.round(this.grandTotal / this.qty * 100) / 100; },
-    leadTime: 9,
-    paymentTerms: "50% advance, 50% on delivery",
-    validUntil: new Date(Date.now() + 30 * 86400000).toISOString().slice(0, 10),
-  };
-
   const handleAction = (action: "save" | "discard") => {
-    if (action === "save") {
+    if (action === "save" && generatedQuote) {
       const doc: QuoteRecord = {
-        id: mockQuote.id,
-        customer: mockQuote.customer,
-        product: mockQuote.product,
-        qty: mockQuote.qty,
-        total: `₹${mockQuote.grandTotal.toLocaleString("en-IN")}`,
-        margin: `${mockQuote.profitMargin}%`,
+        id: generatedQuote.id,
+        customer: generatedQuote.customer,
+        product: generatedQuote.product,
+        qty: generatedQuote.qty,
+        total: `₹${generatedQuote.grandTotal.toLocaleString("en-IN")}`,
+        margin: `${generatedQuote.profitMargin}%`,
         status: "saved",
         date: new Date().toISOString().slice(0, 10),
       };
-      const updated = [doc, ...savedDocs].slice(0, 4);
+      const updated = [doc, ...savedDocs].slice(0, 10);
       setSavedDocs(updated);
       sessionStorage.setItem("udyami-saved-quotes", JSON.stringify(updated));
+      setChatMessages(prev => [...prev, { role: "ai", content: `✅ Quotation **${generatedQuote.id}** saved successfully. Grand Total: **₹${generatedQuote.grandTotal.toLocaleString("en-IN")}**` }]);
     }
-    setViewState("prompts");
-    setActivePrompt(null);
+    setViewState("chat");
   };
 
   return (
     <div className="space-y-6 pb-4">
       <AnimatePresence mode="wait">
-        {viewState === "prompts" && (
-          <motion.div key="prompts" initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0 }}>
-            <div className="flex items-center justify-between mb-6">
+        {viewState === "chat" && (
+          <motion.div key="chat" initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0 }}>
+            <div className="flex items-center justify-between mb-4">
               <div className="flex items-center gap-3">
                 <div className="w-12 h-12 rounded-2xl bg-muted/50 flex items-center justify-center">
                   <FileText className="w-6 h-6" />
                 </div>
                 <div>
                   <h2 className="text-lg font-semibold">Quotation Generator AI</h2>
-                  <p className="text-xs text-muted-foreground">Cost-optimized quotes • {quotes.length} quotations in database</p>
+                  <p className="text-xs text-muted-foreground">Chat to generate quotes · {quotes.length} quotations · {quotationInputs.length} requests in DB</p>
                 </div>
               </div>
               {savedDocs.length > 0 && (
@@ -154,16 +247,57 @@ export function QuotationGeneratorDetail() {
               )}
             </div>
 
-            <div className="space-y-2.5 mb-8">
-              {prompts.map((prompt, i) => (
-                <button key={i} onClick={() => handlePromptClick(prompt)}
-                  className="w-full text-left p-4 rounded-xl border border-border bg-background hover:bg-muted/30 hover:border-foreground/10 transition-all text-sm">
-                  {prompt}
-                </button>
-              ))}
+            {/* Chat Area */}
+            <div className="rounded-xl border border-border bg-muted/10 mb-4 overflow-hidden">
+              <div className="max-h-[300px] overflow-y-auto p-4 space-y-3">
+                {chatMessages.length === 0 && (
+                  <div className="text-center py-8">
+                    <FileText className="w-8 h-8 mx-auto mb-3 text-muted-foreground/40" />
+                    <p className="text-sm text-muted-foreground">Ask me to generate a quotation</p>
+                    <p className="text-[10px] text-muted-foreground mt-1">I'll use real data from your database to create accurate quotes</p>
+                    <div className="mt-4 space-y-2">
+                      {[
+                        "Generate quotation for Quantum Materials — 500 units widget_a",
+                        "Create quote for PowerCable Co — 1000 units widget_b",
+                        "Price estimate for Apex Plastics — 750 units widget_c",
+                      ].map((prompt, i) => (
+                        <button key={i} onClick={() => { setChatInput(prompt); }}
+                          className="block w-full text-left text-xs px-3 py-2 rounded-lg border border-border hover:bg-muted/30 transition-colors">
+                          {prompt}
+                        </button>
+                      ))}
+                    </div>
+                  </div>
+                )}
+                {chatMessages.map((msg, i) => (
+                  <div key={i} className={`flex ${msg.role === "user" ? "justify-end" : "justify-start"}`}>
+                    <div className={`max-w-[80%] px-3 py-2 rounded-xl text-xs whitespace-pre-wrap ${msg.role === "user" ? "bg-primary text-primary-foreground" : "bg-muted/50 border border-border"}`}>
+                      {msg.content.split(/(\*\*.*?\*\*)/g).map((part, j) =>
+                        part.startsWith("**") && part.endsWith("**")
+                          ? <strong key={j}>{part.slice(2, -2)}</strong>
+                          : <span key={j}>{part}</span>
+                      )}
+                    </div>
+                  </div>
+                ))}
+                <div ref={chatEndRef} />
+              </div>
+              <div className="border-t border-border p-3 flex gap-2">
+                <Input
+                  value={chatInput}
+                  onChange={e => setChatInput(e.target.value)}
+                  placeholder="e.g. Generate quotation for Quantum Materials — 500 units widget_a"
+                  className="text-xs"
+                  onKeyDown={e => { if (e.key === "Enter") handleChatSubmit(); }}
+                />
+                <Button size="sm" onClick={handleChatSubmit} className="gap-1.5 rounded-xl shrink-0">
+                  <Send className="w-3.5 h-3.5" /> Send
+                </Button>
+              </div>
             </div>
 
-            <h3 className="text-sm font-semibold mb-3">Recent Quotations from Database</h3>
+            {/* Recent quotations table */}
+            <h3 className="text-sm font-semibold mb-3">Quotations from Database</h3>
             <div className="rounded-xl border border-border overflow-hidden">
               <table className="w-full text-xs">
                 <thead><tr className="bg-muted/50">
@@ -183,6 +317,7 @@ export function QuotationGeneratorDetail() {
                       <td className="p-3 text-muted-foreground">{q.date}</td>
                     </tr>
                   ))}
+                  {quotes.length === 0 && <tr><td colSpan={7} className="p-6 text-center text-muted-foreground">No quotations in database yet</td></tr>}
                 </tbody>
               </table>
             </div>
@@ -195,22 +330,19 @@ export function QuotationGeneratorDetail() {
             <Loader2 className="w-12 h-12 animate-spin mb-6 text-foreground/60" />
             <h3 className="text-lg font-medium mb-8">Agents Generating Quotation</h3>
             <div className="w-full max-w-md space-y-3">
-              {agentSteps.map((step, i) => (
-                <div key={i} className={`flex items-start gap-3 p-3 rounded-lg border transition-all ${step.status === "running" ? "border-foreground/20 bg-muted/30" : step.status === "done" ? "border-border opacity-60" : "border-transparent opacity-30"}`}>
+              {agentSteps.map((s, i) => (
+                <div key={i} className={`flex items-start gap-3 p-3 rounded-lg border transition-all ${s.status === "running" ? "border-foreground/20 bg-muted/30" : s.status === "done" ? "border-border opacity-60" : "border-transparent opacity-30"}`}>
                   <div className="w-5 h-5 flex items-center justify-center mt-0.5">
-                    {step.status === "done" ? <CheckCircle2 className="w-4 h-4 text-[hsl(142,71%,45%)]" /> : step.status === "running" ? <Loader2 className="w-4 h-4 animate-spin" /> : <div className="w-2 h-2 rounded-full bg-muted-foreground" />}
+                    {s.status === "done" ? <CheckCircle2 className="w-4 h-4 text-[hsl(142,71%,45%)]" /> : s.status === "running" ? <Loader2 className="w-4 h-4 animate-spin" /> : <div className="w-2 h-2 rounded-full bg-muted-foreground" />}
                   </div>
-                  <div>
-                    <p className="text-sm font-medium">{step.label}</p>
-                    <p className="text-[10px] text-muted-foreground">Agent: {step.agent}</p>
-                  </div>
+                  <div><p className="text-sm font-medium">{s.label}</p><p className="text-[10px] text-muted-foreground">Agent: {s.agent}</p></div>
                 </div>
               ))}
             </div>
           </motion.div>
         )}
 
-        {viewState === "result" && (
+        {viewState === "result" && generatedQuote && (
           <motion.div key="result" initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} className="max-w-2xl mx-auto">
             <div className="flex items-center gap-3 mb-6">
               <div className="w-10 h-10 rounded-xl bg-[hsl(142,71%,45%/0.1)] flex items-center justify-center">
@@ -218,7 +350,7 @@ export function QuotationGeneratorDetail() {
               </div>
               <div>
                 <h2 className="text-lg font-semibold">Quotation Generated</h2>
-                <p className="text-xs text-muted-foreground">{mockQuote.id} · Valid until {mockQuote.validUntil}</p>
+                <p className="text-xs text-muted-foreground">{generatedQuote.id} · Source: {generatedQuote.sourceRequest} · Valid until {generatedQuote.validUntil}</p>
               </div>
             </div>
 
@@ -226,37 +358,45 @@ export function QuotationGeneratorDetail() {
               <div className="flex justify-between mb-6 pb-4 border-b border-border">
                 <div>
                   <h3 className="text-base font-bold">QUOTATION</h3>
-                  <p className="text-xs text-muted-foreground mt-0.5">{mockQuote.id}</p>
+                  <p className="text-xs text-muted-foreground mt-0.5">{generatedQuote.id}</p>
+                  <p className="text-[10px] text-muted-foreground">Machine: {generatedQuote.machine} · UL94: {generatedQuote.ul94} · {generatedQuote.compliance}</p>
                 </div>
                 <div className="text-right">
-                  <p className="text-sm font-semibold">{mockQuote.customer}</p>
-                  <p className="text-xs text-muted-foreground">{mockQuote.product} × {mockQuote.qty}</p>
+                  <p className="text-sm font-semibold">{generatedQuote.customer}</p>
+                  <p className="text-xs text-muted-foreground">{generatedQuote.product} × {generatedQuote.qty}</p>
+                  <p className="text-[10px] text-muted-foreground">Application: {generatedQuote.application}</p>
                 </div>
               </div>
 
               <div className="space-y-2 text-sm mb-4">
-                <div className="flex justify-between py-1.5"><span className="text-muted-foreground">Material Cost</span><span>₹{mockQuote.materialCost.toLocaleString("en-IN")}</span></div>
-                <div className="flex justify-between py-1.5"><span className="text-muted-foreground">Production Cost</span><span>₹{mockQuote.productionCost.toLocaleString("en-IN")}</span></div>
-                <div className="flex justify-between py-1.5"><span className="text-muted-foreground">Quality Cost</span><span>₹{mockQuote.qualityCost.toLocaleString("en-IN")}</span></div>
-                <div className="flex justify-between py-1.5 border-t border-border/50"><span>Subtotal</span><span className="font-medium">₹{mockQuote.subtotal.toLocaleString("en-IN")}</span></div>
-                <div className="flex justify-between py-1.5"><span className="text-muted-foreground">Profit ({mockQuote.profitMargin}%)</span><span>₹{mockQuote.profitAmount.toLocaleString("en-IN")}</span></div>
-                <div className="flex justify-between py-1.5"><span className="text-muted-foreground">GST (18%)</span><span>₹{mockQuote.gst.toLocaleString("en-IN")}</span></div>
-                <div className="flex justify-between py-3 border-t border-border font-bold text-base"><span>Grand Total</span><span>₹{mockQuote.grandTotal.toLocaleString("en-IN")}</span></div>
+                {[
+                  ["Material Cost", generatedQuote.materialCost],
+                  ["Production Cost", generatedQuote.productionCost],
+                  ["Quality Cost", generatedQuote.qualityCost],
+                  ...(generatedQuote.riskPremium > 0 ? [["Risk Premium", generatedQuote.riskPremium]] : []),
+                ].map(([label, value]) => (
+                  <div key={label as string} className="flex justify-between py-1.5">
+                    <span className="text-muted-foreground">{label}</span>
+                    <span>₹{(value as number).toLocaleString("en-IN")}</span>
+                  </div>
+                ))}
+                <div className="flex justify-between py-1.5 border-t border-border/50"><span>Subtotal</span><span className="font-medium">₹{generatedQuote.subtotal.toLocaleString("en-IN")}</span></div>
+                <div className="flex justify-between py-1.5"><span className="text-muted-foreground">Profit ({generatedQuote.profitMargin}%)</span><span>₹{generatedQuote.profitAmount.toLocaleString("en-IN")}</span></div>
+                <div className="flex justify-between py-1.5"><span className="text-muted-foreground">GST (18%)</span><span>₹{generatedQuote.gst.toLocaleString("en-IN")}</span></div>
+                <div className="flex justify-between py-3 border-t border-border font-bold text-base"><span>Grand Total</span><span>₹{generatedQuote.grandTotal.toLocaleString("en-IN")}</span></div>
               </div>
 
               <div className="grid grid-cols-3 gap-3 pt-3 border-t border-border">
-                <div className="text-center p-2 rounded-lg bg-muted/30">
-                  <p className="text-[10px] text-muted-foreground">Unit Price</p>
-                  <p className="text-sm font-semibold">₹{mockQuote.unitPrice.toLocaleString("en-IN")}</p>
-                </div>
-                <div className="text-center p-2 rounded-lg bg-muted/30">
-                  <p className="text-[10px] text-muted-foreground">Lead Time</p>
-                  <p className="text-sm font-semibold">{mockQuote.leadTime} days</p>
-                </div>
-                <div className="text-center p-2 rounded-lg bg-muted/30">
-                  <p className="text-[10px] text-muted-foreground">Payment</p>
-                  <p className="text-[11px] font-medium">{mockQuote.paymentTerms}</p>
-                </div>
+                {[
+                  ["Unit Price", `₹${generatedQuote.unitPrice.toLocaleString("en-IN")}`],
+                  ["Lead Time", `${generatedQuote.leadTime} days`],
+                  ["Payment", generatedQuote.paymentTerms],
+                ].map(([label, value]) => (
+                  <div key={label} className="text-center p-2 rounded-lg bg-muted/30">
+                    <p className="text-[10px] text-muted-foreground">{label}</p>
+                    <p className="text-[11px] font-semibold">{value}</p>
+                  </div>
+                ))}
               </div>
             </div>
 
@@ -275,18 +415,15 @@ export function QuotationGeneratorDetail() {
           <motion.div key="history" initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }}>
             <div className="flex items-center justify-between mb-6">
               <h2 className="text-lg font-semibold flex items-center gap-2"><History className="w-5 h-5" /> Saved Quotations</h2>
-              <Button variant="ghost" size="sm" onClick={() => { setViewState("prompts"); setSelectedDoc(null); }}>← Back</Button>
+              <Button variant="ghost" size="sm" onClick={() => { setViewState("chat"); setSelectedDoc(null); }}>← Back</Button>
             </div>
             {selectedDoc ? (
               <div className="p-6 rounded-xl border border-border bg-background">
                 <h3 className="font-bold mb-3">{selectedDoc.id}</h3>
                 <div className="grid grid-cols-2 gap-3 text-sm">
-                  <div><span className="text-muted-foreground">Customer:</span> {selectedDoc.customer}</div>
-                  <div><span className="text-muted-foreground">Product:</span> {selectedDoc.product}</div>
-                  <div><span className="text-muted-foreground">Quantity:</span> {selectedDoc.qty}</div>
-                  <div><span className="text-muted-foreground">Total:</span> {selectedDoc.total}</div>
-                  <div><span className="text-muted-foreground">Margin:</span> {selectedDoc.margin}</div>
-                  <div><span className="text-muted-foreground">Date:</span> {selectedDoc.date}</div>
+                  {Object.entries({ Customer: selectedDoc.customer, Product: selectedDoc.product, Quantity: selectedDoc.qty, Total: selectedDoc.total, Margin: selectedDoc.margin, Date: selectedDoc.date }).map(([k, v]) => (
+                    <div key={k}><span className="text-muted-foreground">{k}:</span> {v}</div>
+                  ))}
                 </div>
                 <Button variant="ghost" size="sm" className="mt-4" onClick={() => setSelectedDoc(null)}>← Back to list</Button>
               </div>
