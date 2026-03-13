@@ -1,0 +1,40 @@
+version: '3.8'
+
+services:
+  # Frontend React App
+  frontend:
+    build: .
+    ports:
+      - "3000:80"
+    environment:
+      - REACT_APP_API_URL=http://localhost:8000/api
+      - REACT_APP_WS_URL=ws://localhost:8000/ws
+      - NODE_ENV=production
+    depends_on:
+      - backend
+    networks:
+      - manufacturing-network
+
+  # Backend Python API (placeholder - you'll need to create this)
+  backend:
+    build: ../  # Assumes backend Dockerfile in parent directory
+    ports:
+      - "8000:8000"
+    environment:
+      - GEMINI_API_KEY=${GEMINI_API_KEY}
+      - GOOGLE_SHEET_ID=${GOOGLE_SHEET_ID}
+      - SERVICE_ACCOUNT_FILE=/app/creds.json
+    volumes:
+      - ../creds.json:/app/creds.json:ro
+      - ../reports:/app/reports
+      - ../data:/app/data
+    networks:
+      - manufacturing-network
+
+networks:
+  manufacturing-network:
+    driver: bridge
+
+volumes:
+  reports-data:
+  structured-data:

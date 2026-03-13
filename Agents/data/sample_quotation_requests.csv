@@ -1,0 +1,6 @@
+Quote Request ID,Customer,Product Type,Quantity,Application,Quality Standard,Priority,Delivery Required,Special Requirements,Material Formulation,Material Cost (₹/kg),Weight per Unit (kg),UL94 Rating,Compliance,Machine,Production Rate,Setup Time (hours),Inspection Standard,Quality Level,Risk Level
+QR001,Acme Corp,widget_a,100,electrical_cable_insulation,ISO_2859,normal,2026-03-15,RoHS compliant,PVC K67 based,82,0.5,V-0,RoHS ✓ REACH ✓,M1,10,1.5,ISO_2859,GOOD,Low
+QR002,TechStart Inc,widget_b,50,flexible_cable_jacket,ASTM_D2562,high,2026-02-28,UL94 V-1 certification,PVC K67 based,76,0.4,V-1,RoHS ✓ REACH ✓,M2,15,1.0,ASTM_D2562,EXCELLENT,Low
+QR003,Global Manufacturing,widget_c,200,electronics_housing,ISO_2859,critical,2026-02-20,Rush order UL94 V-0,PP Homopolymer,95,0.6,V-0,RoHS ✓ REACH ✓,M3,12,1.0,ISO_2859,GOOD,Medium
+QR004,BuildCo,widget_a,150,cable_insulation,ISO_2859,normal,2026-03-25,Standard quality,PVC K70 based,58,0.45,HB,RoHS ✓,M1,10,1.5,ISO_2859,ACCEPTABLE,Low
+QR005,FastTrack Ltd,widget_b,75,flame_retardant_conduit,ASTM_D2562,high,2026-03-10,Building code compliance,PVC K67 based,88,0.55,V-0,RoHS ✓ REACH ✓,M2,15,1.0,ASTM_D2562,GOOD,Medium
