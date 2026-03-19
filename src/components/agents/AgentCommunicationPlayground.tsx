@@ -97,6 +97,121 @@ const AGENT_CATALOG: AgentDef[] = [
   },
 ];
 
+// ── AGENT DEPENDENCY GUARDRAILS ──
+// Defines which upstream agents are REQUIRED before an agent can run.
+// Agents not listed here are "root" agents that can run independently.
+const AGENT_DEPENDENCIES: Record<string, { required: string[]; description: string }> = {
+  "quotation-generator": {
+    required: ["rnd-formulation"],
+    description: "Quotation needs R&D formulation data (material specs, cost/kg) to generate accurate pricing.",
+  },
+  "production-scheduling": {
+    required: ["quotation-generator"],
+    description: "Production Scheduling needs an approved quotation (product, quantity, lead time) to plan the schedule.",
+  },
+  "quality-intelligence": {
+    required: ["production-scheduling"],
+    description: "Quality Intelligence needs production batch data from the scheduler to inspect.",
+  },
+  "invoice-generation": {
+    required: ["quotation-generator", "quality-intelligence"],
+    description: "Invoice Generation needs both a quotation (pricing) and quality report (acceptance status) to create a valid invoice.",
+  },
+  "predictive-pricing": {
+    required: ["rnd-formulation"],
+    description: "Predictive Pricing needs R&D formulation cost data to recommend optimal pricing.",
+  },
+  "carbon-footprint": {
+    required: ["production-scheduling"],
+    description: "Carbon Footprint tracking needs production schedule data (machines, run times, energy) to calculate emissions.",
+  },
+  "supplier-auction": {
+    required: ["rnd-formulation"],
+    description: "Supplier Auction needs R&D formulation (materials list) to source the right raw materials.",
+  },
+  "negotiation-agents": {
+    required: ["supplier-auction"],
+    description: "Negotiation needs supplier auction bids to negotiate deals.",
+  },
+  "what-if-simulator": {
+    required: ["production-scheduling"],
+    description: "What-If Simulator needs a production schedule baseline to simulate disruption scenarios.",
+  },
+  "workforce-wellbeing": {
+    required: ["production-scheduling"],
+    description: "Workforce Wellbeing needs production shift schedules to assess fatigue and safety risks.",
+  },
+};
+
+// Agents that can start a pipeline (no upstream required)
+const ROOT_AGENTS = new Set(["rnd-formulation", "production-recommendation", "voice-of-customer"]);
+
+// Get the friendly name of required upstream agents
+function getMissingDependencies(
+  agentId: string,
+  nodeId: string,
+  allNodes: CanvasNode[],
+  allConnections: Connection[]
+): { missing: string[]; description: string } | null {
+  const deps = AGENT_DEPENDENCIES[agentId];
+  if (!deps) return null; // Root agent, no deps
+
+  const incomingAgentIds = allConnections
+    .filter(c => c.toNode === nodeId)
+    .map(c => {
+      const srcNode = allNodes.find(n => n.instanceId === c.fromNode);
+      return srcNode?.agentId;
+    })
+    .filter(Boolean) as string[];
+
+  const missing = deps.required.filter(reqId => !incomingAgentIds.includes(reqId));
+  if (missing.length === 0) return null;
+
+  const missingNames = missing.map(id => AGENT_CATALOG.find(a => a.id === id)?.shortTitle || id);
+  return { missing: missingNames, description: deps.description };
+}
+
+// Validate entire pipeline before running
+function validatePipeline(
+  nodes: CanvasNode[],
+  connections: Connection[]
+): { valid: boolean; errors: string[] } {
+  const errors: string[] = [];
+
+  for (const node of nodes) {
+    const result = getMissingDependencies(node.agentId, node.instanceId, nodes, connections);
+    if (result) {
+      const agent = AGENT_CATALOG.find(a => a.id === node.agentId);
+      errors.push(`**${agent?.shortTitle}** is missing required upstream: **${result.missing.join(", ")}**. ${result.description}`);
+    }
+  }
+
+  // Check for circular dependencies
+  const visited = new Set<string>();
+  const recStack = new Set<string>();
+  function hasCycle(nodeId: string): boolean {
+    visited.add(nodeId);
+    recStack.add(nodeId);
+    for (const conn of connections.filter(c => c.fromNode === nodeId)) {
+      if (!visited.has(conn.toNode)) {
+        if (hasCycle(conn.toNode)) return true;
+      } else if (recStack.has(conn.toNode)) {
+        return true;
+      }
+    }
+    recStack.delete(nodeId);
+    return false;
+  }
+  for (const node of nodes) {
+    if (!visited.has(node.instanceId) && hasCycle(node.instanceId)) {
+      errors.push("**Circular dependency detected** — agents cannot form a loop. Please review connections.");
+      break;
+    }
+  }
+
+  return { valid: errors.length === 0, errors };
+}
+
 // ── Types ──
 interface CanvasNode {
   instanceId: string;
@@ -172,6 +287,10 @@ function CanvasNodeCard({
     n => n.instanceId !== node.instanceId && !outgoing.some(c => c.toNode === n.instanceId)
   );
 
+  // Dependency guardrail check
+  const depIssue = getMissingDependencies(node.agentId, node.instanceId, allNodes, connections);
+  const isRoot = ROOT_AGENTS.has(node.agentId);
+
   const statusStyles: Record<string, string> = {
     idle: "bg-muted text-muted-foreground",
     running: "bg-amber-500/10 text-amber-600",
@@ -190,7 +309,7 @@ function CanvasNodeCard({
       exit={{ opacity: 0, scale: 0.8 }}
       className="absolute select-none" style={{ left: node.x, top: node.y }}
     >
-      <div className={`w-[240px] rounded-2xl border bg-card shadow-lg overflow-hidden transition-all ${node.status === "running" ? "border-amber-500/50 shadow-amber-500/10" : node.status === "awaiting-review" ? "border-blue-500/50 shadow-blue-500/10" : "border-border"}`}>
+      <div className={`w-[240px] rounded-2xl border bg-card shadow-lg overflow-hidden transition-all ${node.status === "running" ? "border-amber-500/50 shadow-amber-500/10" : node.status === "awaiting-review" ? "border-blue-500/50 shadow-blue-500/10" : depIssue && node.status === "idle" ? "border-amber-400/60 shadow-amber-400/10" : "border-border"}`}>
         {/* Header */}
         <div
           className="flex items-center gap-2 p-2.5 cursor-grab active:cursor-grabbing"
@@ -208,11 +327,25 @@ function CanvasNodeCard({
           </button>
         </div>
 
-        {/* Status + Ports */}
+        {/* Status + Ports + Dependency Warning */}
         <div className="px-2.5 pt-2 space-y-1.5">
-          <span className={`text-[10px] font-medium px-2 py-0.5 rounded-full ${statusStyles[node.status]}`}>
-            {statusLabels[node.status]}
-          </span>
+          <div className="flex items-center gap-1.5">
+            <span className={`text-[10px] font-medium px-2 py-0.5 rounded-full ${statusStyles[node.status]}`}>
+              {statusLabels[node.status]}
+            </span>
+            {isRoot && node.status === "idle" && (
+              <span className="text-[9px] px-1.5 py-0.5 rounded-full bg-emerald-500/10 text-emerald-600">🟢 Root</span>
+            )}
+          </div>
+
+          {/* Dependency warning */}
+          {depIssue && node.status === "idle" && (
+            <div className="p-1.5 rounded-lg bg-amber-500/10 border border-amber-500/20">
+              <p className="text-[9px] font-medium text-amber-700">⚠️ Missing upstream: <strong>{depIssue.missing.join(", ")}</strong></p>
+              <p className="text-[8px] text-amber-600/80 mt-0.5">{depIssue.description}</p>
+            </div>
+          )}
+
           <div className="flex flex-wrap gap-1">
             {incoming.length > 0 && incoming.map(c => {
               const src = allNodes.find(n => n.instanceId === c.fromNode);
@@ -554,12 +687,24 @@ export function AgentCommunicationPlayground() {
     if (!from || !to) return;
     const fa = AGENT_CATALOG.find(a => a.id === from.agentId);
     const ta = AGENT_CATALOG.find(a => a.id === to.agentId);
+
+    // Check if this connection makes logical sense
+    const toDeps = AGENT_DEPENDENCIES[to.agentId];
+    if (toDeps && !toDeps.required.includes(from.agentId)) {
+      // Allow connection but warn user
+      toast({
+        title: "⚠️ Unusual connection",
+        description: `${fa?.shortTitle} is not a required upstream for ${ta?.shortTitle}. Expected: ${toDeps.required.map(id => AGENT_CATALOG.find(a => a.id === id)?.shortTitle).join(", ")}`,
+        variant: "destructive",
+      });
+    }
+
     setConnections(prev => [...prev, {
       id: `${fromNode}-${toNode}`, fromNode, fromPort: fa?.outputs[0] || "output",
       toNode, toPort: ta?.inputs[0] || "input",
     }]);
     addLog({ agentId: "", nodeInstanceId: "", role: "system", content: `🔗 Connected **${fa?.shortTitle}** → **${ta?.shortTitle}**`, status: "complete" });
-  }, [nodes, addLog]);
+  }, [nodes, addLog, toast]);
 
   const removeNode = useCallback((nodeId: string) => {
     setNodes(prev => prev.filter(n => n.instanceId !== nodeId));
@@ -573,6 +718,21 @@ export function AgentCommunicationPlayground() {
       return;
     }
     if (pipelineRunning) return;
+
+    // ── GUARDRAIL: Validate all dependencies before running ──
+    const validation = validatePipeline(nodes, connections);
+    if (!validation.valid) {
+      validation.errors.forEach(err => {
+        addLog({ agentId: "", nodeInstanceId: "", role: "system", content: `🚫 ${err}`, status: "error" });
+      });
+      toast({
+        title: "⛔ Pipeline cannot run",
+        description: `${validation.errors.length} dependency issue(s) found. Check the pipeline output panel for details.`,
+        variant: "destructive",
+      });
+      return;
+    }
+
     setPipelineRunning(true);
 
     // Topological sort
