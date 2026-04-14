@@ -512,18 +512,17 @@ function RnDContent({ data }: { data: any }) {
 }
 
 export function PDFContent({ type, data }: PDFContentProps) {
-  const typed = data as Partial<Quotation | Invoice | QualityInspection | ProductionOrder | RnDFormulation>;
   switch (type) {
     case 'quotation':
-      return <QuotationContent data={typed as Partial<Quotation>} />;
+      return <QuotationContent data={data} />;
     case 'invoice':
-      return <InvoiceContent data={typed as Partial<Invoice>} />;
+      return <InvoiceContent data={data} />;
     case 'quality':
-      return <QualityContent data={typed as Partial<QualityInspection>} />;
+      return <QualityContent data={data} />;
     case 'production':
-      return <ProductionContent data={typed as Partial<ProductionOrder>} />;
+      return <ProductionContent data={data} />;
     case 'rnd':
-      return <RnDContent data={typed as Partial<RnDFormulation>} />;
+      return <RnDContent data={data} />;
     default:
       return <div>Unknown document type</div>;
   }
