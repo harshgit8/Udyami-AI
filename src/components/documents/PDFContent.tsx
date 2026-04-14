@@ -1,8 +1,6 @@
-import type { Invoice, ProductionOrder, QualityInspection, Quotation, RnDFormulation } from "@/types/documents";
-
 interface PDFContentProps {
   type: 'quotation' | 'invoice' | 'quality' | 'production' | 'rnd';
-  data: unknown;
+  data: any;
 }
 
 // Indian-standard company header matching real polymer industry letterheads
@@ -47,7 +45,7 @@ function GSTINBar({ gstin, stateCode }: { gstin?: string; stateCode?: string }) 
 }
 
 // ─── QUOTATION ───────────────────────────────────────────
-function QuotationContent({ data }: { data: Partial<Quotation> }) {
+function QuotationContent({ data }: { data: any }) {
   const subtotal = (data.quantity || 0) * (data.unitPrice || 0);
   const gstAmt = data.grandTotal ? data.grandTotal - (data.grandTotal / 1.18) : subtotal * 0.18;
   
@@ -146,7 +144,7 @@ function QuotationContent({ data }: { data: Partial<Quotation> }) {
 }
 
 // ─── INVOICE (GST Tax Invoice - Indian Format) ──────────
-function InvoiceContent({ data }: { data: Partial<Invoice> }) {
+function InvoiceContent({ data }: { data: any }) {
   const taxableAmt = data.grandTotal ? data.grandTotal / 1.18 : 0;
   const totalTax = data.grandTotal ? data.grandTotal - taxableAmt : 0;
   const isIGST = data.taxType === 'IGST';
@@ -288,7 +286,7 @@ function InvoiceContent({ data }: { data: Partial<Invoice> }) {
 }
 
 // ─── QUALITY INSPECTION REPORT ──────────────────────────
-function QualityContent({ data }: { data: Partial<QualityInspection> }) {
+function QualityContent({ data }: { data: any }) {
   const isPass = data.decision === 'ACCEPT' || data.decision === 'ACCEPTED';
   const isConditional = data.decision?.includes('CONDITIONAL');
   
@@ -379,7 +377,7 @@ function QualityContent({ data }: { data: Partial<QualityInspection> }) {
 }
 
 // ─── PRODUCTION ORDER ───────────────────────────────────
-function ProductionContent({ data }: { data: Partial<ProductionOrder> }) {
+function ProductionContent({ data }: { data: any }) {
   return (
     <div className="text-[11px]" style={{ color: '#1a1a1a', fontFamily: 'sans-serif' }}>
       <CompanyHeader />
@@ -436,7 +434,7 @@ function ProductionContent({ data }: { data: Partial<ProductionOrder> }) {
 }
 
 // ─── R&D FORMULATION REPORT ─────────────────────────────
-function RnDContent({ data }: { data: Partial<RnDFormulation> }) {
+function RnDContent({ data }: { data: any }) {
   return (
     <div className="text-[11px]" style={{ color: '#1a1a1a', fontFamily: 'sans-serif' }}>
       <CompanyHeader />
