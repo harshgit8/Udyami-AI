@@ -13,6 +13,7 @@ import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger, Dialog
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { IndianRupee, TrendingUp, CheckCircle2, Clock, Download, AlertCircle, Banknote, Eye, EyeOff, RefreshCw, FileText, Calculator, Filter, Trash2 } from "lucide-react";
+import { logAudit } from "@/lib/audit";
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger, DropdownMenuSeparator } from "@/components/ui/dropdown-menu";
 import { MoreVertical } from "lucide-react";
 
@@ -62,6 +63,7 @@ export function SalaryManagement() {
     onSuccess: () => {
       qc.invalidateQueries({ queryKey: ["salary_records"] });
       qc.invalidateQueries({ queryKey: ["expenses"] });
+      logAudit("SALARY_PAID", "salary_records", undefined, { month: monthFilter } as unknown as import("@/integrations/supabase/types").Json);
       toast({ title: "Success", description: "Salary paid & expense recorded." });
     },
     onError: (error) => {
@@ -80,6 +82,7 @@ export function SalaryManagement() {
     onSuccess: () => {
       qc.invalidateQueries({ queryKey: ["salary_records"] });
       qc.invalidateQueries({ queryKey: ["expenses"] });
+      logAudit("SALARY_UNDO", "salary_records", undefined, { month: monthFilter } as unknown as import("@/integrations/supabase/types").Json);
       toast({ title: "Payment Undone", description: "Salary reverted to pending & expense removed." });
     },
     onError: (error) => {
@@ -108,6 +111,7 @@ export function SalaryManagement() {
     onSuccess: () => {
       qc.invalidateQueries({ queryKey: ["salary_records"] });
       qc.invalidateQueries({ queryKey: ["expenses"] });
+      logAudit("BULK_SALARY_PAID", "salary_records", undefined, { month: monthFilter } as unknown as import("@/integrations/supabase/types").Json);
       toast({ title: "Success", description: `All salaries paid & expenses recorded.` });
     },
     onError: (error) => {

@@ -12,6 +12,7 @@ import { ScrollArea } from "@/components/ui/scroll-area";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { useToast } from "@/hooks/use-toast";
 import { Shield, Users, IndianRupee, TrendingDown, Edit2, Trash2, Search, PieChart, BarChart3, AlertCircle } from "lucide-react";
+import { logAudit } from "@/lib/audit";
 
 const DEPARTMENTS = ["Production", "Quality", "R&D", "Sales", "Admin", "Logistics"];
 
@@ -58,6 +59,7 @@ export function AdminPanel() {
     onSuccess: () => {
       qc.invalidateQueries({ queryKey: ["employees"] });
       setEditOpen(false);
+      logAudit("EMPLOYEE_UPDATED", "employees", editForm?.id, { name: editForm?.name } as unknown as import("@/integrations/supabase/types").Json);
       toast({ title: "Employee Updated" });
     },
     onError: (e) => toast({ title: "Error", description: e.message, variant: "destructive" }),
@@ -70,6 +72,7 @@ export function AdminPanel() {
     },
     onSuccess: () => {
       qc.invalidateQueries({ queryKey: ["employees"] });
+      logAudit("EMPLOYEE_REMOVED", "employees");
       toast({ title: "Employee Removed" });
     },
     onError: (e) => toast({ title: "Error", description: e.message, variant: "destructive" }),
