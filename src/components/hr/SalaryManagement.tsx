@@ -389,6 +389,15 @@ export function SalaryManagement() {
                               <DropdownMenuSeparator />
                             </>
                           )}
+                          {rec.status === "Paid" && (
+                            <>
+                              <DropdownMenuItem onClick={() => undoPayment.mutate(rec.id)}>
+                                <RefreshCw className="w-3.5 h-3.5 mr-2 text-amber-600" />
+                                Undo Payment
+                              </DropdownMenuItem>
+                              <DropdownMenuSeparator />
+                            </>
+                          )}
                           <DropdownMenuItem>
                             <FileText className="w-3.5 h-3.5 mr-2" />
                             View Details
