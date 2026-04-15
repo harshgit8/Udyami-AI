@@ -63,6 +63,7 @@ export function SalaryManagement() {
     onSuccess: () => {
       qc.invalidateQueries({ queryKey: ["salary_records"] });
       qc.invalidateQueries({ queryKey: ["expenses"] });
+      logAudit("SALARY_PAID", "salary_records", undefined, { month: monthFilter } as unknown as import("@/integrations/supabase/types").Json);
       toast({ title: "Success", description: "Salary paid & expense recorded." });
     },
     onError: (error) => {
@@ -81,6 +82,7 @@ export function SalaryManagement() {
     onSuccess: () => {
       qc.invalidateQueries({ queryKey: ["salary_records"] });
       qc.invalidateQueries({ queryKey: ["expenses"] });
+      logAudit("SALARY_UNDO", "salary_records", undefined, { month: monthFilter } as unknown as import("@/integrations/supabase/types").Json);
       toast({ title: "Payment Undone", description: "Salary reverted to pending & expense removed." });
     },
     onError: (error) => {
@@ -109,6 +111,7 @@ export function SalaryManagement() {
     onSuccess: () => {
       qc.invalidateQueries({ queryKey: ["salary_records"] });
       qc.invalidateQueries({ queryKey: ["expenses"] });
+      logAudit("BULK_SALARY_PAID", "salary_records", undefined, { month: monthFilter } as unknown as import("@/integrations/supabase/types").Json);
       toast({ title: "Success", description: `All salaries paid & expenses recorded.` });
     },
     onError: (error) => {
