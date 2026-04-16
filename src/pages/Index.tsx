@@ -29,6 +29,15 @@ import type { Invoice, ProductionOrder, QualityInspection, Quotation, RnDFormula
 
 type WithId<T> = Partial<T> & { id: string };
 
+function FeatureDisabled() {
+  return (
+    <div className="flex flex-col items-center justify-center py-20 text-center">
+      <p className="text-lg font-medium mb-1">Feature Disabled</p>
+      <p className="text-sm text-muted-foreground">This feature is currently turned off. Enable it from Admin → Feature Flags.</p>
+    </div>
+  );
+}
+
 const pageVariants = {
   initial: { opacity: 0, y: 12 },
   animate: { opacity: 1, y: 0, transition: { duration: 0.3, ease: "easeOut" as const } },
