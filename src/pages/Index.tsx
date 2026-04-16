@@ -21,6 +21,7 @@ import { CustomerManagement } from "@/components/crm/CustomerManagement";
 import { ERPDashboard } from "@/components/erp/ERPDashboard";
 import { AdminPanel } from "@/components/admin/AdminPanel";
 import { fetchDocuments, syncFromGoogleSheets } from "@/lib/documents";
+import { getFeatureFlags } from "@/lib/featureFlags";
 import { Button } from "@/components/ui/button";
 import { Skeleton } from "@/components/ui/skeleton";
 import { useToast } from "@/hooks/use-toast";
