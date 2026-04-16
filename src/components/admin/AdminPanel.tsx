@@ -269,6 +269,7 @@ export function AdminPanel() {
               </ScrollArea>
             </CardContent>
           </Card>
+        </TabsContent>
 
         {/* FEATURE FLAGS TAB */}
         <TabsContent value="flags" className="space-y-4">
