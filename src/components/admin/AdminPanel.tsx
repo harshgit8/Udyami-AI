@@ -11,8 +11,11 @@ import { Label } from "@/components/ui/label";
 import { ScrollArea } from "@/components/ui/scroll-area";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { useToast } from "@/hooks/use-toast";
-import { Shield, Users, IndianRupee, TrendingDown, Edit2, Trash2, Search, PieChart, BarChart3, AlertCircle } from "lucide-react";
+import { Shield, Users, IndianRupee, TrendingDown, Edit2, Trash2, Search, PieChart, BarChart3, AlertCircle, ToggleLeft, ToggleRight, RotateCcw } from "lucide-react";
 import { logAudit } from "@/lib/audit";
+import { getFeatureFlags, setFeatureFlags, resetFeatureFlags, FLAG_LABELS } from "@/lib/featureFlags";
+import type { FeatureFlags } from "@/lib/featureFlags";
+import { Switch } from "@/components/ui/switch";
 
 const DEPARTMENTS = ["Production", "Quality", "R&D", "Sales", "Admin", "Logistics"];
 
@@ -125,10 +128,11 @@ export function AdminPanel() {
       </div>
 
       <Tabs defaultValue="employees">
-        <TabsList>
+        <TabsList className="flex-wrap h-auto">
           <TabsTrigger value="employees">Employee Admin</TabsTrigger>
           <TabsTrigger value="expenses">Expense Tracker</TabsTrigger>
           <TabsTrigger value="salary">Salary Admin</TabsTrigger>
+          <TabsTrigger value="flags">Feature Flags</TabsTrigger>
         </TabsList>
 
         {/* EMPLOYEES TAB */}
@@ -268,6 +272,13 @@ export function AdminPanel() {
         </TabsContent>
       </Tabs>
 
+        {/* FEATURE FLAGS TAB */}
+        <TabsContent value="flags" className="space-y-4">
+          <FeatureFlagsManager />
+        </TabsContent>
+      </Tabs>
+
+      {/* Edit Employee Dialog — reopened below outside Tabs */}
       {/* Edit Employee Dialog */}
       <Dialog open={editOpen} onOpenChange={setEditOpen}>
         <DialogContent className="max-w-md">
