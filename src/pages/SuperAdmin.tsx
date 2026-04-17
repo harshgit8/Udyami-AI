@@ -329,7 +329,7 @@ function DemosTab() {
               </div>
               {d.message && <p className="text-sm text-muted-foreground mt-3 leading-relaxed">{d.message}</p>}
             </div>
-            <Select value={d.status} onValueChange={(v) => setStatus.mutate({ id: d.id, status: v })}>
+            <Select value={d.status} onValueChange={(v) => setStatus.mutate({ id: d.id, status: v as "new" | "contacted" | "qualified" | "closed" })}>
               <SelectTrigger className="w-36 shrink-0"><SelectValue /></SelectTrigger>
               <SelectContent>
                 <SelectItem value="new">New</SelectItem>
