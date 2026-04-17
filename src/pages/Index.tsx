@@ -22,6 +22,7 @@ import { ERPDashboard } from "@/components/erp/ERPDashboard";
 import { AdminPanel } from "@/components/admin/AdminPanel";
 import { fetchDocuments, syncFromGoogleSheets } from "@/lib/documents";
 import { getFeatureFlags } from "@/lib/featureFlags";
+import { useAuth } from "@/lib/auth";
 import { Button } from "@/components/ui/button";
 import { Skeleton } from "@/components/ui/skeleton";
 import { useToast } from "@/hooks/use-toast";
@@ -67,10 +68,13 @@ const Index = () => {
   const [syncing, setSyncing] = useState(false);
   const queryClient = useQueryClient();
   const { toast } = useToast();
+  const { profile } = useAuth();
+
+  const orgId = profile?.org_id ?? null;
 
   const { data: documents = [], isLoading } = useQuery({
-    queryKey: ["documents"],
-    queryFn: () => fetchDocuments(),
+    queryKey: ["documents", orgId],
+    queryFn: () => fetchDocuments(1000, orgId),
     staleTime: 10_000,
     retry: 1,
   });
@@ -80,7 +84,7 @@ const Index = () => {
     try {
       const result = await syncFromGoogleSheets();
       if (result.success) {
-        await queryClient.invalidateQueries({ queryKey: ["documents"] });
+        await queryClient.invalidateQueries({ queryKey: ["documents", orgId] });
         const total = Object.values(result.synced || {}).reduce((a, b) => a + (b > 0 ? b : 0), 0);
         toast({ title: "Data Synced", description: `${total} records synced from Google Sheets.` });
       } else {

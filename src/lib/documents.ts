@@ -30,16 +30,22 @@ export type SaveDocumentInput = {
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 const db = supabase as any;
 
-export async function fetchDocuments(limit = 1000): Promise<DocumentRow[]> {
+export async function fetchDocuments(limit = 1000, org_id?: string | null): Promise<DocumentRow[]> {
   const out: DocumentRow[] = [];
+
+  // Build queries – filter by org_id when provided so each user only sees their org's data
+  const buildQuery = (table: string) => {
+    const q = db.from(table).select("*").order("created_at", { ascending: false }).limit(limit);
+    return org_id ? q.eq("org_id", org_id) : q;
+  };
 
   // Fetch from all 5 result tables in parallel
   const [quotRes, invRes, qualRes, prodRes, rndRes] = await Promise.all([
-    db.from("quotationresult").select("*").order("created_at", { ascending: false }).limit(limit),
-    db.from("invoiceresult").select("*").order("created_at", { ascending: false }).limit(limit),
-    db.from("qualityresult").select("*").order("created_at", { ascending: false }).limit(limit),
-    db.from("productionresult").select("*").order("created_at", { ascending: false }).limit(limit),
-    db.from("rndresult").select("*").order("created_at", { ascending: false }).limit(limit),
+    buildQuery("quotationresult"),
+    buildQuery("invoiceresult"),
+    buildQuery("qualityresult"),
+    buildQuery("productionresult"),
+    buildQuery("rndresult"),
   ]);
 
   // Map quotationresult

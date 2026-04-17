@@ -65,7 +65,7 @@ export function InvoiceList({ invoices }: InvoiceListProps) {
             <DocumentCard
               title={invoice.invoiceNumber} subtitle={invoice.customer} value={formatCurrency(invoice.grandTotal)}
               status={invoice.paymentRisk === 'LOW' ? 'success' : invoice.paymentRisk === 'HIGH' ? 'error' : 'warning'}
-              statusLabel={`${invoice.paymentRisk} RISK`}
+              statusLabel={invoice.paymentRisk ? `${invoice.paymentRisk} RISK` : undefined}
               metadata={[
                 { label: 'Date', value: invoice.invoiceDate || 'N/A' },
                 { label: 'Due', value: invoice.dueDate || 'N/A' },

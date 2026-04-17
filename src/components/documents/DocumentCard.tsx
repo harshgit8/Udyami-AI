@@ -29,6 +29,8 @@ export function DocumentCard({
   onView,
   onDownload,
 }: DocumentCardProps) {
+  const safeTitle = title || '—';
+  const safeSubtitle = subtitle || '—';
   return (
     <motion.div
       initial={{ opacity: 0, y: 10 }}
@@ -39,8 +41,8 @@ export function DocumentCard({
     >
       <div className="flex items-start justify-between mb-4">
         <div className="flex-1 min-w-0">
-          <h3 className="font-medium text-foreground truncate">{title}</h3>
-          <p className="text-sm text-muted-foreground mt-1 truncate">{subtitle}</p>
+          <h3 className="font-medium text-foreground truncate">{safeTitle}</h3>
+          <p className="text-sm text-muted-foreground mt-1 truncate">{safeSubtitle}</p>
         </div>
         {statusLabel && (
           <span className={`status-badge ${statusStyles[status]} ml-4 flex-shrink-0`}>
